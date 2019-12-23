@@ -19,31 +19,16 @@
       "dom"
     ],
     "paths": {
+      "@kk/widgets": [
+        "dist/widgets"
+      ],
       "@kk/core": [
-        "projects/core/src/public-api.ts"
-      ],
-      "@kk/components": [
-        "projects/widgets/src/public-api.ts"
-      ],
-      "core": [
         "dist/core"
       ],
-      "core/*": [
-        "dist/core/*"
-      ],
-      "components": [
-        "dist/components"
-      ],
-      "components/*": [
-        "dist/components/*"
-      ]
     }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  },
-  "exclude": [
-    "./dist"
-  ]
+  }
 }

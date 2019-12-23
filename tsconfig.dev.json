@@ -19,23 +19,11 @@
       "dom"
     ],
     "paths": {
+      "@kk/components": [
+        "projects/experiments/src/public-api.ts"
+      ],
       "@kk/core": [
         "projects/core/src/public-api.ts"
-      ],
-      "@kk/components": [
-        "projects/widgets/src/public-api.ts"
-      ],
-      "core": [
-        "dist/core"
-      ],
-      "core/*": [
-        "dist/core/*"
-      ],
-      "components": [
-        "dist/components"
-      ],
-      "components/*": [
-        "dist/components/*"
       ]
     }
   },

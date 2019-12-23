@@ -1,0 +1,17 @@
+@import 'variables/colors';
+@import 'variables/typography';
+
+// Global styles
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background: $offwhite;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-family: $agl-fonts-primary;
+}
