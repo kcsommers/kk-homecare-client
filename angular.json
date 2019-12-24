@@ -16,7 +16,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "kk",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -147,7 +147,7 @@
       },
       "root": "projects/core",
       "sourceRoot": "projects/core/src",
-      "prefix": "",
+      "prefix": "kk",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -191,7 +191,7 @@
       },
       "root": "projects/components",
       "sourceRoot": "projects/components/src",
-      "prefix": "lib",
+      "prefix": "kk",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -214,6 +214,41 @@
             "tsConfig": [
               "projects/components/tsconfig.lib.json",
               "projects/components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "app-shell": {
+      "projectType": "library",
+      "root": "projects/app-shell",
+      "sourceRoot": "projects/app-shell/src",
+      "prefix": "kk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/app-shell/tsconfig.lib.json",
+            "project": "projects/app-shell/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-shell/src/test.ts",
+            "tsConfig": "projects/app-shell/tsconfig.spec.json",
+            "karmaConfig": "projects/app-shell/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/app-shell/tsconfig.lib.json",
+              "projects/app-shell/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
