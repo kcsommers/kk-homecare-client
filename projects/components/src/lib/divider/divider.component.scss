@@ -1,0 +1,17 @@
+@import '_variables';
+
+:host {
+    display: block;
+    height: 100px;
+    position: relative;
+    z-index: 100;
+    .kk-divider-curve {
+        position: absolute;
+        top: -50px;
+        bottom: -100px;
+        left: -100px;
+        right: -100px;
+        border-radius: 100%;
+        transform: translateY(-50%);
+    }
+}

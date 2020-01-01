@@ -1,0 +1,187 @@
+<section class="kk-landing-intro-section">
+    <kk-header></kk-header>
+    <div class="kk-landing-intro-wrap">
+        <!-- <div class="kk-landing-intro-img-wrap"></div> -->
+        <div class="kk-landing-intro-cta-wrap">
+            <div class="kk-landing-intro-cta">
+                <kk-text
+                    class="kk-landing-intro-title"
+                    [content]="'2K Homecare'"
+                    [font]="'Lora'"
+                    [size]="'max(5vw, 4rem)'"
+                    [color]="'#F4F4F4'"
+                ></kk-text>
+                <kk-text
+                    class="kk-landing-intro-tagline"
+                    [content]="'CLEANING, PAINTING, LANDSCAPING & MORE'"
+                    [size]="'max(1.25vw, 1rem)'"
+                    [color]="'#F4F4F4'"
+                ></kk-text>
+                <kk-button
+                    class="kk-landing-intro-btn"
+                    [text]="'See our work'"
+                ></kk-button>
+            </div>
+        </div>
+    </div>
+</section>
+<kk-divider [colors]="['#786A94', '#F4F4F4']"></kk-divider>
+<section class="kk-landing-services-section">
+    <div class="kk-landing-services-section-wrap">
+        <div class="kk-landing-services-wrap">
+            <div class="kk-landing-services-card-wrap">
+                <kk-card>
+                    <kk-text
+                        data-content-select="header"
+                        [content]="'Cleaning'"
+                        [size]="'1.5rem'"
+                        [font]="'Lora'"
+                    ></kk-text>
+                    <kk-text
+                        data-content-select="body"
+                        [content]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore'"
+                    ></kk-text>
+                    <fa-icon
+                        data-content-select="icon"
+                        [icon]="'broom'"
+                        [size]="'2x'"
+                        [ngStyle]="{ color: '#F4F4F4' }"
+                    ></fa-icon>
+                </kk-card>
+            </div>
+            <div class="kk-landing-services-card-wrap">
+                <kk-card>
+                    <kk-text
+                        data-content-select="header"
+                        [content]="'Painting'"
+                        [size]="'1.5rem'"
+                        [font]="'Lora'"
+                    ></kk-text>
+                    <kk-text
+                        data-content-select="body"
+                        [content]="' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'"
+                    ></kk-text>
+                    <fa-icon
+                        data-content-select="icon"
+                        [icon]="'paint-roller'"
+                        [size]="'2x'"
+                        [ngStyle]="{ color: '#F4F4F4' }"
+                    ></fa-icon>
+                </kk-card>
+            </div>
+            <div class="kk-landing-services-card-wrap">
+                <kk-card>
+                    <kk-text
+                        data-content-select="header"
+                        [content]="'Wallpapering'"
+                        [size]="'1.5rem'"
+                        [font]="'Lora'"
+                    ></kk-text>
+                    <kk-text
+                        data-content-select="body"
+                        [content]="'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'"
+                    ></kk-text>
+                    <fa-icon
+                        data-content-select="icon"
+                        [icon]="'chess-board'"
+                        [size]="'2x'"
+                        [ngStyle]="{ color: '#F4F4F4' }"
+                    ></fa-icon>
+                </kk-card>
+            </div>
+            <div class="kk-landing-services-card-wrap">
+                <kk-card>
+                    <kk-text
+                        data-content-select="header"
+                        [content]="'Landscaping'"
+                        [size]="'1.5rem'"
+                        [font]="'Lora'"
+                    ></kk-text>
+                    <kk-text
+                        data-content-select="body"
+                        [content]="'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'"
+                    ></kk-text>
+                    <fa-icon
+                        data-content-select="icon"
+                        [icon]="'tree'"
+                        [size]="'2x'"
+                        [ngStyle]="{ color: '#F4F4F4' }"
+                    ></fa-icon>
+                </kk-card>
+            </div>
+        </div>
+        <div class="kk-landing-services-blurb-wrap">
+            <kk-text
+                [content]="'Our Services'"
+                [size]="'2rem'"
+                [font]="'Lora'"
+            ></kk-text>
+            <kk-text
+                [content]="'
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'"
+                [lineHeight]="'200%'"
+                [ngStyle]="{ margin: '2rem 0' }"
+            ></kk-text>
+            <kk-button [text]="'Get in Touch'"></kk-button>
+        </div>
+    </div>
+</section>
+<section class="kk-landing-reviews-section">
+    <div class="kk-landing-reviews-section-wrap">
+        <div class="kk-landing-reviews-card-wrap">
+            <div class="kk-landing-reviews-card">
+                <div class="kk-landing-reviews-card-header">
+                    <kk-text
+                        [content]="'Customer Reviews'"
+                        [font]="'Lora'"
+                        [size]="'2rem'"
+                    ></kk-text>
+                </div>
+                <div class="kk-landing-reviews-card-body">
+                    <div class="kk-landing-review-wrap">
+                        <kk-text
+                            [content]="'Vestibulum ante nisl, euismod eu augue id, rhoncus pharetra urna. Mauris sit amet mi sed dolor luctus suscipit vel non enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi pellentesque enim nec accumsan commodo. Morbi finibus lectus nec elit ultricies, quis convallis dolor mattis. Maecenas vitae mattis urna. Morbi vitae odio suscipit, suscipit'"
+                            [fontStyle]="'italic'"
+                        ></kk-text>
+                    </div>
+                    <div class="kk-landing-review-wrap">
+                        <kk-text
+                            [content]="'Vestibulum ante nisl, euismod eu augue id, rhoncus pharetra urna. Mauris sit amet mi sed dolor luctus suscipit vel non enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi pellentesque enim nec accumsan commodo. Morbi finibus lectus nec elit ultricies, quis convallis dolor mattis. Maecenas vitae mattis urna. Morbi vitae odio suscipit, suscipit'"
+                            [fontStyle]="'italic'"
+                        ></kk-text>
+                    </div>
+                    <div class="kk-landing-review-wrap">
+                        <kk-text
+                            [content]="'Vestibulum ante nisl, euismod eu augue id, rhoncus pharetra urna. Mauris sit amet mi sed dolor luctus suscipit vel non enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi pellentesque enim nec accumsan commodo. Morbi finibus lectus nec elit ultricies, quis convallis dolor mattis. Maecenas vitae mattis urna. Morbi vitae odio suscipit, suscipit'"
+                            [fontStyle]="'italic'"
+                        ></kk-text>
+                    </div>
+                </div>
+            </div>
+            <div class="kk-landing-reviews-btn-wrap">
+                <kk-button [text]="'Get In Touch'"></kk-button>
+            </div>
+        </div>
+    </div>
+</section>
+<kk-divider [colors]="['#F4F4F4', '#232f59']"></kk-divider>
+<section class="kk-landing-contact-section">
+    <div class="kk-landing-contact-section-wrap">
+        <div class="kk-landing-contact-blurb-wrap">
+            <kk-text
+                [content]="'Get in touch!'"
+                [color]="'#F4F4F4'"
+                [size]="'2rem'"
+                [ngStyle]="{ marginBottom: '1.5rem' }"
+            ></kk-text>
+            <kk-text
+                [content]="'Vestibulum ante nisl, euismod eu augue id, rhoncus pharetra urna. Mauris sit amet mi sed dolor luctus suscipit vel non enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi pellentesque enim nec accumsan commodo. Morbi finibus lectus nec elit ultricies, quis convallis dolor mattis. Maecenas vitae mattis urna. Morbi vitae odio suscipit, suscipit'"
+                [color]="'#F4F4F4'"
+            ></kk-text>
+        </div>
+        <div class="kk-landing-contact-form-wrap">
+            <kk-contact-form></kk-contact-form>
+        </div>
+    </div>
+</section>
+<kk-footer></kk-footer>

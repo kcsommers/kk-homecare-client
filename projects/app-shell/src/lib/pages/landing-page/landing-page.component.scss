@@ -1,0 +1,117 @@
+@import '_variables';
+
+:host {
+    display: block;
+    .kk-landing-intro-section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: $background;
+    }
+    .kk-landing-intro-wrap {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .kk-landing-intro-img-wrap {
+        background-image: url(../../../../../../src/assets/images/2k_circle_purple.png);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: 40%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 5%;
+        right: 0;
+    }
+    // CTA
+    .kk-landing-intro-cta-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 200;
+    }
+    .kk-landing-intro-cta {
+        text-align: center;
+    }
+    .kk-landing-intro-tagline {
+        letter-spacing: 0.2rem;
+        margin: $kk-spacing-lg 0;
+    }
+    .kk-landing-intro-btn {
+        transform: translateY(25px);
+        display: inline-block;
+    }
+    .kk-landing-services-section {
+        padding: $kk-spacing-xl 0;
+    }
+    .kk-landing-services-section-wrap {
+        width: 85%;
+        margin: 0 auto;
+        display: flex;
+    }
+    .kk-landing-services-wrap,
+    .kk-landing-services-blurb-wrap {
+        flex: 1;
+        padding: 0 $kk-spacing-lg;
+    }
+    .kk-landing-services-card-wrap {
+        &:not(:first-child) {
+            margin-top: $kk-spacing-lg;
+        }
+    }
+    // REVIEWS
+    .kk-landing-reviews-section {
+        position: relative;
+        z-index: 200;
+        background-color: $offwhite;
+        padding: $kk-spacing-xl * 1.5 0 $kk-spacing-xl * 1.5 0;
+    }
+    .kk-landing-reviews-card-wrap {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .kk-landing-reviews-card {
+        background-color: $accent2;
+    }
+    .kk-landing-reviews-card-header {
+        text-align: center;
+        padding: $kk-spacing-xl 0;
+    }
+    .kk-landing-reviews-card-body {
+        padding: 0 $kk-spacing-xl $kk-spacing-xl $kk-spacing-xl;
+    }
+    .kk-landing-review-wrap {
+        margin-bottom: $kk-spacing-lg;
+    }
+    .kk-landing-reviews-btn-wrap {
+        transform: translateY(-50%);
+        text-align: center;
+    }
+    // CONTACT SECTION
+    .kk-landing-contact-section {
+        background-color: $primary;
+        position: relative;
+        z-index: 0;
+        padding: $kk-spacing-xl * 2 0 $kk-spacing-xl * 3 0;
+    }
+    .kk-landing-contact-section-wrap {
+        width: 85%;
+        margin: 0 auto;
+        box-shadow: $box-shadow;
+        padding: $kk-spacing-lg;
+        border-radius: 3px;
+        background-color: lighten($primary, 5%);
+        display: flex;
+    }
+    .kk-landing-contact-blurb-wrap {
+        flex: 0.65;
+        padding: $kk-spacing-lg $kk-spacing-xl $kk-spacing-lg 0;
+    }
+    .kk-landing-contact-form-wrap {
+        flex: 1;
+    }
+}

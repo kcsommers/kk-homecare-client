@@ -1,0 +1,43 @@
+@import '_variables';
+:host {
+    display: flex;
+    height: 100px;
+    box-shadow: $box-shadow;
+    background-color: $offwhite;
+    .kk-header-wrap {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 $kk-spacing-md;
+    }
+    .kk-logo-wrap {
+        position: relative;
+        display: inline-block;
+        transform: translateY(50%);
+    }
+    .kk-logo-img-wrap {
+        position: absolute;
+        transform: translateY(-50%);
+        img {
+            width: 70px;
+            opacity: 0.75;
+        }
+    }
+    p {
+        font-family: Alex Brush;
+        font-size: 1.4rem;
+        transform: translate(1.25rem, 0.25rem);
+    }
+    .kk-header-nav-wrap {
+        display: flex;
+        kk-text {
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            margin-left: $kk-spacing-lg;
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+    }
+}

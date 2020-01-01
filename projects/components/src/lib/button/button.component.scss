@@ -1,0 +1,15 @@
+@import '_variables';
+
+:host {
+    a {
+        border-radius: 50px;
+        color: $offwhite;
+        display: inline-block;
+    }
+    .kk-btn-primary {
+        background-color: $primary;
+    }
+    .kk-btn-md {
+        padding: $kk-spacing-sm $kk-spacing-lg;
+    }
+}

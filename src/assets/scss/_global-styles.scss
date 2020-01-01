@@ -8,10 +8,27 @@
 
 html, body {
     background: $offwhite;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+div {
+    font-family: $kk-fonts-primary;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    font-family: $agl-fonts-primary;
+}
+
+img {
+    display: inline-block;
 }
