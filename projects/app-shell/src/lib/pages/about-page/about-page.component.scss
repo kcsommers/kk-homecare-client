@@ -2,4 +2,44 @@
 
 :host {
     display: block;
+    background-color: $dusty;
+    .kk-about-page-wrap {
+        padding: $kk-spacing-xl * 2 0;
+    }
+    .kk-about-k-wrap {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        padding: $kk-spacing-xl;
+        &:first-child {
+            margin-bottom: $kk-spacing-xl * 1.5;
+        }
+    }
+    .kk-about-k-info-wrap,
+    .kk-about-k-photo-wrap {
+        padding: 0 $kk-spacing-lg;
+    }
+    .kk-about-k-info-wrap {
+        flex: 1;
+    }
+    .kk-about-k-photo-wrap {
+        flex: 0.75;
+        img {
+            width: 100%;
+            box-shadow: $box-shadow;
+            border-radius: 3px;
+        }
+    }
+    // .kk-about-kerrie-photo,
+    // .kk-about-kellie-photo {
+    //     width: 300px;
+    //     height: 300px;
+    //     background-size: cover;
+    // }
+    // .kk-about-kerrie-photo {
+    //     background-image: url(../../../../../../src/assets/images/kerrie_horse.jpg);
+    // }
+    // .kk-about-kellie-photo {
+    //     background-image: url(../../../../../../src/assets/images/kellie_beach.jpg);
+    // }
 }

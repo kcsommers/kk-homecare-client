@@ -16,6 +16,6 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
     CommonModule,
     FontAwesomeModule
   ],
-  exports: [LandingPageComponent, AboutPageComponent]
+  exports: [LandingPageComponent, AboutPageComponent, HeaderComponent, FooterComponent]
 })
 export class AppShellModule { }
