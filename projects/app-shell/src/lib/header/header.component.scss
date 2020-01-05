@@ -16,19 +16,6 @@
         justify-content: space-between;
         padding: 0 $kk-spacing-md;
     }
-    .kk-logo-wrap {
-        position: relative;
-        display: inline-block;
-        transform: translateY(50%);
-    }
-    .kk-logo-img-wrap {
-        position: absolute;
-        transform: translateY(-50%);
-        img {
-            width: 70px;
-            opacity: 0.75;
-        }
-    }
     p {
         font-family: Alex Brush;
         font-size: 1.4rem;
@@ -43,6 +30,12 @@
             &:hover {
                 opacity: 0.75;
             }
+        }
+    }
+    .kk-header-left-wrap {
+        img {
+            opacity: 0.75;
+            transition: width 0.5s ease;
         }
     }
 }

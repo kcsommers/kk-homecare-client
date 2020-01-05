@@ -1,6 +1,59 @@
 @import '_variables';
 :host {
-    display: block;
-    padding: $kk-spacing-lg;
+    display: flex;
+    align-items: center;
+    height: 200px;
     background-color: $offwhite;
+    padding: 0 $kk-spacing-lg;
+    .kk-footer-wrap {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+    }
+    .kk-footer-contact-wrap,
+    .kk-footer-social-wrap,
+    .kk-footer-logo-wrap {
+        flex: 1;
+    }
+    .kk-footer-k-info-wrap {
+        display: flex;
+        align-items: center;
+    }
+    .kk-footer-social-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .kk-footer-follow-btn-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin: $kk-spacing-xs 0;
+        fa-icon {
+            color: $primary;
+            margin-right: 0.25rem;
+            display: inline-block;
+        }
+    }
+    .kk-footer-copyright-wrap {
+        display: flex;
+        align-items: center;
+        margin-top: $kk-spacing-xs;
+        fa-icon {
+            display: inline-block;
+            margin: 0 0.25rem;
+        }
+    }
+    .kk-footer-logo-wrap {
+      display: flex;
+      align-items: center;
+      // box-shadow: $box-shadow;
+      justify-content: center;
+      // border: 2px solid gray;
+      // padding: $kk-spacing-lg;
+        img {
+            width: 100px;
+        }
+    }
 }

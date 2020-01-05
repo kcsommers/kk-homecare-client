@@ -10,7 +10,11 @@ export class HeaderComponent {
 
   @HostBinding('style.height')
   private get height(): string {
-    return this.isScrolled ? '65px' : '100px';
+    return this.isScrolled ? '65px' : '125px';
+  }
+
+  public get logoWidth(): string {
+    return this.isScrolled ? '40px' : '70px';
   }
 
   @HostListener('window:scroll', ['$event'])

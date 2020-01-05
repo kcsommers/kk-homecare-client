@@ -4,6 +4,8 @@
     display: block;
     .kk-landing-intro-section {
         height: 100vh;
+        max-height: 700px;
+        min-height: 500px;
         display: flex;
         flex-direction: column;
         background-color: $background;
@@ -33,16 +35,24 @@
         justify-content: center;
         position: relative;
         z-index: 200;
+        transform: translateY(25%);
+
+        img {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 400;
+        }
     }
     .kk-landing-intro-cta {
         text-align: center;
+        position: relative;
+        z-index: 500;
     }
     .kk-landing-intro-tagline {
         letter-spacing: 0.2rem;
-        margin: $kk-spacing-lg 0;
+        margin: $kk-spacing-xl 0;
     }
     .kk-landing-intro-btn {
-        transform: translateY(25px);
         display: inline-block;
     }
     .kk-landing-services-section {
