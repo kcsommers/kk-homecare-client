@@ -7,15 +7,24 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './footer/footer.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { ServicesPageComponent } from './pages/services-page/services-page.component';
+
+const components = [
+  HeaderComponent,
+  LandingPageComponent,
+  FooterComponent,
+  AboutPageComponent,
+  ServicesPageComponent
+];
 
 @NgModule({
-  declarations: [HeaderComponent, LandingPageComponent, FooterComponent, AboutPageComponent],
+  declarations: components,
   imports: [
     ComponentsModule,
     AppShellRoutingModule,
     CommonModule,
     FontAwesomeModule
   ],
-  exports: [LandingPageComponent, AboutPageComponent, HeaderComponent, FooterComponent]
+  exports: components
 })
 export class AppShellModule { }

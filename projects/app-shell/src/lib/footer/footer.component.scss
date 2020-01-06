@@ -11,9 +11,11 @@
         justify-content: space-between;
     }
     .kk-footer-contact-wrap,
-    .kk-footer-social-wrap,
-    .kk-footer-logo-wrap {
+    .kk-footer-social-wrap {
         flex: 1;
+    }
+    .kk-footer-logo-wrap {
+        flex: 0.5;
     }
     .kk-footer-k-info-wrap {
         display: flex;

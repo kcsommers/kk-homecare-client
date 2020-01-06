@@ -1,7 +1,7 @@
 <div class="kk-header-wrap">
     <div class="kk-header-left-wrap">
         <img
-            src="assets/images/2k.png"
+            src="assets/images/2k_logo.png"
             alt="2K Logo"
             [ngStyle]="{ width: logoWidth }"
         >
@@ -16,7 +16,10 @@
                 [content]="'About'"
                 [link]="'about'"
             ></kk-text>
-            <kk-text [content]="'Services'"></kk-text>
+            <kk-text
+                [content]="'Services'"
+                [link]="'services'"
+            ></kk-text>
             <kk-text [content]="'Photos'"></kk-text>
             <kk-text [content]="'Reviews'"></kk-text>
             <kk-text [content]="'Contact'"></kk-text>

@@ -3,54 +3,44 @@
 :host {
     display: block;
     .kk-landing-intro-section {
-        height: 100vh;
-        max-height: 700px;
-        min-height: 500px;
-        display: flex;
-        flex-direction: column;
+        // height: 100vh;
+        // max-height: 700px;
+        // min-height: 500px;
         background-color: $background;
+        padding: 180px 0 100px 0;
+        position: relative;
+        z-index: 500;
     }
     .kk-landing-intro-wrap {
-        flex: 1;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
+        width: 85%;
+        margin: 0 auto;
     }
-    .kk-landing-intro-img-wrap {
-        background-image: url(../../../../../../src/assets/images/2k_circle_purple.png);
-        background-repeat: no-repeat;
-        background-position: left;
-        background-size: 40%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 5%;
-        right: 0;
+    .kk-landing-intro-logo-wrap,
+    .kk-landing-intro-cta-wrap {
+        flex: 1;
+    }
+    .kk-landing-intro-logo-wrap {
+        padding: 0 $kk-spacing-lg;
+        img {
+            width: 100%;
+            // opacity: 0.25;
+        }
     }
     // CTA
     .kk-landing-intro-cta-wrap {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        padding: 0 $kk-spacing-lg;
         position: relative;
-        z-index: 200;
-        transform: translateY(25%);
-
-        img {
-            position: absolute;
-            opacity: 0.1;
-            z-index: 400;
-        }
     }
     .kk-landing-intro-cta {
-        text-align: center;
-        position: relative;
-        z-index: 500;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .kk-landing-intro-tagline {
         letter-spacing: 0.2rem;
-        margin: $kk-spacing-xl 0;
+        margin: $kk-spacing-lg 0 $kk-spacing-xl 0;
     }
     .kk-landing-intro-btn {
         display: inline-block;

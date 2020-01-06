@@ -1,0 +1,15 @@
+@import '_variables';
+
+:host {
+    display: block;
+    background-color: $background;
+    .kk-services-page-wrap {
+        width: 90%;
+        margin: 0 auto;
+        padding: 130px 0 100px 0;
+    }
+    .kk-services-intro-wrap {
+        margin-top: 80px;
+        padding: 0 $kk-spacing-xl;
+    }
+}
