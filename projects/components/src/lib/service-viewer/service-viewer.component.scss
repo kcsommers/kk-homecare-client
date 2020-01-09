@@ -1,18 +1,50 @@
+@import '_variables';
 :host {
     display: block;
-
+    .kk-service-viewer-wrap {
+      display: flex;
+    }
+    .kk-service-viewer-left {
+        flex: 0.65;
+    }
+    .kk-service-viewer-right {
+        flex: 1;
+        margin-left: $kk-spacing-xl;
+    }
     .kk-service-viewer-link {
         cursor: pointer;
+        padding: $kk-spacing-sm;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        &:hover,
+        &.kk-service-viewer-link-current {
+            box-shadow: $box-shadow;
+        }
+        &:not(.kk-service-viewer-link-current) {
+            border-bottom: 1px solid darken($background, 10%);
+        }
     }
-
-    .kk-service-viewer-details-wrap {
-        height: 0;
-        transition: height 0.5s cubic-bezier(1, 0, 0, 1);
-        // transition: height 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-        overflow: hidden;
+    .kk-service-viewer-link-current {
+        background-color: lighten($background, 5%);
     }
-
-    .kk-service-viewer-details-open {
-        height: 200px;
+    .kk-service-viewier-link-icon-wrap {
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        margin-right: $kk-spacing-sm;
+        fa-icon {
+            color: $offwhite;
+        }
+    }
+    .kk-service-viewer-list {
+        list-style: disc;
+        padding-left: 1rem;
+        color: $offwhite;
+        li {
+            margin: $kk-spacing-lg 0;
+        }
     }
 }

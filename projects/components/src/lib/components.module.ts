@@ -9,6 +9,7 @@ import { DividerComponent } from './divider/divider.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceViewerComponent } from './service-viewer/service-viewer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const components = [
   TextComponent,
@@ -25,7 +26,8 @@ const components = [
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   exports: components
 })

@@ -7,24 +7,35 @@
             >
                 <div
                     class="kk-service-viewer-link"
+                    [class.kk-service-viewer-link-current]="currentService === service"
                     (click)="currentService = service"
                 >
+                    <div class="kk-service-viewier-link-icon-wrap">
+                        <fa-icon [icon]="service.icon"></fa-icon>
+                    </div>
                     <kk-text
                         [content]="getDisplayName(service.name)"
                         [color]="'#F4F4F4'"
-                    ></kk-text>
-                </div>
-                <div
-                    class="kk-service-viewer-details-wrap"
-                    [class.kk-service-viewer-details-open]="currentService === service"
-                >
-                    <kk-text
-                        [content]="service.description"
-                        [color]="'#F4F4F4'"
+                        [size]="'1.25rem'"
                     ></kk-text>
                 </div>
             </div>
         </div>
     </div>
-    <div class="kk-service-viewer-right"></div>
+    <div class="kk-service-viewer-right">
+        <kk-text
+            [content]="currentService.description"
+            [color]="'#F4F4F4'"
+        ></kk-text>
+        <div class="kk-service-viewer-list-wrap">
+            <ul class="kk-service-viewer-list">
+                <li *ngFor="let bullet of currentService?.bullets">
+                    <kk-text
+                        [content]="bullet"
+                        [color]="'#F4F4F4'"
+                    ></kk-text>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
