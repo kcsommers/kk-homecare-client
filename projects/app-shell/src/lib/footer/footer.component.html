@@ -1,58 +1,62 @@
 <div class="kk-footer-wrap">
-    <div class="kk-footer-logo-wrap">
-        <img
-            src="assets/images/2k_logo.png"
-            alt="2K Logo"
-        >
-    </div>
-    <div class="kk-footer-contact-wrap">
-        <kk-text
-            [content]="'2K Homecare'"
-            [size]="'1.5rem'"
-            [ngStyle]="{ marginBottom: '0.5rem' }"
-        ></kk-text>
-        <div class="kk-footer-k-info-wrap">
-            <div
-                class="kk-footer-k-info"
-                [ngStyle]="{ marginRight: '2rem' }"
+    <div class="kk-footer-left">
+        <div class="kk-footer-logo-wrap">
+            <img
+                src="assets/images/2k_logo.png"
+                alt="2K Logo"
             >
-                <kk-text [content]="'Kerrie Smith'"></kk-text>
-                <kk-text [content]="'(330)819-2651'"></kk-text>
-                <kk-text [content]="'kerrieasmith63@gmail.com'"></kk-text>
-            </div>
-            <div class="kk-footer-k-info">
-                <kk-text [content]="'Kellie Shaw Darby'"></kk-text>
-                <kk-text [content]="'(419)571-0696'"></kk-text>
-                <kk-text [content]="'kerrieasmith63@gmail.com'"></kk-text>
-            </div>
         </div>
-        <div class="kk-footer-copyright-wrap">
+        <div class="kk-footer-contact-wrap">
             <kk-text
-                [size]="'0.75rem'"
-                [content]="'Copyright'"
+                [content]="'2K Homecare'"
+                [size]="'1.5rem'"
+                [ngStyle]="{ marginBottom: '0.5rem' }"
             ></kk-text>
-            <fa-icon [icon]="['far', 'copyright']"></fa-icon>
-            <kk-text
-                [size]="'0.75rem'"
-                [content]="'2020 2K Homecare. All rights reserved.'"
-            ></kk-text>
+            <div class="kk-footer-k-info-wrap">
+                <div
+                    class="kk-footer-k-info"
+                    [ngStyle]="{ marginRight: '2rem' }"
+                >
+                    <kk-text [content]="'Kerrie Smith'"></kk-text>
+                    <kk-text [content]="'(330)819-2651'"></kk-text>
+                    <kk-text [content]="'kerrieasmith63@gmail.com'"></kk-text>
+                </div>
+                <div class="kk-footer-k-info">
+                    <kk-text [content]="'Kellie Shaw Darby'"></kk-text>
+                    <kk-text [content]="'(419)571-0696'"></kk-text>
+                    <kk-text [content]="'kerrieasmith63@gmail.com'"></kk-text>
+                </div>
+            </div>
+            <div class="kk-footer-copyright-wrap">
+                <kk-text
+                    [size]="'0.75rem'"
+                    [content]="'Copyright'"
+                ></kk-text>
+                <fa-icon [icon]="['far', 'copyright']"></fa-icon>
+                <kk-text
+                    [size]="'0.75rem'"
+                    [content]="'2020 2K Homecare. All rights reserved.'"
+                ></kk-text>
+            </div>
         </div>
     </div>
-    <div class="kk-footer-social-wrap">
-        <div class="kk-footer-facebook-wrap">
-            <kk-text
-                [content]="'Follow us on Facebook!'"
-                [size]="'1.25rem'"
-            ></kk-text>
-            <div class="kk-footer-follow-btn-wrap">
-                <fa-icon
-                    [icon]="['fab', 'facebook']"
-                    [size]="'2x'"
-                ></fa-icon>
-                <kk-button
-                    [text]="'Follow'"
-                    [size]="'sm'"
-                ></kk-button>
+    <div class="kk-footer-right">
+        <div class="kk-footer-social-wrap">
+            <div class="kk-footer-facebook-wrap">
+                <kk-text
+                    [content]="'Follow us on Facebook!'"
+                    [size]="'1.25rem'"
+                ></kk-text>
+                <div class="kk-footer-follow-btn-wrap">
+                    <fa-icon
+                        [icon]="['fab', 'facebook']"
+                        [size]="'2x'"
+                    ></fa-icon>
+                    <kk-button
+                        [text]="'Follow'"
+                        [size]="'sm'"
+                    ></kk-button>
+                </div>
             </div>
         </div>
     </div>

@@ -1,61 +1,58 @@
 @import '_variables';
 :host {
-    display: flex;
-    align-items: center;
-    height: 200px;
-    background-color: $offwhite;
-    padding: 0 $kk-spacing-lg;
+    display: block;
     .kk-footer-wrap {
         display: flex;
+        padding: $kk-spacing-xl;
+    }
+    .kk-footer-left,
+    .kk-footer-right {
         flex: 1;
-        justify-content: space-between;
     }
-    .kk-footer-contact-wrap,
-    .kk-footer-social-wrap {
-        flex: 1;
-    }
-    .kk-footer-logo-wrap {
-        flex: 0.5;
-    }
-    .kk-footer-k-info-wrap {
+    .kk-footer-right {
         display: flex;
+        justify-content: flex-end;
+    }
+    .kk-footer-social-wrap {
         align-items: center;
-    }
-    .kk-footer-social-wrap {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
     }
     .kk-footer-follow-btn-wrap {
         display: flex;
-        align-items: center;
         justify-content: flex-end;
-        margin: $kk-spacing-xs 0;
-        fa-icon {
-            color: $primary;
-            margin-right: 0.25rem;
-            display: inline-block;
+        margin: 0.25rem 0;
+    }
+    .kk-footer-left {
+        display: flex;
+        align-items: center;
+    }
+    .kk-footer-logo-wrap {
+        width: 150px;
+        margin-right: $kk-spacing-xl;
+        img {
+            width: 100%;
+            filter: drop-shadow(16px 16px 20px $charcoal);
         }
+    }
+    .kk-footer-k-info-wrap {
+        display: flex;
     }
     .kk-footer-copyright-wrap {
         display: flex;
         align-items: center;
-        margin-top: $kk-spacing-xs;
+        margin-top: $kk-spacing-sm;
         fa-icon {
             display: inline-block;
             margin: 0 0.25rem;
+            font-size: 0.75rem;
         }
     }
-    .kk-footer-logo-wrap {
-      display: flex;
-      align-items: center;
-      // box-shadow: $box-shadow;
-      justify-content: center;
-      // border: 2px solid gray;
-      // padding: $kk-spacing-lg;
-        img {
-            width: 100px;
+    .kk-footer-follow-btn-wrap {
+        display: flex;
+        align-items: center;
+        fa-icon {
+            color: $primary;
+            margin-right: 0.25rem;
         }
     }
 }

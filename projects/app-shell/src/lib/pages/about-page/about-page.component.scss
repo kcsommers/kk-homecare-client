@@ -13,9 +13,10 @@
         padding: 0 $kk-spacing-xl;
     }
     .kk-about-baby-img {
+        margin-left: $kk-spacing-xl * 4;
         box-shadow: $box-shadow;
-        width: 300px;
-        height: 300px;
+        width: 320px;
+        height: 320px;
         border-radius: 100%;
         background-size: cover;
         background-position: center;
@@ -24,7 +25,9 @@
     .kk-about-title-wrap {
         margin: $kk-spacing-lg 0;
         display: flex;
-        justify-content: space-between;
+    }
+    .kk-about-title {
+        filter: drop-shadow(16px 16px 25px $paper);
     }
     .kk-about-k-wrap {
         display: flex;
@@ -42,8 +45,9 @@
     }
     .kk-about-k-photo-wrap {
         flex: 0.65;
+        text-align: center;
         img {
-            width: 100%;
+            width: 90%;
             box-shadow: $box-shadow;
             border-radius: 3px;
         }

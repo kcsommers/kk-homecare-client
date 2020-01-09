@@ -1,0 +1,18 @@
+:host {
+    display: block;
+
+    .kk-service-viewer-link {
+        cursor: pointer;
+    }
+
+    .kk-service-viewer-details-wrap {
+        height: 0;
+        transition: height 0.5s cubic-bezier(1, 0, 0, 1);
+        // transition: height 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        overflow: hidden;
+    }
+
+    .kk-service-viewer-details-open {
+        height: 200px;
+    }
+}

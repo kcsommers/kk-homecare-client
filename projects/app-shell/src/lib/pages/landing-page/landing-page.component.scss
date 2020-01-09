@@ -3,9 +3,6 @@
 :host {
     display: block;
     .kk-landing-intro-section {
-        // height: 100vh;
-        // max-height: 700px;
-        // min-height: 500px;
         background-color: $background;
         padding: 180px 0 100px 0;
         position: relative;
@@ -24,7 +21,8 @@
         padding: 0 $kk-spacing-lg;
         img {
             width: 100%;
-            // opacity: 0.25;
+            opacity: 0.75;
+            filter: drop-shadow(16px 16px 20px $paper);
         }
     }
     // CTA
@@ -40,10 +38,10 @@
     }
     .kk-landing-intro-tagline {
         letter-spacing: 0.2rem;
-        margin: $kk-spacing-lg 0 $kk-spacing-xl 0;
     }
     .kk-landing-intro-btn {
         display: inline-block;
+        margin-top: $kk-spacing-xl;
     }
     .kk-landing-services-section {
         padding: $kk-spacing-xl 0;
@@ -79,7 +77,7 @@
     }
     .kk-landing-reviews-card-header {
         text-align: center;
-        padding: $kk-spacing-xl 0;
+        padding: $kk-spacing-xl 0 $kk-spacing-lg 0;
     }
     .kk-landing-reviews-card-body {
         padding: 0 $kk-spacing-xl $kk-spacing-xl $kk-spacing-xl;

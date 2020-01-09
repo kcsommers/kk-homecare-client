@@ -8,6 +8,7 @@ import { IconComponent } from './icon/icon.component';
 import { DividerComponent } from './divider/divider.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule } from '@angular/forms';
+import { ServiceViewerComponent } from './service-viewer/service-viewer.component';
 
 const components = [
   TextComponent,
@@ -15,7 +16,8 @@ const components = [
   CardComponent,
   IconComponent,
   DividerComponent,
-  ContactFormComponent
+  ContactFormComponent,
+  ServiceViewerComponent
 ];
 
 @NgModule({
