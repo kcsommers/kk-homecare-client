@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
-import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AppShellRoutingModule } from '../lib/app-shell-routing.module';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -11,7 +11,7 @@ import { ServicesPageComponent } from './pages/services-page/services-page.compo
 
 const components = [
   HeaderComponent,
-  LandingPageComponent,
+  HomePageComponent,
   FooterComponent,
   AboutPageComponent,
   ServicesPageComponent
