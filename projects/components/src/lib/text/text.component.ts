@@ -1,5 +1,16 @@
 import { Component, Input, HostBinding } from '@angular/core';
 
+enum Fonts {
+  PRIMARY = 'primary',
+  HEADER = 'header'
+}
+
+enum FontStyles {
+  NORMAL = 'normal',
+  ITALIC = 'italic',
+  UNDERLINE = 'underline'
+}
+
 @Component({
   selector: 'kk-text',
   templateUrl: './text.component.html',
@@ -13,10 +24,10 @@ export class TextComponent {
   public size: string;
 
   @Input()
-  public font: string;
+  public font: Fonts;
 
   @Input()
-  public fontStyle: string;
+  public fontStyle: FontStyles;
 
   @Input()
   public fontWeight: string;
@@ -26,6 +37,8 @@ export class TextComponent {
 
   @Input()
   public link: string;
+
+  public classList: string;
 
   @HostBinding('style.color')
   private get colorBinding(): string {
@@ -57,4 +70,9 @@ export class TextComponent {
     return this.fontWeight || '';
   }
 
+  ngOnInit(): void {
+    const font = this.font || Fonts.PRIMARY;
+    const style = this.fontStyle || FontStyles.NORMAL;
+    this.classList = `kk-text-${font} kk-text-${style}`;
+  }
 }

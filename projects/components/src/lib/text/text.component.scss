@@ -5,6 +5,18 @@
         color: $dark-gray;
         font-size: $kk-fontsize-md;
     }
+    .kk-text-primary {
+        font-family: $kk-fonts-primary;
+    }
+    .kk-text-header {
+        font-family: $kk-fonts-header;
+    }
+    .kk-text-italic {
+        font-style: italic;
+    }
+    .kk-text-underline {
+        font-style: underline;
+    }
     &.inherit-color p {
         color: inherit;
     }
