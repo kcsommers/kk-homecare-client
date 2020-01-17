@@ -1,4 +1,17 @@
 @import '_variables';
 
 :host {
+    .kk-landing-wrap {
+        background-image: url(../../../../../../src/assets/images/landing-bg.jpg);
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 100;
+    }
 }

@@ -1,4 +1,33 @@
 @import '_variables';
 :host {
-
+    .kk-header-wrap {
+        position: relative;
+        z-index: 900;
+        background-color: $offwhite;
+        padding-top: $kk-spacing-md;
+    }
+    .header-logo-wrap {
+        text-align: center;
+    }
+    .header-logo {
+        max-width: 200px;
+    }
+    .header-nav {
+        margin-top: $kk-spacing-md;
+    }
+    .header-nav-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $light-peach;
+        a {
+            padding: $kk-spacing-md;
+            margin: 0 $kk-spacing-sm;
+            transition: all 0.2s ease;
+            &:hover {
+                background-color: $gray;
+                color: $offwhite;
+            }
+        }
+    }
 }
