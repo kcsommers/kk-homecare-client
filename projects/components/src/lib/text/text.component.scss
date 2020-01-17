@@ -1,3 +1,17 @@
+@import '_variables';
 :host {
     display: block;
+    p {
+        color: $dark-gray;
+        font-size: $kk-fontsize-md;
+    }
+    &.inherit-color p {
+        color: inherit;
+    }
+    &.inherit-font-size p {
+        font-size: inherit;
+    }
+    &.kk-text-link p {
+        cursor: pointer;
+    }
 }

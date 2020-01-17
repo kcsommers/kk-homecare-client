@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'kk-text',
@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class TextComponent {
   @Input()
-  public content: string;
+  public content: string[];
 
   @Input()
   public size: string;
@@ -25,8 +25,36 @@ export class TextComponent {
   public color: string;
 
   @Input()
-  public lineHeight: string;
-
-  @Input()
   public link: string;
+
+  @HostBinding('style.color')
+  private get colorBinding(): string {
+    return this.color || '';
+  }
+
+  @HostBinding('class.inherit-color')
+  private get inheritColor(): boolean {
+    return !!(this.color);
+  }
+
+  @HostBinding('style.fontSize')
+  private get fontSizeBinding(): string {
+    return this.size || '';
+  }
+
+  @HostBinding('class.inherit-font-size')
+  private get inheritSize(): boolean {
+    return !!(this.size);
+  }
+
+  @HostBinding('class.kk-text-link')
+  private get hasLink(): boolean {
+    return !!(this.link);
+  }
+
+  @HostBinding('style.fontWeight')
+  private get fontWeightBinding(): string {
+    return this.fontWeight || '';
+  }
+
 }

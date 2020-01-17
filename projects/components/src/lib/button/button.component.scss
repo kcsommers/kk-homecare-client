@@ -9,11 +9,19 @@
     .kk-btn-primary {
         background-color: $primary;
     }
-    .kk-btn-md {
-        padding: $kk-spacing-sm $kk-spacing-lg;
+    .kk-btn-accent {
+        background-color: $accent;
     }
     .kk-btn-sm {
-        font-size: 0.85rem;
-        padding: 0.65rem $kk-spacing-lg;
+        padding: $kk-spacing-sm $kk-spacing-lg;
+        font-size: $kk-fontsize-sm;
+    }
+    .kk-btn-md {
+        padding: $kk-spacing-md $kk-spacing-lg;
+        font-size: $kk-fontsize-md;
+    }
+    .kk-btn-lg {
+        padding: $kk-spacing-lg $kk-spacing-xl;
+        font-size: $kk-fontsize-lg;
     }
 }

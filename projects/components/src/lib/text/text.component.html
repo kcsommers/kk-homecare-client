@@ -1,1 +1,7 @@
-<p [routerLink]="!link ? [] : [link]">{{content}}</p>
+<p
+    *ngFor="let p of content"
+    [ngClass]="classList"
+    [routerLink]="!link ? [] : [link]"
+>
+    {{p}}
+</p>
