@@ -1,29 +1,67 @@
-import { Component, HostListener, HostBinding } from '@angular/core';
+import { Component, HostListener, HostBinding, Input, OnInit, OnDestroy, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { GlobalService } from 'projects/core/src/lib/services/global.service';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { Pages } from '@kk/core';
 
 @Component({
   selector: 'kk-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-  private isScrolled = false;
+export class HeaderComponent implements OnInit, OnDestroy {
+  public useFullHeader = false;
 
-  @HostBinding('style.height')
-  private get height(): string {
-    return this.isScrolled ? '65px' : '125px';
+  public navSticky = false;
+
+  public animate = true;
+
+  private _destroy$ = new Subject();
+
+  @HostListener('window:scroll')
+  private onScroll() {
+    this.checkScroll();
   }
 
-  public get logoWidth(): string {
-    return this.isScrolled ? '40px' : '70px';
+  constructor(public globalService: GlobalService, private _cd: ChangeDetectorRef) {
+    this.globalService.currentPage$.pipe(
+      takeUntil(this._destroy$)
+    ).subscribe((page: Pages) => {
+      this.useFullHeader = page === Pages.HOME;
+    });
+
+    this.globalService.appLoaded$.pipe(
+      takeUntil(this._destroy$)
+    ).subscribe((isLoaded: boolean) => {
+      if (isLoaded) {
+        if (window.scrollY >= 250) {
+          this.animate = false;
+        } else {
+          setTimeout(() => {
+            this.animate = false;
+          }, 1250);
+        }
+      }
+    });
   }
 
-  @HostListener('window:scroll', ['$event'])
-  private onScroll(e: Event) {
-    if (this.isScrolled && window.scrollY < 100) {
-      this.isScrolled = false;
+  ngOnInit(): void {
+    this.checkScroll();
+  }
+
+  ngOnDestroy(): void {
+    this._destroy$.next(null);
+    this._destroy$.unsubscribe();
+  }
+
+  private checkScroll(): void {
+    if (window.scrollY >= 250 && !this.navSticky) {
+      console.log('ITS TRUE')
+      this.navSticky = true;
+      this.animate = false;
     }
-    if (!this.isScrolled && window.scrollY > 100) {
-      this.isScrolled = true;
+    if (window.scrollY < 250 && this.navSticky) {
+      this.navSticky = false;
     }
   }
 }

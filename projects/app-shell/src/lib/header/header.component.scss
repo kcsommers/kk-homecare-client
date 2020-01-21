@@ -3,25 +3,73 @@
     .kk-header-wrap {
         position: relative;
         z-index: 900;
-        background-color: $offwhite;
-        padding-top: $kk-spacing-md;
+        background-color: rgba($offwhite, 1);
+        &.slide-down {
+            animation: slideDown 1.25s ease forwards;
+        }
     }
     .header-logo-wrap {
-        text-align: center;
+        position: relative;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .header-logo {
         max-width: 200px;
     }
+    .header-fb-icon-top {
+        position: absolute;
+        right: $kk-spacing-lg;
+        top: $kk-spacing-lg;
+        cursor: pointer;
+    }
+    .header-logo-small {
+        max-width: 50px;
+    }
+    .header-nav-wrap {
+        position: relative;
+        left: 0;
+        right: 0;
+        background-color: $light-peach;
+        box-shadow: $box-shadow;
+        &.header-nav-sticky {
+            position: fixed;
+            top: 0;
+        }
+    }
     .header-nav {
-        margin-top: $kk-spacing-md;
+        position: relative;
+        z-index: 800;
+    }
+    .header-nav-sides-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 65px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0 $kk-spacing-lg;
+        z-index: 700;
+        transition: height 0.2s ease;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease;
     }
     .header-nav-inner {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $light-peach;
+        height: 65px;
+        transition: height 0.2s ease;
         a {
-            padding: $kk-spacing-md;
+            align-self: stretch;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 $kk-spacing-md;
             margin: 0 $kk-spacing-sm;
             transition: all 0.2s ease;
             &:hover {
@@ -29,5 +77,20 @@
                 color: $offwhite;
             }
         }
+    }
+    .header-nav-sides-visible {
+        opacity: 1;
+        visibility: initial;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

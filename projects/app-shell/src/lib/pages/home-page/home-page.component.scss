@@ -4,6 +4,7 @@
     .kk-landing-wrap {
         background-image: url(../../../../../../src/assets/images/landing-bg.jpg);
         height: 100vh;
+        min-height: 600px;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -13,5 +14,17 @@
         top: 0;
         height: 100vh;
         z-index: 100;
+        &.fade-in {
+            animation: fadeIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

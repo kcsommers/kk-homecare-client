@@ -62,4 +62,11 @@ export const services: Service[] = [
     ],
     icon: 'tree'
   }
-]
+];
+
+export enum Pages {
+  HOME = 'home',
+  ABOUT = 'about',
+  SERVICES = 'services',
+  CONTACT = 'contact'
+}
