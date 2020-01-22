@@ -3,7 +3,8 @@ import {
   faBrush,
   faChessBoard,
   faPaintRoller,
-  faTree
+  faTree,
+  faBirthdayCake
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook
@@ -16,6 +17,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 export class FaIconsComponent {
   constructor() { }
   public static init() {
-    library.add(faBroom, faFacebook, faBrush, faChessBoard, faPaintRoller, faTree, faCopyright);
+    library.add(faBroom, faFacebook, faBrush, faChessBoard, faPaintRoller, faTree, faCopyright, faBirthdayCake);
   }
 }

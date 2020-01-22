@@ -9,6 +9,9 @@
         background-size: cover;
         height: 100vh;
         min-height: 600px;
+        &.fade-in {
+            animation: fadeIn 2s ease forwards;
+        }
     }
 
     // What We Do
@@ -17,6 +20,52 @@
     }
     .what-we-do-left {
         flex: 0.65;
+        position: relative;
+    }
+    .what-we-do-image-wrap {
+        transform: translate(-5%, 10%);
+        z-index: 400;
+        img {
+            box-shadow: $box-shadow;
+        }
+    }
+    .what-we-do-list-wrap {
+        display: inline-block;
+        position: absolute;
+        z-index: 500;
+        right: 0;
+        top: 25px;
+        background-color: #fff;
+        border-radius: 3px;
+        padding: $kk-spacing-xl 0 $kk-spacing-xl $kk-spacing-lg;
+    }
+    .what-we-do-list {
+        li {
+            display: flex;
+            align-items: center;
+            fa-icon {
+                display: inline-flex;
+                width: 25px;
+                align-items: center;
+                justify-content: center;
+            }
+            span {
+                flex: 1;
+                cursor: pointer;
+                display: inline-block;
+                transition: color 0.2s ease;
+                padding: $kk-spacing-sm $kk-spacing-lg $kk-spacing-sm $kk-spacing-sm;
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+                &:hover {
+                    background-color: $primary;
+                    color: $offwhite;
+                }
+            }
+           &:not(:last-child) {
+              margin-bottom: $kk-spacing-sm;
+           }
+        }
     }
     .what-we-do-right {
         flex: 1;
@@ -35,7 +84,7 @@
     .what-we-do-text-wrap {
         margin: $kk-spacing-lg 0;
         min-width: 375px;
-        line-height: 1.5rem;
+        line-height: 2rem;
     }
 }
 

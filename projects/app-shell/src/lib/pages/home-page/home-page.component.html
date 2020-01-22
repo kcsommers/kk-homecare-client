@@ -1,14 +1,42 @@
-<section class="landing-section"></section>
+<section
+    class="landing-section"
+    [class.fade-in]="animate"
+></section>
 <section class="what-we-do-section">
     <div class="kk-section-wrap what-we-do-section-wrap">
         <div class="what-we-do-left">
             <div class="what-we-do-image-wrap">
                 <img
-                    src="assets/images/deck.jpg"
+                    src="assets/images/deck_filter.jpg"
                     alt
                 >
             </div>
+            <div class="what-we-do-list-wrap">
+                <ul class="what-we-do-list">
+                    <li>
+                        <fa-icon [icon]="'broom'"></fa-icon>
+                        <span>Cleaning</span>
+                    </li>
+                    <li>
+                        <fa-icon [icon]="'chess-board'"></fa-icon>
+                        <span>Wallpapering</span>
+                    </li>
+                    <li>
+                        <fa-icon [icon]="'paint-roller'"></fa-icon>
+                        <span>Painting</span>
+                    </li>
+                    <li>
+                        <fa-icon [icon]="'tree'"></fa-icon>
+                        <span>Landscaping</span>
+                    </li>
+                    <li>
+                        <fa-icon [icon]="'birthday-cake'"></fa-icon>
+                        <span>Special Event Cleaning</span>
+                    </li>
+                </ul>
+            </div>
         </div>
+
         <div class="what-we-do-right">
             <div class="what-we-do-header-wrap">
                 <kk-text
@@ -30,4 +58,13 @@
         </div>
     </div>
 </section>
-<section class="service-cards-section"></section>
+<section class="service-cards-section">
+    <ng-container *ngFor="let service of services">
+        <kk-service-card
+            *ngIf="service.name !== 'wallpapering'"
+            [service]="service"
+        >
+        </kk-service-card>
+    </ng-container>
+
+</section>

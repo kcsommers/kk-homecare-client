@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { GlobalService } from 'projects/core/src/lib/services/global.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Services, services } from '@kk/core';
 
 @Component({
   selector: 'kk-home-page',
@@ -11,16 +12,20 @@ import { Subject } from 'rxjs';
 export class HomePageComponent implements OnDestroy {
   private _destroy$ = new Subject();
   public animate = true;
+  public services = services;
 
   constructor(public globalService: GlobalService) {
+    console.log('Animat:::: ', this.animate)
     this.globalService.appLoaded$.pipe(
       takeUntil(this._destroy$)
     ).subscribe((isLoaded: boolean) => {
       if (isLoaded) {
         if (window.scrollY >= 250) {
+          console.log('Animate false?')
           this.animate = false;
         } else {
           setTimeout(() => {
+            console.log('Animate false')
             this.animate = false;
           }, 2000);
         }
