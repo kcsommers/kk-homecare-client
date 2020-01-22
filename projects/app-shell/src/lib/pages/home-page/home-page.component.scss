@@ -1,22 +1,41 @@
 @import '_variables';
 
 :host {
-    .kk-landing-wrap {
+    // Landing
+    .landing-section {
         background-image: url(../../../../../../src/assets/images/landing-bg.jpg);
-        height: 100vh;
-        min-height: 600px;
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
         height: 100vh;
-        z-index: 100;
-        &.fade-in {
-            animation: fadeIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-        }
+        min-height: 600px;
+    }
+
+    // What We Do
+    .what-we-do-section-wrap {
+        display: flex;
+    }
+    .what-we-do-left {
+        flex: 0.65;
+    }
+    .what-we-do-right {
+        flex: 1;
+        // background-color: rgba(255,255,255,0.9);
+        padding: $kk-spacing-xl;
+        border-radius: 3px;
+        margin-left: $kk-spacing-lg;
+        // transform: translate(-10%, 5%);
+    }
+    .what-we-do-header-wrap {
+        border-bottom: 4px solid $accent;
+        padding-bottom: $kk-spacing-sm;
+        width: 65%;
+        min-width: 350px;
+    }
+    .what-we-do-text-wrap {
+        margin: $kk-spacing-lg 0;
+        min-width: 375px;
+        line-height: 1.5rem;
     }
 }
 

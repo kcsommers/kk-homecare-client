@@ -1,5 +1,6 @@
 @import 'variables/colors';
 @import 'variables/typography';
+@import 'variables/spacing';
 
 // Global styles
 * {
@@ -21,6 +22,12 @@ span,
 div {
     font-family: $kk-fonts-primary;
     color: $dark-gray;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: $kk-fonts-header;
 }
 h1 {
     font-size: $kk-header-xl;
@@ -48,4 +55,9 @@ a {
 img {
     display: inline-block;
     width: 100%;
+}
+.kk-section-wrap {
+    width: 85%;
+    margin: 0 auto;
+    padding: $kk-spacing-xl * 2 0;
 }

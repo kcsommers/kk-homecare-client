@@ -31,6 +31,9 @@ export class ButtonComponent implements OnInit {
   @Input()
   public type: ButtonTypes;
 
+  @Input()
+  public isFullWidth = false;
+
   public classList: string;
 
   ngOnInit() {
@@ -40,6 +43,6 @@ export class ButtonComponent implements OnInit {
   private setClassList() {
     const size = this.size || ButtonSizes.MEDIUM;
     const type = this.type || ButtonTypes.PRIMARY;
-    this.classList = `kk-btn-${size} kk-btn-${type}`;
+    this.classList = `kk-btn-${size} kk-btn-${type}${this.isFullWidth ? ' kk-btn-full-width' : ''}`;
   }
 }

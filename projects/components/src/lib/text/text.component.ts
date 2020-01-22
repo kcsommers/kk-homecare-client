@@ -1,4 +1,4 @@
-import { Component, Input, HostBinding } from '@angular/core';
+import { Component, Input, HostBinding, OnInit } from '@angular/core';
 
 enum Fonts {
   PRIMARY = 'primary',
@@ -16,9 +16,12 @@ enum FontStyles {
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss']
 })
-export class TextComponent {
+export class TextComponent implements OnInit {
   @Input()
-  public content: string[];
+  public isHeader = false;
+
+  @Input()
+  public content: string[] | string;
 
   @Input()
   public size: string;
@@ -74,5 +77,9 @@ export class TextComponent {
     const font = this.font || Fonts.PRIMARY;
     const style = this.fontStyle || FontStyles.NORMAL;
     this.classList = `kk-text-${font} kk-text-${style}`;
+  }
+
+  public typeof(content: string | string[]) {
+    return typeof content;
   }
 }

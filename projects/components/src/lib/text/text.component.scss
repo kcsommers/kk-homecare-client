@@ -4,6 +4,9 @@
     p {
         color: $dark-gray;
         font-size: $kk-fontsize-md;
+        &:not(:last-child) {
+            margin-bottom: $kk-spacing-md;
+        }
     }
     .kk-text-primary {
         font-family: $kk-fonts-primary;

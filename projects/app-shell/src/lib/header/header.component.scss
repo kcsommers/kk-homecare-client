@@ -1,5 +1,10 @@
 @import '_variables';
 :host {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     .kk-header-wrap {
         position: relative;
         z-index: 900;
@@ -72,6 +77,7 @@
             padding: 0 $kk-spacing-md;
             margin: 0 $kk-spacing-sm;
             transition: all 0.2s ease;
+            font-family: $kk-fonts-bitter;
             &:hover {
                 background-color: $gray;
                 color: $offwhite;
