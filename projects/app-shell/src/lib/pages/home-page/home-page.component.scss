@@ -16,28 +16,48 @@
 
     // What We Do
     .what-we-do-section-wrap {
-        display: flex;
-    }
-    .what-we-do-left {
-        flex: 0.65;
         position: relative;
+        overflow: visible;
+    }
+    .what-we-do-card {
+        background-color: #fff;
+        border-radius: 3px;
+        position: relative;
+        display: flex;
+        z-index: 500;
+        padding: $kk-spacing-xl * 2 $kk-spacing-xl;
+        width: 75%;
+        margin-left: auto;
     }
     .what-we-do-image-wrap {
-        transform: translate(-5%, 10%);
+        transform: translate(-5%, 20%);
+        position: absolute;
+        top: 0;
+        left: 0;
         z-index: 400;
+        width: 30%;
+        min-width: 200px;
         img {
             box-shadow: $box-shadow;
         }
     }
     .what-we-do-list-wrap {
         display: inline-block;
-        position: absolute;
-        z-index: 500;
-        right: 0;
-        top: 25px;
-        background-color: #fff;
-        border-radius: 3px;
-        padding: $kk-spacing-xl 0 $kk-spacing-xl $kk-spacing-lg;
+        flex: 0.45;
+        padding-right: $kk-spacing-md;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .what-we-do-list-title-wrap {
+        display: flex;
+        align-items: center;
+        color: $accent;
+        margin-bottom: $kk-spacing-md;
+        fa-icon {
+            margin-right: $kk-spacing-sm;
+            font-size: 1.5rem;
+        }
     }
     .what-we-do-list {
         li {
@@ -48,6 +68,7 @@
                 width: 25px;
                 align-items: center;
                 justify-content: center;
+                color: $primary;
             }
             span {
                 flex: 1;
@@ -57,6 +78,7 @@
                 padding: $kk-spacing-sm $kk-spacing-lg $kk-spacing-sm $kk-spacing-sm;
                 border-top-left-radius: 3px;
                 border-bottom-left-radius: 3px;
+                margin-left: $kk-spacing-sm;
                 &:hover {
                     background-color: $primary;
                     color: $offwhite;
@@ -67,16 +89,11 @@
            }
         }
     }
-    .what-we-do-right {
+    .what-we-do-blurb-wrap {
         flex: 1;
-        // background-color: rgba(255,255,255,0.9);
-        padding: $kk-spacing-xl;
-        border-radius: 3px;
-        margin-left: $kk-spacing-lg;
-        // transform: translate(-10%, 5%);
     }
     .what-we-do-header-wrap {
-        border-bottom: 4px solid $accent;
+        // border-bottom: 4px solid $accent;
         padding-bottom: $kk-spacing-sm;
         width: 65%;
         min-width: 350px;
@@ -85,6 +102,11 @@
         margin: $kk-spacing-lg 0;
         min-width: 375px;
         line-height: 2rem;
+    }
+
+    .service-cards-wrap {
+        display: flex;
+        justify-content: space-around;
     }
 }
 

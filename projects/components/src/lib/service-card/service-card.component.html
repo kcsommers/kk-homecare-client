@@ -1,5 +1,8 @@
 <div class="service-card-wrap">
-    <div class="service-card-img"></div>
+    <div
+        class="service-card-img"
+        [ngStyle]="{ backgroundImage: 'url(' + service.cardImage + ')' }"
+    ></div>
     <div class="service-card-info-wrap">
         <div class="service-card-title-wrap">
             <kk-text [content]="service.name"></kk-text>

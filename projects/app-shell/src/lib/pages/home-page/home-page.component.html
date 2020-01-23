@@ -4,14 +4,22 @@
 ></section>
 <section class="what-we-do-section">
     <div class="kk-section-wrap what-we-do-section-wrap">
-        <div class="what-we-do-left">
-            <div class="what-we-do-image-wrap">
-                <img
-                    src="assets/images/deck_filter.jpg"
-                    alt
-                >
-            </div>
+        <div class="what-we-do-image-wrap">
+            <img
+                src="assets/images/deck_filter.jpg"
+                alt
+            >
+        </div>
+        <div class="what-we-do-card">
             <div class="what-we-do-list-wrap">
+                <div class="what-we-do-list-title-wrap">
+                    <fa-icon [icon]="'sun'"></fa-icon>
+                    <kk-text
+                        [content]="'Our Services'"
+                        [color]="'accent'"
+                        [size]="'1.3rem'"
+                    ></kk-text>
+                </div>
                 <ul class="what-we-do-list">
                     <li>
                         <fa-icon [icon]="'broom'"></fa-icon>
@@ -35,36 +43,37 @@
                     </li>
                 </ul>
             </div>
-        </div>
-
-        <div class="what-we-do-right">
-            <div class="what-we-do-header-wrap">
-                <kk-text
-                    [content]="'WHAT WE DO'"
-                    [isHeader]="true"
-                    [size]="'2.3rem'"
-                ></kk-text>
-            </div>
-            <div class="what-we-do-text-wrap">
-                <kk-text [content]="['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']"></kk-text>
-            </div>
-            <div class="what-we-do-btn-wrap">
-                <kk-button
-                    [text]="'Get a Quote!'"
-                    [type]="'accent'"
-                    [isFullWidth]="true"
-                ></kk-button>
+            <div class="what-we-do-blurb-wrap">
+                <div class="what-we-do-header-wrap">
+                    <kk-text
+                        [content]="'WHAT WE DO'"
+                        [isHeader]="true"
+                        [size]="'2.3rem'"
+                    ></kk-text>
+                </div>
+                <div class="what-we-do-text-wrap">
+                    <kk-text [content]="['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']"></kk-text>
+                </div>
+                <div class="what-we-do-btn-wrap">
+                    <kk-button
+                        [text]="'Get a Quote!'"
+                        [type]="'accent'"
+                        [isFullWidth]="true"
+                    ></kk-button>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <section class="service-cards-section">
-    <ng-container *ngFor="let service of services">
-        <kk-service-card
-            *ngIf="service.name !== 'wallpapering'"
-            [service]="service"
-        >
-        </kk-service-card>
-    </ng-container>
-
+    <div class="service-cards-wrap kk-section-wrap">
+        <ng-container *ngFor="let service of services">
+            <kk-service-card
+                *ngIf="service.name !== 'wallpapering'"
+                [service]="service"
+            >
+            </kk-service-card>
+        </ng-container>
+    </div>
 </section>
+<div style="height: 1000px"></div>
