@@ -15,6 +15,7 @@ export interface Service {
   description: string;
   bullets: string[];
   cardImage: string;
+  cardText: string[];
   icon: string;
 }
 
@@ -29,6 +30,7 @@ export const services: Service[] = [
       'ut labore et dolore magna aliqua'
     ],
     cardImage: 'assets/images/deck.jpg',
+    cardText: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'],
     icon: 'broom'
   },
   {
@@ -41,6 +43,7 @@ export const services: Service[] = [
       'ut labore et dolore magna aliqua'
     ],
     cardImage: 'assets/images/deck.jpg',
+    cardText: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'],
     icon: 'paint-roller'
   },
   {
@@ -53,6 +56,7 @@ export const services: Service[] = [
       'ut labore et dolore magna aliqua'
     ],
     cardImage: 'assets/images/deck.jpg',
+    cardText: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'],
     icon: 'chess-board'
   },
   {
@@ -65,6 +69,7 @@ export const services: Service[] = [
       'ut labore et dolore magna aliqua'
     ],
     cardImage: 'assets/images/deck.jpg',
+    cardText: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     icon: 'tree'
   }
 ];

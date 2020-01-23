@@ -17,49 +17,41 @@
     // What We Do
     .what-we-do-section-wrap {
         position: relative;
-        overflow: visible;
-    }
-    .what-we-do-card {
-        background-color: #fff;
-        border-radius: 3px;
-        position: relative;
         display: flex;
-        z-index: 500;
-        padding: $kk-spacing-xl * 2 $kk-spacing-xl;
-        width: 75%;
-        margin-left: auto;
     }
     .what-we-do-image-wrap {
-        transform: translate(-5%, 20%);
+        transform: translate(-15%, 30%);
         position: absolute;
         top: 0;
         left: 0;
         z-index: 400;
         width: 30%;
-        min-width: 200px;
+        min-width: 400px;
         img {
             box-shadow: $box-shadow;
         }
     }
     .what-we-do-list-wrap {
-        display: inline-block;
-        flex: 0.45;
-        padding-right: $kk-spacing-md;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+        margin-left: auto;
+        transform: translateX(-8%);
+        position: relative;
+        z-index: 500;
     }
     .what-we-do-list-title-wrap {
         display: flex;
         align-items: center;
         color: $accent;
         margin-bottom: $kk-spacing-md;
+        flex: 1;
         fa-icon {
             margin-right: $kk-spacing-sm;
             font-size: 1.5rem;
         }
     }
     .what-we-do-list {
+        background-color: #fff;
+        padding: $kk-spacing-lg 0 $kk-spacing-lg $kk-spacing-lg;
+        border-radius: 3px;
         li {
             display: flex;
             align-items: center;
@@ -82,6 +74,7 @@
                 &:hover {
                     background-color: $primary;
                     color: $offwhite;
+                    box-shadow: $box-shadow;
                 }
             }
            &:not(:last-child) {
@@ -90,7 +83,8 @@
         }
     }
     .what-we-do-blurb-wrap {
-        flex: 1;
+        display: inline-block;
+        width: 50%;
     }
     .what-we-do-header-wrap {
         // border-bottom: 4px solid $accent;
@@ -104,9 +98,26 @@
         line-height: 2rem;
     }
 
-    .service-cards-wrap {
+    .service-blurbs-wrap {
         display: flex;
         justify-content: space-around;
+        align-items: flex-start;
+    }
+    .service-blurb-wrap {
+        margin: 0 $kk-spacing-md;
+        background-color: #fff;
+        padding: $kk-spacing-lg;
+        border-radius: 3px;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        &:hover {
+            box-shadow: $box-shadow;
+            transform: scale(1.1);
+        }
+    }
+    .service-blurb-text-wrap {
+        line-height: 1.5rem;
+        margin: $kk-spacing-lg 0;
     }
 }
 
