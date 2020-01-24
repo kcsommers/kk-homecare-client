@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild, ViewContainerRef, ViewChildren, TemplateRef, QueryList, AfterViewInit, Renderer2, EmbeddedViewRef, OnInit } from '@angular/core';
 import { Testimonial, testimonials } from '@kk/core';
+import $clamp from 'clamp-js';
 
 @Component({
   selector: 'kk-testimonials',
@@ -30,12 +31,12 @@ export class TestimonialsComponent implements OnInit {
 
   public next(initial = false): void {
     this.currentIndex = this.currentIndex === testimonials.length - 1 ? 0 : this.currentIndex + 1;
-    this.slide('slide-out-right', initial ? '' : 'slide-in-right');
+    this.slide('slide-out-left', initial ? '' : 'slide-in-left');
   }
 
   public prev(): void {
     this.currentIndex = this.currentIndex === 0 ? testimonials.length - 1 : this.currentIndex - 1;
-    this.slide('slide-out-left', 'slide-in-left');
+    this.slide('slide-out-right', 'slide-in-right');
   }
 
   private slide(slideOut: string, slideIn: string) {
@@ -57,6 +58,7 @@ export class TestimonialsComponent implements OnInit {
         insertIndex
       );
       if (slideIn) {
+        $clamp(this._currentView.rootNodes[0].children[0], { clamp: 3 });
         this.renderer.addClass(this._currentView.rootNodes[0], slideIn);
       }
     }

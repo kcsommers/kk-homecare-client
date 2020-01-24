@@ -43,14 +43,16 @@ export class TextComponent implements OnInit {
 
   public classList: string;
 
+  private colors = ['primary', 'accent', 'offwhite', 'peach'];
+
   @HostBinding('style.color')
   private get colorBinding(): string {
-    return this.color || '';
+    return (this.color && !this.colors.includes(this.color)) ? this.color : '';
   }
 
   @HostBinding('class.inherit-color')
   private get inheritColor(): boolean {
-    return !!(this.color);
+    return !!(this.color) && !this.colors.includes(this.color);
   }
 
   @HostBinding('style.fontSize')
@@ -76,7 +78,8 @@ export class TextComponent implements OnInit {
   ngOnInit(): void {
     const font = this.font || Fonts.PRIMARY;
     const style = this.fontStyle || FontStyles.NORMAL;
-    this.classList = `kk-text-${font} kk-text-${style}`;
+    const color = this.color && this.colors.includes(this.color) ? ` kk-text-${this.color}` : '';
+    this.classList = `kk-text-${font} kk-text-${style}${color}`;
   }
 
   public typeof(content: string | string[]) {

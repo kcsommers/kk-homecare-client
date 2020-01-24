@@ -135,6 +135,7 @@
         background-image: url(../../../../../../src/assets/images/clean_kitchen.jpg);
         background-size: cover;
         background-repeat: no-repeat;
+        padding: $kk-spacing-xl 0;
         background-position: center;
     }
     .testimonials-wrap {
@@ -146,13 +147,45 @@
     }
     .testimonials-title-wrap {
         text-align: center;
-        // border-bottom: 4px solid $accent;
-        // padding-bottom: $kk-spacing-md;
-        // width: 65%;
-        // margin: 0 auto;
     }
     .testimonials-body-wrap {
         padding: $kk-spacing-xl;
+    }
+    .contact-section {
+        background-color: $offwhite;
+    }
+    .contact-section-wrap {
+        display: flex;
+    }
+    .get-in-touch-wrap {
+        flex: 0.6;
+        padding: $kk-spacing-xl * 2;
+    }
+    .get-in-touch-title-wrap {
+        margin-bottom: $kk-spacing-lg;
+    }
+    .get-in-touch-body-wrap {
+        line-height: 1.75rem;
+    }
+    .contact-form-wrap {
+        flex: 1;
+        background-color: $light-peach;
+        padding: $kk-spacing-xl * 2 0;
+    }
+    .contact-form {
+        width: 75%;
+        margin: 0 auto;
+    }
+    .input-wrap {
+        margin-bottom: $kk-spacing-md;
+        label {
+            display: block;
+            // text-align: right;
+            padding: $kk-spacing-sm 0;
+        }
+    }
+    .submit-btn-wrap {
+        margin-top: $kk-spacing-xl;
     }
 }
 
