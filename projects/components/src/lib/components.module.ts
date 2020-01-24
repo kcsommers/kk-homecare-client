@@ -5,12 +5,12 @@ import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button/button.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ServiceCardComponent } from './service-card/service-card.component';
+import { TestimonialsComponent } from './testimonials/testimonials.component';
 
 const components = [
   TextComponent,
   ButtonComponent,
-  ServiceCardComponent
+  TestimonialsComponent
 ];
 
 @NgModule({

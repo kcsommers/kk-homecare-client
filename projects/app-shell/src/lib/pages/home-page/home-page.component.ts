@@ -16,17 +16,14 @@ export class HomePageComponent implements OnDestroy {
   public capitalize = capitalize;
 
   constructor(public globalService: GlobalService) {
-    console.log('Animat:::: ', this.animate)
     this.globalService.appLoaded$.pipe(
       takeUntil(this._destroy$)
     ).subscribe((isLoaded: boolean) => {
       if (isLoaded) {
         if (window.scrollY >= 250) {
-          console.log('Animate false?')
           this.animate = false;
         } else {
           setTimeout(() => {
-            console.log('Animate false')
             this.animate = false;
           }, 2000);
         }

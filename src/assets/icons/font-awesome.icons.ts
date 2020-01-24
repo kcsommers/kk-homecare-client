@@ -5,7 +5,9 @@ import {
   faPaintRoller,
   faTree,
   faBirthdayCake,
-  faSun
+  faSun,
+  faAngleLeft,
+  faAngleRight
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook
@@ -13,11 +15,23 @@ import {
 import {
   faCopyright
 } from '@fortawesome/free-regular-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 export class FaIconsComponent {
   constructor() { }
-  public static init() {
-    library.add(faBroom, faFacebook, faBrush, faChessBoard, faPaintRoller, faTree, faCopyright, faBirthdayCake, faSun);
+  public static init(library: FaIconLibrary) {
+    library.addIcons(
+      faBroom,
+      faFacebook,
+      faBrush,
+      faChessBoard,
+      faPaintRoller,
+      faTree,
+      faCopyright,
+      faBirthdayCake,
+      faSun,
+      faAngleRight,
+      faAngleLeft
+    );
   }
 }

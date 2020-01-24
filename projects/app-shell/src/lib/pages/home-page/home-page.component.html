@@ -63,18 +63,24 @@
         </div>
     </div>
 </section>
-<section class="service-blurbs-section">
-    <div class="service-blurbs-wrap kk-section-wrap">
+<section class="service-cards-section">
+    <div class="service-cards-wrap kk-section-wrap">
         <ng-container *ngFor="let service of services">
             <div
                 *ngIf="service.name !== 'wallpapering'"
-                class="service-blurb-wrap"
+                class="service-card-wrap"
             >
+                <div class="service-card-img-wrap">
+                    <div
+                        class="service-card-img"
+                        [ngStyle]="{ backgroundImage: 'url(' + service.cardImage + ')' }"
+                    ></div>
+                </div>
                 <kk-text
                     [content]="capitalize(service.name)"
                     [size]="'1.5rem'"
                 ></kk-text>
-                <div class="service-blurb-text-wrap">
+                <div class="service-card-text-wrap">
                     <kk-text [content]="service.cardText"></kk-text>
                 </div>
                 <kk-button [text]="'Get a Quote'"></kk-button>
@@ -82,4 +88,18 @@
         </ng-container>
     </div>
 </section>
-<div style="height: 1000px"></div>
+<section class="testimonials-section">
+    <div class="kk-section-wrap">
+        <div class="testimonials-wrap">
+            <div class="testimonials-title-wrap">
+                <kk-text
+                    [content]="'TESTIMONIALS'"
+                    [isHeader]="true"
+                ></kk-text>
+            </div>
+            <div class="testimonials-body-wrap">
+                <kk-testimonials></kk-testimonials>
+            </div>
+        </div>
+    </div>
+</section>

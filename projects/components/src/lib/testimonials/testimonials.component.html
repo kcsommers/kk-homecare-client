@@ -1,0 +1,40 @@
+<div class="carousel-wrap">
+    <ng-container #ViewContainer></ng-container>
+</div>
+<div class="dots-container">
+    <span
+        class="arrow-left"
+        (click)="prev()"
+    >
+        <fa-icon [icon]="'angle-left'"></fa-icon>
+    </span>
+    <span
+        *ngFor="let t of testimonials; let i = index"
+        class="testimonial-dot"
+        [class.dot-active]="i === currentIndex"
+    >
+        &bull;
+    </span>
+    <span
+        class="arrow-right"
+        (click)="next()"
+    >
+        <fa-icon [icon]="'angle-right'"></fa-icon>
+    </span>
+</div>
+<ng-template
+    #Template
+    let-t="t"
+>
+    <div class="testimonial-wrap">
+        <div class="testimonial-content-wrap">
+            <kk-text [content]="'&quot;' + t.content + '&quot;'"></kk-text>
+        </div>
+        <div class="testimonial-name-wrap">
+            <kk-text
+                [content]="'- ' + t.name"
+                [fontWeight]="'bold'"
+            ></kk-text>
+        </div>
+    </div>
+</ng-template>

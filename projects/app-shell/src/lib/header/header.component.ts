@@ -56,7 +56,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private checkScroll(): void {
     if (window.scrollY >= 250 && !this.navSticky) {
-      console.log('ITS TRUE')
       this.navSticky = true;
       this.animate = false;
     }
