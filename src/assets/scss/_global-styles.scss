@@ -20,6 +20,7 @@ p,
 a,
 span,
 input,
+textarea
 div {
     font-family: $kk-fonts-primary;
     color: $dark-gray;
@@ -77,4 +78,6 @@ textarea {
 textarea {
     resize: none;
     min-height: 150px;
+    font-size: 1.35rem;
+    font-weight: normal;
 }

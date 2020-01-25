@@ -1,1 +1,40 @@
-
+<footer class="kk-footer">
+    <div class="footer-wrap">
+        <div>
+            <div class="footer-logo-wrap">
+                <img
+                    src="assets/images/2k_logo.png"
+                    alt="2K Logo"
+                >
+            </div>
+            <div class="contact-info-wrap">
+                <div class="contact-info">
+                    <kk-text [content]="'Kerrie Smith'"></kk-text>
+                    <kk-text [content]="'(330) 819-2651'"></kk-text>
+                    <kk-text [content]="'kerrieasmith63@gmail.com'"></kk-text>
+                </div>
+                <div class="contact-info">
+                    <kk-text [content]="'Kellie Darby Shaw'"></kk-text>
+                    <kk-text [content]="'(330) 819-2651'"></kk-text>
+                    <kk-text [content]="'kerrieasmith63@gmail.com'"></kk-text>
+                </div>
+            </div>
+            <div class="copyright-wrap">
+                <kk-text
+                    [content]="'Copyright &copy; 2K Homecare. All Rights Reserved.'"
+                    [size]="'0.75rem'"
+                ></kk-text>
+            </div>
+        </div>
+        <div class="social-wrap">
+            <kk-button
+                [text]="'Follow Us!'"
+                [size]="'sm'"
+            ></kk-button>
+            <fa-icon
+                [icon]="['fab', 'facebook']"
+                [size]="'2x'"
+            ></fa-icon>
+        </div>
+    </div>
+</footer>
