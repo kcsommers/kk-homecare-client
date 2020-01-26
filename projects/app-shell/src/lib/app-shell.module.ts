@@ -8,13 +8,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './footer/footer.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
+import { ServicePageComponent } from './pages/service-page/service-page.component';
 
 const components = [
   HeaderComponent,
   HomePageComponent,
   FooterComponent,
   AboutPageComponent,
-  ServicesPageComponent
+  ServicesPageComponent,
+  ServicePageComponent
 ];
 
 @NgModule({

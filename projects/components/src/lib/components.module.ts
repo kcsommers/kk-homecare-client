@@ -6,11 +6,15 @@ import { ButtonComponent } from './button/button.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { ServiceCardComponent } from './service-card/service-card.component';
+import { ServiceListComponent } from './service-list/service-list.component';
 
 const components = [
   TextComponent,
   ButtonComponent,
-  TestimonialsComponent
+  TestimonialsComponent,
+  ServiceCardComponent,
+  ServiceListComponent
 ];
 
 @NgModule({

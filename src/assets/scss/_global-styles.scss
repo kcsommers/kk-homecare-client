@@ -18,6 +18,7 @@ h5,
 h6,
 p,
 a,
+li,
 span,
 input,
 textarea
@@ -58,10 +59,9 @@ img {
     display: inline-block;
     width: 100%;
 }
-.kk-section-wrap {
-    width: 90%;
-    margin: 0 auto;
-    padding: $kk-spacing-xl * 2 0;
+ul {
+    list-style-type: disc;
+    list-style-position: inside;
 }
 input[type=text],
 input[type=email],
@@ -80,6 +80,11 @@ textarea {
     min-height: 150px;
     font-size: 1.35rem;
     font-weight: normal;
+}
+.kk-section-wrap {
+    width: 90%;
+    margin: 0 auto;
+    padding: $kk-spacing-xl * 2 0;
 }
 .kk-color-accent {
     color: $accent;

@@ -1,0 +1,32 @@
+@import '_variables';
+:host {
+   .service-card-wrap {
+        margin: 0 $kk-spacing-md;
+        background-color: #fff;
+        padding: $kk-spacing-lg;
+        border-radius: 3px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        &:hover {
+            box-shadow: $box-shadow;
+            .service-card-img {
+                transform: scale(1.1);
+            }
+        }
+    }
+    .service-card-text-wrap {
+        line-height: 1.5rem;
+        margin: $kk-spacing-lg 0;
+    }
+    .service-card-img-wrap {
+        overflow: hidden;
+        margin-bottom: $kk-spacing-lg;
+    }
+    .service-card-img {
+        height: 150px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: all 0.8s ease;
+    }
+}

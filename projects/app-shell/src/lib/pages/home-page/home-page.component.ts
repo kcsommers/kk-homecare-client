@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { GlobalService } from 'projects/core/src/lib/services/global.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { Services, services, capitalize } from '@kk/core';
+import { services } from '@kk/core';
 
 @Component({
   selector: 'kk-home-page',
@@ -13,7 +13,6 @@ export class HomePageComponent implements OnDestroy {
   private _destroy$ = new Subject();
   public animate = true;
   public services = services;
-  public capitalize = capitalize;
 
   constructor(public globalService: GlobalService) {
     this.globalService.appLoaded$.pipe(

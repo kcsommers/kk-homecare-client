@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
+import { ServicePageComponent } from './pages/service-page/service-page.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'services',
     component: ServicesPageComponent
+  },
+  {
+    path: 'service/:id',
+    component: ServicePageComponent
   }
 ];
 

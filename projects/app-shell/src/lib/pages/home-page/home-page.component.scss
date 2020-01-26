@@ -37,51 +37,6 @@
         position: relative;
         z-index: 500;
     }
-    .what-we-do-list-title-wrap {
-        display: flex;
-        align-items: center;
-        color: $accent;
-        margin-bottom: $kk-spacing-md;
-        flex: 1;
-        fa-icon {
-            margin-right: $kk-spacing-sm;
-            font-size: 1.5rem;
-        }
-    }
-    .what-we-do-list {
-        background-color: #fff;
-        padding: $kk-spacing-lg 0 $kk-spacing-lg $kk-spacing-lg;
-        border-radius: 3px;
-        li {
-            display: flex;
-            align-items: center;
-            fa-icon {
-                display: inline-flex;
-                width: 25px;
-                align-items: center;
-                justify-content: center;
-                color: $primary;
-            }
-            span {
-                flex: 1;
-                cursor: pointer;
-                display: inline-block;
-                transition: color 0.2s ease;
-                padding: $kk-spacing-sm $kk-spacing-lg $kk-spacing-sm $kk-spacing-sm;
-                border-top-left-radius: 3px;
-                border-bottom-left-radius: 3px;
-                margin-left: $kk-spacing-sm;
-                &:hover {
-                    background-color: $primary;
-                    color: $offwhite;
-                    box-shadow: $box-shadow;
-                }
-            }
-           &:not(:last-child) {
-              margin-bottom: $kk-spacing-sm;
-           }
-        }
-    }
     .what-we-do-blurb-wrap {
         display: inline-block;
         width: 50%;
@@ -101,35 +56,6 @@
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
-    }
-    .service-card-wrap {
-        margin: 0 $kk-spacing-md;
-        background-color: #fff;
-        padding: $kk-spacing-lg;
-        border-radius: 3px;
-        transition: all 0.2s ease;
-        cursor: pointer;
-        &:hover {
-            box-shadow: $box-shadow;
-            .service-card-img {
-                transform: scale(1.1);
-            }
-        }
-    }
-    .service-card-text-wrap {
-        line-height: 1.5rem;
-        margin: $kk-spacing-lg 0;
-    }
-    .service-card-img-wrap {
-        overflow: hidden;
-        margin-bottom: $kk-spacing-lg;
-    }
-    .service-card-img {
-        height: 150px;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        transition: all 0.8s ease;
     }
     .testimonials-section {
         background-image: url(../../../../../../src/assets/images/clean_kitchen.jpg);

@@ -1,5 +1,24 @@
 @import '_variables';
-
 :host {
-
+    .services-section {
+        padding-top: 65px;
+    }
+    .services-title-wrap {
+        text-align: center;
+    }
+    .services-blurb-wrap {
+        text-align: center;
+        line-height: 2rem;
+        margin-top: $kk-spacing-xl;
+    }
+    .services-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        padding: $kk-spacing-lg 0;
+    }
+    .service-card-wrap {
+        flex: 1 1 33%;
+        flex-grow: 0;
+        margin-top: $kk-spacing-xl;
+    }
 }
