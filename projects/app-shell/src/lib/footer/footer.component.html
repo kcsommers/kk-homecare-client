@@ -1,11 +1,18 @@
 <footer class="kk-footer">
     <div class="footer-wrap">
-        <div>
-            <div class="footer-logo-wrap">
-                <img
-                    src="assets/images/2k_logo.png"
-                    alt="2K Logo"
-                >
+        <div class="footer-logo-wrap">
+            <img
+                src="assets/images/2k_logo.png"
+                alt="2K Logo"
+            >
+        </div>
+        <div class="footer-info-wrap">
+            <div class="footer-info-title">
+                <kk-text
+                    [content]="'2K Homecare'"
+                    [fontWeight]="'bold'"
+                    [size]="'1.25rem'"
+                ></kk-text>
             </div>
             <div class="contact-info-wrap">
                 <div class="contact-info">
@@ -27,14 +34,21 @@
             </div>
         </div>
         <div class="social-wrap">
-            <kk-button
-                [text]="'Follow Us!'"
-                [size]="'sm'"
-            ></kk-button>
-            <fa-icon
-                [icon]="['fab', 'facebook']"
-                [size]="'2x'"
-            ></fa-icon>
+            <kk-text
+                [content]="'Follow Us!'"
+                [size]="'1.5rem'"
+                [color]="'primary'"
+            ></kk-text>
+            <div class="social-icons-wrap">
+                <fa-icon
+                    [icon]="['fab', 'instagram']"
+                    [size]="'2x'"
+                ></fa-icon>
+                <fa-icon
+                    [icon]="['fab', 'facebook']"
+                    [size]="'2x'"
+                ></fa-icon>
+            </div>
         </div>
     </div>
 </footer>

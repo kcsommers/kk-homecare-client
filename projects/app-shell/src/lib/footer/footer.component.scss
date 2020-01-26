@@ -2,23 +2,46 @@
 :host {
     .kk-footer {
         background-color: #fff;
-        padding: $kk-spacing-xl $kk-spacing-xl * 2;
+        padding: $kk-spacing-xl * 2;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
     }
     .footer-wrap {
         display: flex;
     }
     .footer-logo-wrap {
-        width: 10%;
-        min-width: 150px;
+        width: 5%;
+        min-width: 100px;
         display: inline-block;
+    }
+    .footer-info-wrap {
+        margin-left: $kk-spacing-xl;
+    }
+    .footer-info-title {
+        margin-bottom: $kk-spacing-sm;
     }
     .contact-info-wrap {
         display: inline-flex;
+        align-items: center;
+    }
+    .contact-info {
+        margin-right: $kk-spacing-xl;
+        line-height: 1.75rem;
     }
     .copyright-wrap {
-
+        white-space: nowrap;
+        margin-top: $kk-spacing-md;
     }
     .social-wrap {
-
+        text-align: right;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .social-icons-wrap {
+        margin-top: $kk-spacing-sm;
+        fa-icon:first-child{
+            margin: 0 $kk-spacing-sm;
+        }
     }
 }

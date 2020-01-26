@@ -1,5 +1,59 @@
 @import '_variables';
-
 :host {
-
+    .about-intro-section {
+        padding-top: 65px;
+    }
+    .about-title-wrap {
+        margin-bottom: $kk-spacing-xl;
+    }
+    .about-intro-wrap {
+        display: flex;
+    }
+    .about-blurb-wrap {
+        line-height: 2rem;
+        padding-right: $kk-spacing-xl * 3;
+    }
+    .about-image-wrap {
+        // flex: 1;
+        min-width: 400px;
+        img {
+            border-radius: 3px;
+            box-shadow: $box-shadow;
+            display: inline-block;
+            max-width: 350px;
+        }
+    }
+    .about-k-section {
+        background-color: #fff;
+        padding-bottom: $kk-spacing-lg;
+    }
+    .about-k-wrap {
+        background-color: #fff;
+        display: flex;
+    }
+    .about-k-image-wrap {
+        background-color: $light-peach;
+        padding: $kk-spacing-xl * 2;
+        flex: 0.75;
+        img {
+            border-radius: 3px;
+            box-shadow: $box-shadow;
+        }
+    }
+    .about-k-info-wrap {
+        padding: $kk-spacing-xl * 2;
+        flex: 1;
+    }
+    .about-k-title-wrap {
+        margin-bottom: $kk-spacing-lg;
+    }
+    .about-k-text-wrap {
+        line-height: 1.75rem;
+    }
+    .about-kellie-wrap {
+        background-color: #fff;
+        .about-k-image-wrap {
+            background-color: #fff;
+        }
+    }
 }

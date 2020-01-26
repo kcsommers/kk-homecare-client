@@ -2,7 +2,6 @@
 :host {
     display: block;
     p {
-        color: $dark-gray;
         font-size: $kk-fontsize-md;
         &:not(:last-child) {
             margin-bottom: $kk-spacing-md;
@@ -16,18 +15,6 @@
     }
     .kk-text-italic {
         font-style: italic;
-    }
-    .kk-text-accent {
-        color: $accent;
-    }
-    .kk-text-primary {
-        color: $primary;
-    }
-    .kk-text-offwhite {
-        color: $offwhite;
-    }
-    .kk-text-peach {
-        color: $peach;
     }
     .kk-text-underline {
         font-style: underline;

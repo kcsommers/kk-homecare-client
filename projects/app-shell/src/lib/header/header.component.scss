@@ -15,19 +15,24 @@
     }
     .header-logo-wrap {
         position: relative;
-        height: 240px;
+        height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     .header-logo {
-        max-width: 175px;
+        max-width: 130px;
     }
-    .header-fb-icon-top {
+    .header-top-icons-wrap {
         position: absolute;
         right: $kk-spacing-lg;
         top: $kk-spacing-lg;
-        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        fa-icon {
+            margin-bottom: $kk-spacing-sm;
+            cursor: pointer;
+        }
     }
     .header-logo-small {
         max-width: 50px;

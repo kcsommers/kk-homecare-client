@@ -11,11 +11,18 @@
             src="assets/images/2k_logo.png"
             alt="2K Logo"
         >
-        <fa-icon
-            class="header-fb-icon-top"
-            [icon]="['fab', 'facebook']"
-            [size]="'2x'"
-        ></fa-icon>
+        <div class="header-top-icons-wrap">
+            <fa-icon
+                class="header-insta-icon-top"
+                [icon]="['fab', 'instagram']"
+                [size]="'2x'"
+            ></fa-icon>
+            <fa-icon
+                class="header-fb-icon-top"
+                [icon]="['fab', 'facebook']"
+                [size]="'2x'"
+            ></fa-icon>
+        </div>
     </div>
     <div
         class="header-nav-wrap"
@@ -26,8 +33,8 @@
                 class="header-nav-inner"
                 [class.header-small]="navSticky"
             >
-                <a href="#">Home</a>
-                <a href="#">About</a>
+                <a [routerLink]="['/']">Home</a>
+                <a [routerLink]="['/about']">About</a>
                 <a href="#">Services</a>
                 <a href="#">Photos</a>
                 <a href="#">Contact</a>
