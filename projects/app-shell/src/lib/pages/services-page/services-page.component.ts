@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Service, services } from '@kk/core';
-import { Services } from 'projects/core/src/lib/data';
+import { Service, services, Services } from '@kk/core';
 
 @Component({
   selector: 'kk-services-page',

@@ -19,7 +19,7 @@ const routes: Routes = [
     component: ServicesPageComponent
   },
   {
-    path: 'service/:id',
+    path: 'services/:id',
     component: ServicePageComponent
   }
 ];

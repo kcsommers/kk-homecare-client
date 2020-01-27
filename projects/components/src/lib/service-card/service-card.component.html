@@ -1,4 +1,7 @@
-<div class="service-card-wrap">
+<div
+    class="service-card-wrap"
+    [routerLink]="serviceUrlMap.get(service.name)"
+>
     <div class="service-card-img-wrap">
         <div
             class="service-card-img"

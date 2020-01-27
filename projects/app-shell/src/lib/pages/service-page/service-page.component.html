@@ -1,32 +1,47 @@
 <section class="service-section">
-    <div class="service-title-wrap">
-        <kk-text
-            [content]="service && service.name.toUpperCase()"
-            [isHeader]="true"
-        ></kk-text>
-    </div>
-    <div class="service-description-wrap">
-        <kk-text [content]="service && service.description"></kk-text>
-    </div>
-    <div class="service-bullets-wrap">
-        <ul
-            *ngIf="service"
-            class="service-bullets-list"
+    <div class="kk-section-wrap">
+        <div
+            #FadeIn
+            class="service-info-wrap fade-in"
         >
-            <li *ngFor="let bullet of service.bullets">{{bullet}}</li>
-        </ul>
-    </div>
-    <div class="service-button-wrap">
-        <kk-button
-            [text]="'Get a Quote'"
-            [isFullWidth]="true"
-            [type]="'accent'"
-        ></kk-button>
-    </div>
-    <div class="service-image-wrap">
-        <img
-            src="assets/images/deck.jpg"
-            alt
-        >
+            <div class="service-title-wrap">
+                <kk-text
+                    [content]="service && service.name.toUpperCase()"
+                    [isHeader]="true"
+                ></kk-text>
+            </div>
+            <div class="service-description-wrap">
+                <kk-text [content]="service && service.description"></kk-text>
+            </div>
+            <div class="service-bullets-wrap">
+                <ul
+                    *ngIf="service"
+                    class="service-bullets-list"
+                >
+                    <li *ngFor="let bullet of service.bullets">{{bullet}}</li>
+                </ul>
+            </div>
+            <div class="service-button-wrap">
+                <kk-button
+                    [text]="'Get a Quote'"
+                    [isFullWidth]="true"
+                    [type]="'accent'"
+                ></kk-button>
+            </div>
+        </div>
+        <div class="service-page-right">
+            <div
+                #FadeIn
+                class="service-image-wrap fade-in"
+            >
+                <img
+                    src="assets/images/deck.jpg"
+                    alt
+                >
+            </div>
+            <div class="service-list-wrap">
+                <kk-service-list [showHeader]="false"></kk-service-list>
+            </div>
+        </div>
     </div>
 </section>

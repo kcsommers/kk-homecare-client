@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, HostBinding } from '@angular/core';
 import { services } from '@kk/core';
 
 @Component({
@@ -7,6 +7,7 @@ import { services } from '@kk/core';
   styleUrls: ['./service-list.component.scss']
 })
 export class ServiceListComponent {
-
+  @Input()
+  public showHeader = true;
 }
 

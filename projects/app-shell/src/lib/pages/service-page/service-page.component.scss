@@ -1,3 +1,45 @@
 @import '_variables';
 :host {
+    .service-section {
+        .kk-section-wrap {
+            display: flex;
+        }
+    }
+    .service-info-wrap {
+        flex: 1;
+        line-height: 2rem;
+        padding: $kk-spacing-xl
+    }
+    .service-title-wrap {
+        margin: $kk-spacing-xl 0;
+    }
+    .service-bullets-wrap {
+        padding-left: $kk-spacing-xl;
+        margin: $kk-spacing-xl 0;
+    }
+    .service-button-wrap {
+        margin-top: $kk-spacing-xl * 2;
+    }
+    .service-page-right {
+        flex: 0.75;
+        padding: $kk-spacing-xl;
+    }
+    .service-image-wrap {
+        margin-top: $kk-spacing-xl;
+    }
+    .service-list-wrap {
+        padding: $kk-spacing-xl;
+        transform: translateY(-30%);
+    }
+    .fade-in {
+        animation: fadeIn 2s ease forwards;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

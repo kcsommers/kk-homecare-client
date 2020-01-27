@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Service, capitalize } from '@kk/core';
+import { Service, capitalize, Services } from '@kk/core';
 
 @Component({
   selector: 'kk-service-card',
@@ -9,6 +9,25 @@ import { Service, capitalize } from '@kk/core';
 export class ServiceCardComponent {
   @Input()
   public service: Service;
+
+  public serviceUrlMap = new Map<Services, string>([
+    [
+      Services.PAINTING,
+      'painting'
+    ],
+    [
+      Services.CLEANING,
+      'cleaning'
+    ],
+    [
+      Services.WALLPAPERING,
+      'wallpapering'
+    ],
+    [
+      Services.LANDSCAPING,
+      'landscaping'
+    ]
+  ]);
 
   public capitalize = capitalize;
 

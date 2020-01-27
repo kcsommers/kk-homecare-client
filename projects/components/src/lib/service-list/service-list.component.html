@@ -1,4 +1,7 @@
-<div class="service-list-title-wrap">
+<div
+    *ngIf="showHeader"
+    class="service-list-title-wrap"
+>
     <fa-icon [icon]="'sun'"></fa-icon>
     <kk-text
         [content]="'Our Services'"
@@ -9,22 +12,22 @@
 <ul class="service-list">
     <li>
         <fa-icon [icon]="'broom'"></fa-icon>
-        <span>Cleaning</span>
+        <span [routerLink]="'/services/cleaning'">Cleaning</span>
     </li>
     <li>
         <fa-icon [icon]="'chess-board'"></fa-icon>
-        <span>Wallpapering</span>
+        <span [routerLink]="'/services/wallpapering'">Wallpapering</span>
     </li>
     <li>
         <fa-icon [icon]="'paint-roller'"></fa-icon>
-        <span>Painting</span>
+        <span [routerLink]="'/services/painting'">Painting</span>
     </li>
     <li>
         <fa-icon [icon]="'tree'"></fa-icon>
-        <span>Landscaping</span>
+        <span [routerLink]="'/services/landscaping'">Landscaping</span>
     </li>
     <li>
         <fa-icon [icon]="'birthday-cake'"></fa-icon>
-        <span>Special Event Cleaning</span>
+        <span [routerLink]="'/services/special-event'">Special Event Cleaning</span>
     </li>
 </ul>

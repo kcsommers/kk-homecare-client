@@ -1,5 +1,6 @@
 @import '_variables';
 :host {
+    display: block;
     .service-list-title-wrap {
         display: flex;
         align-items: center;
