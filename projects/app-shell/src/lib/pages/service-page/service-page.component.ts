@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ViewChildren, ElementRef, Renderer2, QueryList } from '@angular/core';
+import { Component, OnDestroy, ViewChildren, ElementRef, Renderer2, QueryList, ViewChild, ViewContainerRef, TemplateRef, AfterViewInit, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Service, Services, services } from '@kk/core';
@@ -9,32 +9,27 @@ import { Subscription } from 'rxjs';
   templateUrl: './service-page.component.html',
   styleUrls: ['./service-page.component.scss']
 })
-export class ServicePageComponent implements OnDestroy {
+export class ServicePageComponent implements OnInit, OnDestroy {
   public service: Service;
 
   private _params$: Subscription;
 
-  private _initial = true;
+  @ViewChild('ViewContainer', { static: true, read: ViewContainerRef })
+  private _viewContainer: ViewContainerRef;
 
-  @ViewChildren('FadeIn', { read: ElementRef })
-  private _fadeInEls: QueryList<ElementRef<any>>;
+  @ViewChild('Template', { static: true, read: TemplateRef })
+  private _template: TemplateRef<any>;
 
   constructor(private renderer: Renderer2, private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
     this._params$ = this.route.params.subscribe(params => {
       const service = services.find(s => s.name === params.id);
       if (service) {
-        if (!this._initial) {
-          this.removeFadeInClass();
-        }
+        this._viewContainer.clear();
         this.service = service;
-        if (!this._initial) {
-          setTimeout(() => {
-            this.addFadeInClass();
-
-          })
-        } else {
-          this._initial = false;
-        }
+        this.attachView();
       }
     });
   }
@@ -43,11 +38,7 @@ export class ServicePageComponent implements OnDestroy {
     this._params$.unsubscribe();
   }
 
-  removeFadeInClass() {
-    this._fadeInEls.forEach(el => this.renderer.removeClass(el.nativeElement, 'fade-in'));
-  }
-
-  private addFadeInClass() {
-    this._fadeInEls.forEach(el => this.renderer.addClass(el.nativeElement, 'fade-in'));
+  private attachView() {
+    this._viewContainer.createEmbeddedView(this._template, { service: this.service });
   }
 }
