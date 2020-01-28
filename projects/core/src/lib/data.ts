@@ -29,7 +29,7 @@ export const services: Service[] = [
       'sed do eiusmod tempor incididunt',
       'ut labore et dolore magna aliqua'
     ],
-    cardImage: 'assets/images/deck.jpg',
+    cardImage: 'assets/images/work/deck.jpg',
     cardText: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     icon: 'broom'
   },
@@ -42,7 +42,7 @@ export const services: Service[] = [
       'sed do eiusmod tempor incididunt',
       'ut labore et dolore magna aliqua'
     ],
-    cardImage: 'assets/images/deck.jpg',
+    cardImage: 'assets/images/work/deck.jpg',
     cardText: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     icon: 'paint-roller'
   },
@@ -55,7 +55,7 @@ export const services: Service[] = [
       'sed do eiusmod tempor incididunt',
       'ut labore et dolore magna aliqua'
     ],
-    cardImage: 'assets/images/deck.jpg',
+    cardImage: 'assets/images/work/deck.jpg',
     cardText: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     icon: 'chess-board'
   },
@@ -68,7 +68,7 @@ export const services: Service[] = [
       'sed do eiusmod tempor incididunt',
       'ut labore et dolore magna aliqua'
     ],
-    cardImage: 'assets/images/deck.jpg',
+    cardImage: 'assets/images/work/deck.jpg',
     cardText: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     icon: 'tree'
   }
