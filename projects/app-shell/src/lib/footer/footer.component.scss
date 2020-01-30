@@ -4,6 +4,8 @@
         background-color: #fff;
         padding: $kk-spacing-xl * 2;
         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+        position: relative;
+        z-index: 900;
     }
     .footer-wrap {
         display: flex;

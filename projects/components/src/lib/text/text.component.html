@@ -1,4 +1,9 @@
-<h2 *ngIf="isHeader">{{ content }}</h2>
+<h2
+    *ngIf="isHeader"
+    [ngClass]="classList"
+>
+    {{ content }}
+</h2>
 <ng-container *ngIf="!isHeader">
     <p
         *ngIf="typeof(content) === 'string'; else Paragraphs"

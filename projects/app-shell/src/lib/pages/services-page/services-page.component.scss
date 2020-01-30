@@ -21,4 +21,10 @@
         flex-grow: 0;
         margin-top: $kk-spacing-xl;
     }
+    .services-intro-wrap {
+        background-image: url(../../../../../../src/assets/images/decor/bg6.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: $kk-spacing-xl * 4;
+    }
 }

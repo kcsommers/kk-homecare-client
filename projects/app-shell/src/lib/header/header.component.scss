@@ -15,13 +15,13 @@
     }
     .header-logo-wrap {
         position: relative;
-        height: 200px;
+        height: 220px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     .header-logo {
-        max-width: 130px;
+        max-width: 150px;
     }
     .header-top-icons-wrap {
         position: absolute;
@@ -29,6 +29,7 @@
         top: $kk-spacing-lg;
         display: flex;
         flex-direction: column;
+        align-items: center;
         fa-icon {
             margin-bottom: $kk-spacing-sm;
             cursor: pointer;

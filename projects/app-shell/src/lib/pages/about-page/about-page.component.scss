@@ -2,6 +2,9 @@
 :host {
     .about-intro-section {
         padding-top: 65px;
+        background-image: url(../../../../../../src/assets/images/decor/bg5.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .about-title-wrap {
         margin-bottom: $kk-spacing-xl;
@@ -21,11 +24,14 @@
             box-shadow: $box-shadow;
             display: inline-block;
             max-width: 350px;
+            border: 5px solid #fff;
         }
     }
     .about-k-section {
         background-color: #fff;
-        padding-bottom: $kk-spacing-lg;
+        position: relative;
+        z-index: 500;
+        padding: $kk-spacing-xl * 2 0;
     }
     .about-k-wrap {
         background-color: #fff;
@@ -53,7 +59,7 @@
     .about-kellie-wrap {
         background-color: #fff;
         .about-k-image-wrap {
-            background-color: #fff;
+            background-color: $light-peach;
         }
     }
 }

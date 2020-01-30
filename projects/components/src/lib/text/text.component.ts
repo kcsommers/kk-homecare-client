@@ -79,9 +79,6 @@ export class TextComponent implements OnInit {
     const font = this.font || Fonts.PRIMARY;
     const style = this.fontStyle || FontStyles.NORMAL;
     const color = this.color && this.colors.includes(this.color) ? ` kk-color-${this.color}` : '';
-    if (this.content === 'Kacy Sommers') {
-      console.log(this.color)
-    }
     this.classList = `kk-text-${font} kk-text-${style}${color}`;
   }
 
