@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { ServicePageComponent } from './pages/service-page/service-page.component';
+import { PhotosPageComponent } from './pages/photos-page/photos-page.component';
 
 const components = [
   HeaderComponent,
@@ -16,7 +17,8 @@ const components = [
   FooterComponent,
   AboutPageComponent,
   ServicesPageComponent,
-  ServicePageComponent
+  ServicePageComponent,
+  PhotosPageComponent
 ];
 
 @NgModule({

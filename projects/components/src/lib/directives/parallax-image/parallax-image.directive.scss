@@ -1,0 +1,10 @@
+@import '_variables';
+
+:host {
+  display: block;
+  overflow: hidden;
+  .parallax-image-wrap {
+      height: 100%;
+      position: relative;
+  }
+}
