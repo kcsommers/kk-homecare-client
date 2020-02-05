@@ -2,9 +2,10 @@
 :host {
     .about-intro-section {
         padding-top: 65px;
-        // background-image: url(../../../../../../src/assets/images/decor/bg5.jpg);
-        // background-repeat: no-repeat;
-        // background-size: cover;
+        .kk-section-wrap {
+            position: relative;
+            z-index: 300;
+        }
     }
     .about-title-wrap {
         margin-bottom: $kk-spacing-xl;
@@ -31,7 +32,7 @@
         background-color: #fff;
         position: relative;
         z-index: 500;
-        padding: $kk-spacing-xl * 2 0;
+        padding: $kk-spacing-xl * 3 0;
     }
     .about-k-wrap {
         background-color: #fff;

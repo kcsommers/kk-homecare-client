@@ -14,7 +14,11 @@
     .services-wrap {
         display: flex;
         flex-wrap: wrap;
-        padding: $kk-spacing-lg 0;
+        padding: $kk-spacing-xl 0;
+        width: 90%;
+        max-width: 1200px;
+        min-width: 800px;
+        margin: 0 auto;
     }
     .service-card-wrap {
         flex: 1 1 33%;
@@ -22,9 +26,6 @@
         margin-top: $kk-spacing-xl;
     }
     .services-intro-wrap {
-        background-image: url(../../../../../../src/assets/images/decor/bg6.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
         padding: $kk-spacing-xl * 4;
     }
 }

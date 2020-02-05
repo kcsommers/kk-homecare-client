@@ -8,7 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ServiceCardComponent } from './service-card/service-card.component';
 import { ServiceListComponent } from './service-list/service-list.component';
-import { ParallaxImageDirective, ParallaxImageComponent } from './directives/parallax-image/parallax-image.directive';
+import { ParallaxImageDirective } from './directives/parallax-image/parallax-image.directive';
 
 const components = [
   TextComponent,
@@ -17,7 +17,6 @@ const components = [
   ServiceCardComponent,
   ServiceListComponent,
   ParallaxImageDirective,
-  ParallaxImageComponent
 ];
 
 @NgModule({
@@ -28,7 +27,6 @@ const components = [
     FormsModule,
     FontAwesomeModule
   ],
-  exports: components,
-  entryComponents: [ParallaxImageComponent]
+  exports: components
 })
 export class ComponentsModule { }

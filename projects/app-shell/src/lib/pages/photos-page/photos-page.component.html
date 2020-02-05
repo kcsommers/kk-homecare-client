@@ -6,8 +6,14 @@
         ></kk-text>
     </div>
     <div class="tags-wrap">
-        <span class="tag-wrap">
+        <span
+            *ngFor="let filter of filters"
+            class="tag-wrap"
+            [class.selected]="selectedFilters.includes(filter)"
+            (click)="toggleFilter(filter)"
+        >
             <span class="tag-checkbox"></span>
+            <span class="filter-name">{{filter}}</span>
         </span>
     </div>
 </section>

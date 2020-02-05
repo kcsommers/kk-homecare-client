@@ -20,7 +20,7 @@ export class ServicePageComponent implements OnInit, OnDestroy {
   @ViewChild('Template', { static: true, read: TemplateRef })
   private _template: TemplateRef<any>;
 
-  constructor(private renderer: Renderer2, private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
