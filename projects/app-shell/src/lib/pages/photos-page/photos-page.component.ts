@@ -23,9 +23,11 @@ export class PhotosPageComponent {
     Filters.PAINTING,
     Filters.RESIDENTIAL
   ];
+
   public selectedFilters: Filters[] = [];
 
   private _params$: Subscription;
+
   constructor(private _route: ActivatedRoute) {
     this._params$ = this._route.queryParams.subscribe(params => {
       let currentFilters = this.filters;
