@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-const fs = require('fs');
 
 enum Filters {
   CLEANING = 'cleaning',
@@ -50,7 +49,6 @@ export class PhotosPageComponent {
   }
 
   private selectFilters(filters: Filters[]) {
-    console.log('FILES:::: ', fs.readdirSync('assets/images/cleaning'))
     filters.forEach(filter => this.selectFilter(filter));
   }
 
