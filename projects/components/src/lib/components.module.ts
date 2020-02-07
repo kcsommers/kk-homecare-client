@@ -10,6 +10,10 @@ import { ServiceCardComponent } from './service-card/service-card.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { ParallaxImageDirective } from './directives/parallax-image/parallax-image.directive';
 
+const apiKey = 'AIzaSyCiOpWBea90oaarpYelbTYeI_-0ajplfQw';
+const clientId = '671573167109-mgtqvm775p8o36tft3tmd2uitbhdm772.apps.googleusercontent.com';
+const clientSecret = 'gNKa3TVxmlfXliPsg0uT8nrf';
+
 const components = [
   TextComponent,
   ButtonComponent,

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { PhotosService } from 'projects/core/src/lib/services/photos.service';
 
 enum Filters {
   CLEANING = 'cleaning',
@@ -15,7 +16,7 @@ enum Filters {
   templateUrl: './photos-page.component.html',
   styleUrls: ['./photos-page.component.scss']
 })
-export class PhotosPageComponent {
+export class PhotosPageComponent implements OnDestroy {
   public filters = [
     Filters.CLEANING,
     Filters.COMMERCIAL,
@@ -28,7 +29,7 @@ export class PhotosPageComponent {
 
   private _params$: Subscription;
 
-  constructor(private _route: ActivatedRoute) {
+  constructor(private _route: ActivatedRoute, private photosService: PhotosService) {
     this._params$ = this._route.queryParams.subscribe(params => {
       let currentFilters = this.filters;
       if (params && params.hasOwnProperty('filters')) {
@@ -41,6 +42,10 @@ export class PhotosPageComponent {
         }
       }
       this.selectFilters(currentFilters);
+    });
+
+    this.photosService.getImages('cleaning').subscribe(res => {
+      console.log('RES:::: ', res)
     });
   }
 
