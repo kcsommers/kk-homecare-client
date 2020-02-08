@@ -17,3 +17,15 @@
         </span>
     </div>
 </section>
+<section class="photos-section">
+    <div class="photos-section-wrap">
+        <ng-container *ngFor="let url of photoUrls">
+            <div class="photo-wrap">
+                <img
+                    src="{{url}}"
+                    alt
+                >
+            </div>
+        </ng-container>
+    </div>
+</section>

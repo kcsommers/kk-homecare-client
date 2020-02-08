@@ -2,14 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { PhotosService } from 'projects/core/src/lib/services/photos.service';
-
-enum Filters {
-  CLEANING = 'cleaning',
-  PAINTING = 'painting',
-  LANDSCAPING = 'landscaping',
-  COMMERCIAL = 'commercial',
-  RESIDENTIAL = 'residential'
-}
+import { Filters } from '@kk/core';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'kk-photos-page',
@@ -25,9 +19,10 @@ export class PhotosPageComponent implements OnDestroy {
     Filters.RESIDENTIAL
   ];
 
+  public photoUrls: string[] = [];
   public selectedFilters: Filters[] = [];
-
   private _params$: Subscription;
+  private _photoUrlsCache = new Map<string, string[]>();
 
   constructor(private _route: ActivatedRoute, private photosService: PhotosService) {
     this._params$ = this._route.queryParams.subscribe(params => {
@@ -43,10 +38,6 @@ export class PhotosPageComponent implements OnDestroy {
       }
       this.selectFilters(currentFilters);
     });
-
-    this.photosService.getImages('cleaning').subscribe(res => {
-      console.log('RES:::: ', res)
-    });
   }
 
   ngOnDestroy() {
@@ -54,7 +45,24 @@ export class PhotosPageComponent implements OnDestroy {
   }
 
   private selectFilters(filters: Filters[]) {
-    filters.forEach(filter => this.selectFilter(filter));
+    const cached = [];
+    const notCached = filters.filter(f => {
+      if (this._photoUrlsCache.has(f)) {
+        cached.push(f);
+        return false;
+      }
+      return true;
+    });
+    this.photosService.getImages(notCached).pipe(take(1)).subscribe(
+      result => {
+        if (result && result.resources) {
+          console.log('Res', result.resources)
+          this.photoUrls = [...result.resources.map(r => r.url), ...cached.map(f => this._photoUrlsCache.get(f))];
+        }
+      },
+      error => console.error(error)
+    );
+    this.selectedFilters = filters;
   }
 
   private selectFilter(filter: Filters) {
