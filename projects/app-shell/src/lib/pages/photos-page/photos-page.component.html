@@ -2,30 +2,67 @@
     <div class="photos-header-wrap">
         <kk-text
             [content]="'OUR WORK'"
-            [isHeader]="true"
+            [size]="'3rem'"
         ></kk-text>
     </div>
     <div class="tags-wrap">
-        <span
-            *ngFor="let filter of filters"
-            class="tag-wrap"
-            [class.selected]="selectedFilters.includes(filter)"
-            (click)="toggleFilter(filter)"
-        >
-            <span class="tag-checkbox"></span>
-            <span class="filter-name">{{filter}}</span>
-        </span>
+        <div class="tab-checkbox-left-wrap">
+            <ng-container *ngFor="let filter of filters; let i = index">
+                <div
+                    *ngIf="i < 3"
+                    class="tag-wrap"
+                    [class.selected]="selectedFilters?.includes(filter)"
+                    (click)="toggleFilter(filter)"
+                >
+                    <span class="tag-checkbox"></span>
+                    <span class="filter-name">{{filter}}</span>
+                </div>
+            </ng-container>
+        </div>
+        <div class="tab-checkbox-right-wrap">
+            <ng-container *ngFor="let filter of filters; let i = index">
+                <div
+                    *ngIf="i >= 3"
+                    class="tag-wrap"
+                    [class.selected]="selectedFilters?.includes(filter)"
+                    (click)="toggleFilter(filter)"
+                >
+                    <span class="tag-checkbox"></span>
+                    <span class="filter-name">{{filter}}</span>
+                </div>
+            </ng-container>
+        </div>
     </div>
 </section>
 <section class="photos-section">
     <div class="photos-section-wrap">
-        <ng-container *ngFor="let url of photoUrls">
-            <div class="photo-wrap">
-                <img
-                    src="{{url}}"
-                    alt
+        <ng-container *ngIf="displayedImages.size; else Loading">
+            <ng-container *ngFor="let filter of selectedFilters; trackBy: trackByFn">
+                <div
+                    *ngFor="let url of displayedImages.get(filter); trackBy: trackByFn"
+                    class="photo-wrap"
                 >
-            </div>
+                    <img
+                        src="{{url}}"
+                        alt="{{filter}}"
+                    >
+                </div>
+            </ng-container>
         </ng-container>
     </div>
 </section>
+
+<ng-template #Loading>
+    <div class="photo-loading-wrap">
+        <div class="photo-loading"></div>
+    </div>
+    <div class="photo-loading-wrap">
+        <div class="photo-loading"></div>
+    </div>
+    <div class="photo-loading-wrap">
+        <div class="photo-loading"></div>
+    </div>
+    <div class="photo-loading-wrap">
+        <div class="photo-loading"></div>
+    </div>
+</ng-template>

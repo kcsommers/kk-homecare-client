@@ -4,19 +4,29 @@
     .photos-header-section {
         padding-top: 65px;
     }
+    .photos-header-wrap {
+        text-align: center;
+        padding-top: $kk-spacing-xl * 2;
+    }
+    .filter-name {
+        opacity: 0.75;
+        color: $primary;
+        margin-left: $kk-spacing-sm;
+    }
+    .tags-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: $kk-spacing-xl;
+    }
     .tag-wrap {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        justify-content: space-between;
-        border-radius: 5px;
         padding: $kk-spacing-sm $kk-spacing-md;
-        border: 1px solid #fff;
-        background-color: rgba($dark-gray,  0.1);
         cursor: pointer;
         &.selected {
-            background-color: rgba($dark-gray,  0.65);
             .filter-name {
-               color: #fff;
+               color: $accent;
+               opacity: 1;
             }
             .tag-checkbox {
                 &:before {
@@ -27,8 +37,8 @@
                   bottom: 5px;
                   left: 0;
                   right: -5px;
-                  border-left: 3px solid #fff;
-                  border-bottom: 3px solid #fff;
+                  border-left: 3px solid $accent;
+                  border-bottom: 3px solid $accent;
                   transform: rotate(-55deg) translate(2px);
                   border-radius: 3px;
                 }
@@ -49,18 +59,21 @@
     .photos-section-wrap {
         display: flex;
         flex-wrap: wrap;
-        padding: $kk-spacing-xl;
+        width: 90%;
+        padding: $kk-spacing-xl $kk-spacing-sm;
+        justify-content: center;
+        margin: 0 auto;
     }
     .photo-wrap {
-        background-color: #fff;
-        margin: $kk-spacing-sm;
-        max-width: 250px;
-        min-width: 250px;
+        margin-bottom: $kk-spacing-lg;
         height: 200px;
-        flex: 0 0 25%;
+        background-color: #fff;
+        margin: $kk-spacing-md;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: $kk-spacing-sm;
+        cursor: pointer;
         img {
             width: auto;
             align-self: center;
@@ -68,4 +81,26 @@
             max-height: 100%;
         }
     }
+    .photo-loading-wrap {
+        flex: 1;
+        margin: $kk-spacing-md;
+        padding: $kk-spacing-sm;
+        background-color: #fff;
+    }
+    .photo-loading {
+        height: 200px;
+        animation: photoLoading 2s ease infinite;
+    }
+}
+
+@keyframes photoLoading {
+  0% {
+    background-color: $offwhite;
+  }
+  50% {
+    background-color: rgba($primary, 0.2);
+  }
+  100% {
+    background-color: $offwhite;
+  }
 }
