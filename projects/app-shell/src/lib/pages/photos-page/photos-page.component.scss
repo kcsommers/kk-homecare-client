@@ -57,39 +57,19 @@
         }
     }
     .photos-section-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        width: 90%;
-        padding: $kk-spacing-xl $kk-spacing-sm;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(4, 200px);
+        column-gap: 1rem;
+        row-gap: 1rem;
+        width: 85%;
         margin: 0 auto;
     }
-    .photo-wrap {
-        margin-bottom: $kk-spacing-lg;
-        height: 200px;
-        background-color: #fff;
-        margin: $kk-spacing-md;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: $kk-spacing-sm;
-        cursor: pointer;
-        img {
-            width: auto;
-            align-self: center;
-            max-width: 100%;
-            max-height: 100%;
-        }
+    .kk-photo-wrap {
+        height: 100%;
     }
-    .photo-loading-wrap {
-        flex: 1;
-        margin: $kk-spacing-md;
-        padding: $kk-spacing-sm;
-        background-color: #fff;
-    }
-    .photo-loading {
-        height: 200px;
-        animation: photoLoading 2s ease infinite;
+    .kk-photo-hidden {
+        display: none;
     }
 }
 

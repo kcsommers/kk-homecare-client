@@ -35,34 +35,5 @@
     </div>
 </section>
 <section class="photos-section">
-    <div class="photos-section-wrap">
-        <ng-container *ngIf="displayedImages.size; else Loading">
-            <ng-container *ngFor="let filter of selectedFilters; trackBy: trackByFn">
-                <div
-                    *ngFor="let url of displayedImages.get(filter); trackBy: trackByFn"
-                    class="photo-wrap"
-                >
-                    <img
-                        src="{{url}}"
-                        alt="{{filter}}"
-                    >
-                </div>
-            </ng-container>
-        </ng-container>
-    </div>
+    <div class="photos-section-wrap"></div>
 </section>
-
-<ng-template #Loading>
-    <div class="photo-loading-wrap">
-        <div class="photo-loading"></div>
-    </div>
-    <div class="photo-loading-wrap">
-        <div class="photo-loading"></div>
-    </div>
-    <div class="photo-loading-wrap">
-        <div class="photo-loading"></div>
-    </div>
-    <div class="photo-loading-wrap">
-        <div class="photo-loading"></div>
-    </div>
-</ng-template>
