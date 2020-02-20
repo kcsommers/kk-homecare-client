@@ -76,14 +76,11 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
     this._observer = new IntersectionObserver(
       () => {
         this._currentIndex += 4;
-        if (this._currentIndex >= this._currentImages.length) {
-          this._observer.disconnect();
-        }
         this.appendImages();
       },
       {
         rootMargin: '0px',
-        threshold: 0.5
+        threshold: 0.25
       }
     );
     this._observer.observe(document.querySelector('footer'));
