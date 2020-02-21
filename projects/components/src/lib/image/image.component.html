@@ -1,0 +1,11 @@
+<img
+    #Image
+    [attr.src]="src"
+    [attr.alt]="alt"
+    [class.image-loading]="loaded$ | async"
+    (load)="onLoad()"
+>
+<div
+    *ngIf="loaded$ | async"
+    class="image-placeholder"
+></div>
