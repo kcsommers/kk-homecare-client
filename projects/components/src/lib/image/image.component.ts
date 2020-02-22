@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Filters } from '@kk/core';
 
 @Component({
   selector: 'kk-image',
@@ -12,6 +13,9 @@ export class ImageComponent implements OnInit {
 
   @Input()
   public alt: string;
+
+  @Input()
+  public tag: Filters;
 
   public loaded$ = new BehaviorSubject(false);
 

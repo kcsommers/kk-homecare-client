@@ -1,4 +1,4 @@
-import { Component, OnDestroy, HostListener, OnInit, Renderer2, ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnDestroy, HostListener, OnInit, Renderer2, ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentRef, ViewChildren, QueryList, ViewRef } from '@angular/core';
 import { Subscription, Subject } from 'rxjs';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PhotosService } from 'projects/core/src/lib/services/photos.service';
@@ -30,27 +30,29 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
     Filters.RESIDENTIAL
   ];
 
+  public selectedFilters: Filters[] = [];
+
   private _destroy = new Subject();
 
   private _initialVisit = true;
 
-  private _imageCache = new Map<Filters, ComponentRef<ImageComponent>[]>();
+  private _displayedImages = new Map<Filters, ViewRef[]>();
 
-  public selectedFilters: Filters[] = [];
+  private _filteredImages = new Map<Filters, ViewRef[]>();
 
   private _observer: IntersectionObserver;
 
+  private _offset = 0;
+
+  private _totalPhotos: number;
+
   @ViewChild('PhotosContainer', { static: false, read: ViewContainerRef })
   private photosContainer: ViewContainerRef;
-
-  @ViewChildren(ImageComponent)
-  private imageComponents: QueryList<ImageComponent>;
 
   constructor(
     private _router: Router,
     private _route: ActivatedRoute,
     private _photosService: PhotosService,
-    private _renderer: Renderer2,
     private cfr: ComponentFactoryResolver
   ) {
     this._route.queryParams
@@ -65,40 +67,39 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
               .split(',')
               .filter((f: Filters) => this.filters.includes(f)) as Filters[]
               : [...this.filters];
-            const newFilters = this.selectedFilters.filter(f => !filtersCopy.includes(f));
             this.updateUrl();
-            this.fetchImages(newFilters);
           }
         }
       );
   }
 
   ngOnInit(): void {
-    this._observer = new IntersectionObserver(
-      () => {
-
-      },
-      {
-        rootMargin: '0px',
-        threshold: 0.25
-      }
-    );
-    this._observer.observe(document.querySelector('footer'));
+    this.observe();
   }
 
   ngOnDestroy(): void {
     this._destroy.next(false);
     this._destroy.complete();
-    this._observer.disconnect();
+    if (this._observer) {
+      this._observer.disconnect();
+    }
   }
 
   public toggleFilter(filter: Filters): void {
     if (this.selectedFilters.includes(filter)) {
       // remove filter
       this.selectedFilters.splice(this.selectedFilters.indexOf(filter), 1);
+      this.detachImages(filter);
     } else {
       // add filter
       this.selectedFilters.push(filter);
+      // reset total images because we'll be getting a new result from server
+      this._totalPhotos = undefined;
+      // reconnect observer because we may need to fetch more
+      if (!this._observer) {
+        this.observe();
+      }
+      this.fetchImages([filter]);
     }
     this.updateUrl();
   }
@@ -108,39 +109,49 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
     const imgComp = this.photosContainer.createComponent(factory);
     imgComp.instance.alt = `${img.tag} photo`;
     imgComp.instance.src = img.url;
+    imgComp.instance.tag = img.tag;
     return imgComp;
   }
 
   private fetchImages(filters: Filters[]): void {
     if (filters && filters.length) {
-      const cachedImages: ComponentRef<ImageComponent>[] = [];
-      // tslint:disable-next-line: prefer-for-of
+      const filteredImages: ViewRef[] = [];
       for (let i = 0; i < filters.length; i++) {
-        if (this._imageCache.has(filters[i])) {
-          const cached = this._imageCache.get(filters[i]);
-          // tslint:disable-next-line: prefer-for-of
-          for (let j = 0; j < cached.length; j++) {
-            cachedImages.push(cached[j]);
-            if (cachedImages.length === 8) {
-              break;
-            }
-          }
+        // Get any images that have already been created and detached
+        if (this._filteredImages.has(filters[i])) {
+          filteredImages.splice(filteredImages.length, 0, ...this._filteredImages.get(filters[i]))
         }
+        this._filteredImages.set(filters[i], []);
       }
-      this.attachImages(cachedImages);
-      if (cachedImages.length < 8) {
-        this._photosService.getImages(filters) // send toFetch
+      // attach any cached images
+      console.log('ATTACHING:::: ', filteredImages)
+      this.attachImages(filteredImages);
+
+      // if less than 8 photos were reattached, fetch as many needed to equal 8
+      if (filteredImages.length < 8) {
+        this._photosService.getImages(
+          filters,
+          8 - filteredImages.length,
+          this._offset,
+          this._totalPhotos === undefined
+        )
           .pipe(take(1))
           .subscribe(
-            (images: ImageModel[]) => {
-              // set new filters in photos cache
-              images.forEach(img => {
+            (result: { images: ImageModel[], total: number }) => {
+              // store total amount of photos with selected filters
+              this._totalPhotos = result.total;
+              // increase the offset of fetched photos
+              this._offset += result.images.length;
+              result.images.forEach(img => {
+                // create new image component for each new image
                 const imgComponent = this.createImageComponent(img);
-                if (this._imageCache.has(img.tag)) {
-                  this._imageCache.get(img.tag).push(imgComponent);
+                // store the host view in display image cache
+                if (this._displayedImages.has(img.tag)) {
+                  this._displayedImages.get(img.tag).push(imgComponent.hostView);
                 } else {
-                  this._imageCache.set(img.tag, [imgComponent]);
+                  this._displayedImages.set(img.tag, [imgComponent.hostView]);
                 }
+                console.log('SET DIDSPLAY:::: ', this._displayedImages.get(img.tag))
               });
             },
             err => console.error(err)
@@ -149,40 +160,50 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  private attachImages(images: ComponentRef<ImageComponent>[]): void {
-    images.forEach(imgComp => {
-      this.photosContainer.insert(imgComp.hostView);
-    });
+  private observe(): void {
+    // intersection observer fetches images whenever the footer enters the viewport
+    this._observer = new IntersectionObserver(
+      () => {
+        // if (this._totalPhotos && this._offset >= this._totalPhotos) {
+        //   this.disconnectObserver();
+        // } else {
+        //   this.fetchImages(this.selectedFilters);
+        // }
+        this.fetchImages(this.selectedFilters)
+      },
+      {
+        rootMargin: '0px',
+        threshold: 0.25
+      }
+    );
+    this._observer.observe(document.querySelector('footer'));
   }
 
-  private detachImages() { }
+  private disconnectObserver(): void {
+    this._observer.disconnect();
+    this._observer = undefined;
+  }
 
+  private attachImages(imageViews: ViewRef[]): void {
+    imageViews.forEach(v => this.photosContainer.insert(v));
+  }
 
-  // private appendImages(): void {
-  //   console.log('IMage data', this._currentIndex, this._currentImages)
-  //   for (let i = 0; i < this._currentIndex; i++) {
-  //     const imageData = this._currentImages[i];
-  //     if (imageData && !imageData.loaded) {
-  //       imageData.loaded = true;
-  //       const imgEl: HTMLImageElement = document.createElement('img');
-  //       imgEl.src = imageData.src;
-  //       imgEl.alt = `${imageData.filter} photo`;
-  //       imgEl.style.maxWidth = '100%';
-  //       imgEl.style.width = 'auto';
-  //       imgEl.style.maxHeight = '100%';
-  //       const imgWrap: HTMLDivElement = document.createElement('div');
-  //       imgWrap.classList.add(`kk-photo-${imageData.filter}`);
-  //       imgWrap.classList.add('kk-photo-wrap');
-  //       imgWrap.style.height = '100%';
-  //       imgWrap.style.background = '#fff';
-  //       imgWrap.style.display = 'flex';
-  //       imgWrap.style.alignItems = 'center';
-  //       imgWrap.style.justifyContent = 'center';
-  //       imgWrap.appendChild(imgEl);
-  //       document.querySelector('.photos-section-wrap').appendChild(imgWrap);
-  //     }
-  //   }
-  // }
+  private detachImages(filter: Filters): void {
+    // get images to remove from displayed cache using the deselected filter
+    const toRemove = this._displayedImages.get(filter);
+    console.log('DETACH:::: ', toRemove)
+    toRemove.forEach(view => {
+      // detach image from view container
+      const detachedView = this.photosContainer.detach(this.photosContainer.indexOf(view));
+      if (this._filteredImages.has(filter)) {
+        this._filteredImages.get(filter).push(detachedView);
+      } else {
+        this._filteredImages.set(filter, [detachedView]);
+      }
+    });
+    // empty displayed images cache
+    this._displayedImages.set(filter, []);
+  }
 
   private updateUrl(): void {
     this._router.navigate([], {

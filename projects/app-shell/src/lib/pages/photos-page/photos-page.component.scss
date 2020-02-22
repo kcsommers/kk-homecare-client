@@ -56,31 +56,16 @@
             display: none;
         }
     }
+    .photos-section {
+        padding: $kk-spacing-xl * 2 0;
+    }
     .photos-section-wrap {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: repeat(4, 200px);
+        grid-auto-rows: 200px;
         column-gap: 1rem;
-        row-gap: 1rem;
+        row-gap: 1.5rem;
         width: 85%;
         margin: 0 auto;
     }
-    .kk-photo-wrap {
-        height: 100%;
-    }
-    .kk-photo-hidden {
-        display: none;
-    }
-}
-
-@keyframes photoLoading {
-  0% {
-    background-color: $offwhite;
-  }
-  50% {
-    background-color: rgba($primary, 0.2);
-  }
-  100% {
-    background-color: $offwhite;
-  }
 }
