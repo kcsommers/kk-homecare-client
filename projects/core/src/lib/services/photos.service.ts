@@ -10,7 +10,11 @@ import { Filters } from '../data';
 export class PhotosService {
   constructor(private http: HttpClient) { }
 
-  public getImages(filters: Filters[], limit: number, offset: number, includeTotal: boolean): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/photos`, { filters, limit, offset, includeTotal });
+  public getImages(
+    filters: Filters[],
+    limit: number,
+    offsets: { [filter: string]: number }
+  ): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/photos`, { filters, limit, offsets });
   }
 }

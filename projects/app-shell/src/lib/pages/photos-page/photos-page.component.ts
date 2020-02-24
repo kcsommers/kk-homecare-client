@@ -34,15 +34,23 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
 
   private _destroy = new Subject();
 
-  private _initialVisit = true;
+  private _displayedImages = new Map<Filters, ViewRef[]>([
+    [Filters.CLEANING, []],
+    [Filters.COMMERCIAL, []],
+    [Filters.LANDSCAPING, []],
+    [Filters.PAINTING, []],
+    [Filters.RESIDENTIAL, []]
+  ]);
 
-  private _displayedImages = new Map<Filters, ViewRef[]>();
-
-  private _filteredImages = new Map<Filters, ViewRef[]>();
+  private _filteredCache = new Map<Filters, ViewRef[]>([
+    [Filters.CLEANING, []],
+    [Filters.COMMERCIAL, []],
+    [Filters.LANDSCAPING, []],
+    [Filters.PAINTING, []],
+    [Filters.RESIDENTIAL, []]
+  ]);
 
   private _observer: IntersectionObserver;
-
-  private _offset = 0;
 
   private _totalPhotos: number;
 
@@ -53,20 +61,21 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
     private _router: Router,
     private _route: ActivatedRoute,
     private _photosService: PhotosService,
-    private cfr: ComponentFactoryResolver
+    private _cfr: ComponentFactoryResolver
   ) {
     this._route.queryParams
-      .pipe(takeUntil(this._destroy))
+      .pipe(take(1))
       .subscribe(
         (params: PhotosPageParams) => {
-          if (this._initialVisit) {
-            this._initialVisit = false;
-            const filtersCopy = [...this.selectedFilters];
-            this.selectedFilters = (params && params.filters) ? params.filters
+          // On first page load set the selected filters based on params if any
+          if (params && params.filters) {
+            this.selectedFilters = params.filters
               .replace(' ', '')
               .split(',')
-              .filter((f: Filters) => this.filters.includes(f)) as Filters[]
-              : [...this.filters];
+              .filter((f: Filters) => this.filters.includes(f)) as Filters[];
+          } else {
+            // if no params, update url with all filters
+            this.selectedFilters = [...this.filters];
             this.updateUrl();
           }
         }
@@ -85,27 +94,71 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  public toggleFilter(filter: Filters): void {
-    if (this.selectedFilters.includes(filter)) {
-      // remove filter
-      this.selectedFilters.splice(this.selectedFilters.indexOf(filter), 1);
-      this.detachImages(filter);
-    } else {
-      // add filter
-      this.selectedFilters.push(filter);
-      // reset total images because we'll be getting a new result from server
-      this._totalPhotos = undefined;
-      // reconnect observer because we may need to fetch more
-      if (!this._observer) {
-        this.observe();
+  private observe(): void {
+    // intersection observer fetches images whenever the footer enters the viewport
+    this._observer = new IntersectionObserver(
+      this.load.bind(this),
+      {
+        rootMargin: '0px',
+        threshold: 1
       }
-      this.fetchImages([filter]);
+    );
+    this._observer.observe(document.querySelector('footer'));
+  }
+
+  private load() {
+    const totalReattached = this.attachImages(this.selectedFilters);
+    console.log('Loading: ', totalReattached)
+    if (totalReattached < 4) {
+      this.fetchImages(4 - totalReattached);
     }
-    this.updateUrl();
+  }
+
+  private attachImages(filters: Filters[]): number {
+    let total = 0;
+    filters.forEach(filter => {
+      this._filteredCache.get(filter).forEach(image => {
+        this.photosContainer.insert(image);
+        total += 1;
+      });
+    });
+    return total;
+  }
+
+  private fetchImages(count: number): void {
+    this._photosService.getImages(
+      this.selectedFilters,
+      count,
+      this.selectedFilters.reduce(this.countImagesByFilter.bind(this), {})
+    )
+      .pipe(take(1))
+      .subscribe(
+        (result: { images: ImageModel[], total: number }) => {
+          // increase the offset of fetched photos
+          result.images.forEach(img => {
+            // create new image component for each new image
+            const imgComponent = this.createImageComponent(img);
+            // store the host view in displayed image cache
+            this._displayedImages.get(img.tag).push(imgComponent.hostView);
+          });
+        },
+        err => console.error(err)
+      );
+  }
+
+  // called by reduce method on selectedfilters
+  private countImagesByFilter(
+    counts: { [filters: string]: number },
+    filter: Filters
+  ): { [filters: string]: number } {
+    const displayedCount = this._displayedImages.get(filter).length;
+    const filteredCount = this._filteredCache.get(filter).length;
+    counts[filter] = displayedCount + filteredCount;
+    return counts;
   }
 
   private createImageComponent(img: ImageModel): ComponentRef<ImageComponent> {
-    const factory = this.cfr.resolveComponentFactory(ImageComponent);
+    const factory = this._cfr.resolveComponentFactory(ImageComponent);
     const imgComp = this.photosContainer.createComponent(factory);
     imgComp.instance.alt = `${img.tag} photo`;
     imgComp.instance.src = img.url;
@@ -113,93 +166,31 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
     return imgComp;
   }
 
-  private fetchImages(filters: Filters[]): void {
-    if (filters && filters.length) {
-      const filteredImages: ViewRef[] = [];
-      for (let i = 0; i < filters.length; i++) {
-        // Get any images that have already been created and detached
-        if (this._filteredImages.has(filters[i])) {
-          filteredImages.splice(filteredImages.length, 0, ...this._filteredImages.get(filters[i]))
-        }
-        this._filteredImages.set(filters[i], []);
+  public toggleFilter(filter: Filters): void {
+    if (this.selectedFilters.includes(filter)) {
+      // remove filter
+      this.selectedFilters.splice(this.selectedFilters.indexOf(filter), 1);
+      this.detachImages(filter);
+      if (this.photosContainer.length < 4) {
+        this.fetchImages(4 - this.photosContainer.length);
       }
-      // attach any cached images
-      console.log('ATTACHING:::: ', filteredImages)
-      this.attachImages(filteredImages);
-
-      // if less than 8 photos were reattached, fetch as many needed to equal 8
-      if (filteredImages.length < 8) {
-        this._photosService.getImages(
-          filters,
-          8 - filteredImages.length,
-          this._offset,
-          this._totalPhotos === undefined
-        )
-          .pipe(take(1))
-          .subscribe(
-            (result: { images: ImageModel[], total: number }) => {
-              // store total amount of photos with selected filters
-              this._totalPhotos = result.total;
-              // increase the offset of fetched photos
-              this._offset += result.images.length;
-              result.images.forEach(img => {
-                // create new image component for each new image
-                const imgComponent = this.createImageComponent(img);
-                // store the host view in display image cache
-                if (this._displayedImages.has(img.tag)) {
-                  this._displayedImages.get(img.tag).push(imgComponent.hostView);
-                } else {
-                  this._displayedImages.set(img.tag, [imgComponent.hostView]);
-                }
-                console.log('SET DIDSPLAY:::: ', this._displayedImages.get(img.tag))
-              });
-            },
-            err => console.error(err)
-          );
-      }
+    } else {
+      // add filter
+      this.selectedFilters.push(filter);
+      // reset total images because we'll be getting a new result from server
+      this._totalPhotos = undefined;
+      this.attachImages([filter]);
     }
-  }
-
-  private observe(): void {
-    // intersection observer fetches images whenever the footer enters the viewport
-    this._observer = new IntersectionObserver(
-      () => {
-        // if (this._totalPhotos && this._offset >= this._totalPhotos) {
-        //   this.disconnectObserver();
-        // } else {
-        //   this.fetchImages(this.selectedFilters);
-        // }
-        this.fetchImages(this.selectedFilters)
-      },
-      {
-        rootMargin: '0px',
-        threshold: 0.25
-      }
-    );
-    this._observer.observe(document.querySelector('footer'));
-  }
-
-  private disconnectObserver(): void {
-    this._observer.disconnect();
-    this._observer = undefined;
-  }
-
-  private attachImages(imageViews: ViewRef[]): void {
-    imageViews.forEach(v => this.photosContainer.insert(v));
+    this.updateUrl();
   }
 
   private detachImages(filter: Filters): void {
     // get images to remove from displayed cache using the deselected filter
     const toRemove = this._displayedImages.get(filter);
-    console.log('DETACH:::: ', toRemove)
     toRemove.forEach(view => {
       // detach image from view container
       const detachedView = this.photosContainer.detach(this.photosContainer.indexOf(view));
-      if (this._filteredImages.has(filter)) {
-        this._filteredImages.get(filter).push(detachedView);
-      } else {
-        this._filteredImages.set(filter, [detachedView]);
-      }
+      this._filteredCache.get(filter).push(detachedView);
     });
     // empty displayed images cache
     this._displayedImages.set(filter, []);
@@ -212,5 +203,10 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
       },
       queryParamsHandling: 'merge'
     });
+  }
+
+  private disconnectObserver(): void {
+    this._observer.disconnect();
+    this._observer = undefined;
   }
 }
