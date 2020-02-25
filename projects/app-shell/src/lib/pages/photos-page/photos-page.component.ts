@@ -36,7 +36,7 @@ export class PhotosPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (!!window.IntersectionObserver) {
+    if ('IntersectionObserver' in window) {
       this._intersectionObserver = new IntersectionObserver(
         () => {
           // Only load more if scrolling down
