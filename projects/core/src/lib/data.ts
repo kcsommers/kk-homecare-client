@@ -112,3 +112,9 @@ export enum Filters {
   COMMERCIAL = 'commercial',
   RESIDENTIAL = 'residential'
 }
+
+export interface ImageModel {
+  _id: string,
+  url: string;
+  tag: Filters;
+}

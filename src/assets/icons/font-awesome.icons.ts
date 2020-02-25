@@ -7,7 +7,8 @@ import {
   faBirthdayCake,
   faSun,
   faAngleLeft,
-  faAngleRight
+  faAngleRight,
+  faSpinner
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook,
@@ -35,7 +36,8 @@ export class FaIconsComponent {
       faAngleRight,
       faAngleLeft,
       faInstagram,
-      faFacebookF
+      faFacebookF,
+      faSpinner
     );
   }
 }

@@ -2,36 +2,8 @@
     <div class="photos-header-wrap">
         <kk-text
             [content]="'OUR WORK'"
-            [size]="'3rem'"
+            [isHeader]="true"
         ></kk-text>
-    </div>
-    <div class="tags-wrap">
-        <div class="tab-checkbox-left-wrap">
-            <ng-container *ngFor="let filter of filters; let i = index">
-                <div
-                    *ngIf="i < 3"
-                    class="tag-wrap"
-                    [class.selected]="selectedFilters?.includes(filter)"
-                    (click)="toggleFilter(filter)"
-                >
-                    <span class="tag-checkbox"></span>
-                    <span class="filter-name">{{filter}}</span>
-                </div>
-            </ng-container>
-        </div>
-        <div class="tab-checkbox-right-wrap">
-            <ng-container *ngFor="let filter of filters; let i = index">
-                <div
-                    *ngIf="i >= 3"
-                    class="tag-wrap"
-                    [class.selected]="selectedFilters?.includes(filter)"
-                    (click)="toggleFilter(filter)"
-                >
-                    <span class="tag-checkbox"></span>
-                    <span class="filter-name">{{filter}}</span>
-                </div>
-            </ng-container>
-        </div>
     </div>
 </section>
 <section class="photos-section">
@@ -39,3 +11,4 @@
         <ng-container #PhotosContainer></ng-container>
     </div>
 </section>
+<kk-lightbox></kk-lightbox>

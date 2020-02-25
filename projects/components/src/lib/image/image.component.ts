@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding, HostListener, Output, EventEmitter } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Filters } from '@kk/core';
+import { ImageModel } from '@kk/core';
 
 @Component({
   selector: 'kk-image',
@@ -8,14 +8,29 @@ import { Filters } from '@kk/core';
   styleUrls: ['./image.component.scss']
 })
 export class ImageComponent implements OnInit {
-  @Input()
-  public src: string;
+  private _image: ImageModel;
+
+  @Output()
+  public imageSelected = new EventEmitter<ImageModel>();
+
+  @HostBinding('class.slide-in')
+  private slideIn = true;
+
+  @HostListener('click', ['$event'])
+  private onClick(e: MouseEvent) {
+    e.stopPropagation();
+    this.imageSelected.emit(this._image);
+  }
 
   @Input()
-  public alt: string;
+  public set image(img: ImageModel) {
+    this.loaded$.next(false);
+    this._image = img;
+  };
 
-  @Input()
-  public tag: Filters;
+  public get image(): ImageModel {
+    return this._image;
+  }
 
   public loaded$ = new BehaviorSubject(false);
 

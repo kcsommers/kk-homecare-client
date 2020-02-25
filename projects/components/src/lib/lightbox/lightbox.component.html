@@ -1,0 +1,8 @@
+<ng-container #LightboxContainer></ng-container>
+<ng-template #LightboxTemplate>
+    <div class="lightbox-container">
+        <div class="lightbox-image-wrap">
+            <kk-image [image]="lightboxService.currentImage$ | async"></kk-image>
+        </div>
+    </div>
+</ng-template>

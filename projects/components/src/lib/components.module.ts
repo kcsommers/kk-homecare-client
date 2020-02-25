@@ -10,6 +10,8 @@ import { ServiceCardComponent } from './service-card/service-card.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { ParallaxImageDirective } from './directives/parallax-image/parallax-image.directive';
 import { ImageComponent } from './image/image.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { LightboxComponent } from './lightbox/lightbox.component';
 
 const apiKey = 'AIzaSyCiOpWBea90oaarpYelbTYeI_-0ajplfQw';
 const clientId = '671573167109-mgtqvm775p8o36tft3tmd2uitbhdm772.apps.googleusercontent.com';
@@ -22,7 +24,9 @@ const components = [
   ServiceCardComponent,
   ServiceListComponent,
   ParallaxImageDirective,
-  ImageComponent
+  ImageComponent,
+  LoadingSpinnerComponent,
+  LightboxComponent
 ];
 
 @NgModule({

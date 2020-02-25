@@ -1,60 +1,14 @@
 @import '_variables';
 
 :host {
+    display: block;
+    min-height: $kk-min-height;
     .photos-header-section {
         padding-top: 65px;
     }
     .photos-header-wrap {
         text-align: center;
-        padding-top: $kk-spacing-xl * 2;
-    }
-    .filter-name {
-        opacity: 0.75;
-        color: $primary;
-        margin-left: $kk-spacing-sm;
-    }
-    .tags-wrap {
-        display: flex;
-        justify-content: center;
-        margin-top: $kk-spacing-xl;
-    }
-    .tag-wrap {
-        display: flex;
-        align-items: center;
-        padding: $kk-spacing-sm $kk-spacing-md;
-        cursor: pointer;
-        &.selected {
-            .filter-name {
-               color: $accent;
-               opacity: 1;
-            }
-            .tag-checkbox {
-                &:before {
-                  content: '';
-                  display: inline-block;
-                  position: absolute;
-                  top: 0;
-                  bottom: 5px;
-                  left: 0;
-                  right: -5px;
-                  border-left: 3px solid $accent;
-                  border-bottom: 3px solid $accent;
-                  transform: rotate(-55deg) translate(2px);
-                  border-radius: 3px;
-                }
-            }
-        }
-    }
-    .tag-checkbox {
-        width: 15px;
-        height: 15px;
-        border-radius: 3px;
-        border: 1px solid $gray;
-        margin-right: $kk-spacing-sm;
-        position: relative;
-        &:before {
-            display: none;
-        }
+        padding: $kk-spacing-xl * 4 $kk-spacing-md $kk-spacing-md $kk-spacing-md;
     }
     .photos-section {
         padding: $kk-spacing-xl * 2 0;
@@ -68,4 +22,52 @@
         width: 85%;
         margin: 0 auto;
     }
+    // .filter-name {
+    //     opacity: 0.75;
+    //     color: $primary;
+    //     margin-left: $kk-spacing-sm;
+    // }
+    // .tags-wrap {
+    //     display: flex;
+    //     justify-content: center;
+    //     margin-top: $kk-spacing-xl;
+    // }
+    // .tag-wrap {
+    //     display: flex;
+    //     align-items: center;
+    //     padding: $kk-spacing-sm $kk-spacing-md;
+    //     cursor: pointer;
+    //     &.selected {
+    //         .filter-name {
+    //            color: $accent;
+    //            opacity: 1;
+    //         }
+    //         .tag-checkbox {
+    //             &:before {
+    //               content: '';
+    //               display: inline-block;
+    //               position: absolute;
+    //               top: 0;
+    //               bottom: 5px;
+    //               left: 0;
+    //               right: -5px;
+    //               border-left: 3px solid $accent;
+    //               border-bottom: 3px solid $accent;
+    //               transform: rotate(-55deg) translate(2px);
+    //               border-radius: 3px;
+    //             }
+    //         }
+    //     }
+    // }
+    // .tag-checkbox {
+    //     width: 15px;
+    //     height: 15px;
+    //     border-radius: 3px;
+    //     border: 1px solid $gray;
+    //     margin-right: $kk-spacing-sm;
+    //     position: relative;
+    //     &:before {
+    //         display: none;
+    //     }
+    // }
 }

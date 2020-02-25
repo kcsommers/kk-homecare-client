@@ -1,0 +1,20 @@
+@import '_variables';
+:host {
+    .loading-spinner-wrap {
+        display: inline-block;
+        animation: spin 1s linear infinite;
+        fa-icon {
+            color: $primary;
+        }
+    }
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}

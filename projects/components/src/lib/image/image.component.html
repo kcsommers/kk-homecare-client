@@ -1,12 +1,13 @@
-<!-- <img
+<img
     #Image
-    [attr.src]="src"
-    [attr.alt]="alt"
-    [class.image-loading]="loaded$ | async"
+    [attr.src]="image?.url"
+    [attr.alt]="image?.tag + ' photo'"
+    [class.image-loading]="!(loaded$ | async)"
     (load)="onLoad()"
-> -->
-<p>{{tag}}</p>
-<!-- <div
-    *ngIf="loaded$ | async"
+>
+<div
+    *ngIf="!(loaded$ | async)"
     class="image-placeholder"
-></div> -->
+>
+    <kk-loading-spinner></kk-loading-spinner>
+</div>
