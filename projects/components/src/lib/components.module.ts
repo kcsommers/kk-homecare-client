@@ -12,6 +12,7 @@ import { ParallaxImageDirective } from './directives/parallax-image/parallax-ima
 import { ImageComponent } from './image/image.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { LightboxComponent } from './lightbox/lightbox.component';
+import { ToggleComponent } from './toggle/toggle.component';
 
 const apiKey = 'AIzaSyCiOpWBea90oaarpYelbTYeI_-0ajplfQw';
 const clientId = '671573167109-mgtqvm775p8o36tft3tmd2uitbhdm772.apps.googleusercontent.com';
@@ -26,7 +27,8 @@ const components = [
   ParallaxImageDirective,
   ImageComponent,
   LoadingSpinnerComponent,
-  LightboxComponent
+  LightboxComponent,
+  ToggleComponent
 ];
 
 @NgModule({

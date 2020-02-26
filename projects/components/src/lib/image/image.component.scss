@@ -3,16 +3,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    // background-color: #fff;
     cursor: pointer;
     position: relative;
+    z-index: 400;
+
     &.slide-in {
         animation: slideIn 0.5s ease forwards;
+    }
+    &.hover-grow:hover {
+        z-index: 401;
+        img {
+            transform: scale(1.15);
+        }
     }
     img {
         width: auto;
         max-width: 100%;
         max-height: 100%;
+        transition: all 0.5s ease;
     }
     .image-loading {
         display: none;
@@ -20,10 +29,12 @@
     .image-placeholder {
         width: 100%;
         height: 100%;
-        background-color: rgba($gray, 0.5);
         display: flex;
         align-items: center;
         justify-content: center;
+        &.use-background-color {
+            background-color: rgba($gray, 0.5);
+        }
     }
 }
 

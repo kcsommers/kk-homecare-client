@@ -8,10 +8,18 @@
     }
     .photos-header-wrap {
         text-align: center;
-        padding: $kk-spacing-xl * 4 $kk-spacing-md $kk-spacing-md $kk-spacing-md;
+        padding-top: $kk-spacing-xl * 4;
+    }
+    .before-after-toggle-wrap {
+        display: flex;
+        width: 85%;
+        margin: $kk-spacing-xl auto 0 auto;
+    }
+    .before-after-label-wrap {
+        margin-right: $kk-spacing-lg;
     }
     .photos-section {
-        padding: $kk-spacing-xl * 2 0;
+        margin: $kk-spacing-xl 0;
     }
     .photos-section-wrap {
         display: grid;
@@ -20,7 +28,17 @@
         column-gap: 1rem;
         row-gap: 1.5rem;
         width: 85%;
+        background-color: #fff;
+        padding: $kk-spacing-md;
         margin: 0 auto;
+        &.hidden {
+            display: none;
+        }
+    }
+    .before-after-wrap {
+        &.hidden {
+            display: none;
+        }
     }
     // .filter-name {
     //     opacity: 0.75;

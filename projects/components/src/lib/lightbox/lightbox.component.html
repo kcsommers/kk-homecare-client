@@ -2,7 +2,28 @@
 <ng-template #LightboxTemplate>
     <div class="lightbox-container">
         <div class="lightbox-image-wrap">
-            <kk-image [image]="lightboxService.currentImage$ | async"></kk-image>
+            <kk-image
+                [image]="lightboxService.currentImage$ | async"
+                [placeholderBackground]="false"
+            ></kk-image>
         </div>
+        <span
+            class="lightbox-arrow-left"
+            (click)="$event.stopPropagation(); lightboxService.prev()"
+        >
+            <fa-icon
+                [icon]="'angle-left'"
+                [size]="'4x'"
+            ></fa-icon>
+        </span>
+        <span
+            class="lightbox-arrow-right"
+            (click)="$event.stopPropagation(); lightboxService.next()"
+        >
+            <fa-icon
+                [icon]="'angle-right'"
+                [size]="'4x'"
+            ></fa-icon>
+        </span>
     </div>
 </ng-template>

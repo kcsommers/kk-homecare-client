@@ -116,5 +116,22 @@ export enum Filters {
 export interface ImageModel {
   _id: string,
   url: string;
-  tag: Filters;
+  tag?: Filters;
+}
+
+export interface BeforeAfterModel {
+  _id: string;
+  beforeUrl: string;
+  afterUrl: string;
+}
+
+export interface PhotosResponse {
+  error: Error;
+  images: ImageModel[];
+  total: number;
+}
+
+export interface BeforeAfterResponse {
+  error: Error;
+  images: BeforeAfterModel[];
 }

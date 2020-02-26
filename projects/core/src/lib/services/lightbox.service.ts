@@ -21,10 +21,12 @@ export class LightboxService {
   public open(images: ImageModel[], currentIndex: number, total: number): void {
     this._currentIndex = currentIndex;
     this.setImages(images, total);
+    document.querySelector('html').style.overflowY = 'hidden';
     this.open$.next(true);
   }
 
   public close(): void {
+    document.querySelector('html').style.overflowY = 'initial';
     this.open$.next(false);
   }
 

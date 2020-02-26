@@ -1,8 +1,8 @@
-import { Component, OnDestroy, HostListener, OnInit, Renderer2, ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentRef, ViewChildren, QueryList, ViewRef, AfterViewInit } from '@angular/core';
+import { Component, OnDestroy, HostListener, OnInit, Renderer2, ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentRef, ViewChildren, QueryList, ViewRef, AfterViewInit, HostBinding } from '@angular/core';
 import { Subscription, Subject } from 'rxjs';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PhotosService } from 'projects/core/src/lib/services/photos.service';
-import { Filters, ImageModel } from '@kk/core';
+import { Filters, ImageModel, PhotosResponse, BeforeAfterResponse, BeforeAfterModel } from '@kk/core';
 import { take, takeUntil } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { ImageComponent } from 'projects/components/src/lib/image/image.component';
@@ -20,14 +20,19 @@ export class PhotosPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private _totalPhotos: number;
 
-  private _offset = 0;
+  private _beforeAfterOffset = 0;
 
   private _prevScrollY = window.scrollY - 1;
 
   private _imageCache: ImageModel[] = [];
 
+  public showBeforeAfter = false;
+
   @ViewChild('PhotosContainer', { static: false, read: ViewContainerRef })
   private _photosContainer: ViewContainerRef;
+
+  @ViewChild('BeforeAfterContainer', { static: false, read: ViewContainerRef })
+  private _beforeAfterContainer: ViewContainerRef;
 
   constructor(
     private _photosService: PhotosService,
@@ -65,9 +70,18 @@ export class PhotosPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private load(fetchAll = false) {
-    this._photosService.getImages(4, !this._totalPhotos, fetchAll)
+    if (this.showBeforeAfter) {
+      this.getBeforeAfterPhotos();
+    } else {
+      this.getRegularPhotos(fetchAll);
+    }
+  }
+
+  private getRegularPhotos(fetchAll: boolean) {
+    this._photosService.getRegularPhotos(4, !this._totalPhotos, fetchAll)
+      .pipe(take(1))
       .subscribe(
-        (result: { images: ImageModel[], error: Error, total: number }) => {
+        (result: PhotosResponse) => {
           if (result.error) {
             console.error(result.error);
           } else {
@@ -88,6 +102,36 @@ export class PhotosPageComponent implements OnInit, AfterViewInit, OnDestroy {
               // if no images are returned all have been retrieved, so stop observing
               this._intersectionObserver.disconnect();
               this._intersectionObserver = undefined;
+            }
+          }
+        },
+        err => console.error(err)
+      );
+  }
+
+  private createBeforeAfterImages(beforeAfter: BeforeAfterModel) {
+    const factory = this._photosService.cfr.resolveComponentFactory(ImageComponent);
+    const beforeImage = this._beforeAfterContainer.createComponent(factory);
+    const afterImage = this._beforeAfterContainer.createComponent(factory);
+    beforeImage.instance.image = { _id: beforeAfter._id, url: beforeAfter.beforeUrl };
+    afterImage.instance.image = { _id: beforeAfter._id, url: beforeAfter.afterUrl };
+  }
+
+  private getBeforeAfterPhotos(fetchAll = false) {
+    this._photosService.getBeforeAfterPhotos(this._beforeAfterOffset, fetchAll)
+      .pipe(take(1))
+      .subscribe(
+        (result: BeforeAfterResponse) => {
+          if (result.error) {
+            console.error(result.error);
+          } else {
+            if (result.images && result.images.length) {
+              result.images.forEach(img => this.createBeforeAfterImages(img));
+              // keep loading if footer is still in viewport
+              const footer = document.querySelector('footer');
+              if (footer.getBoundingClientRect().top < window.innerHeight) {
+                this.load();
+              }
             }
           }
         },

@@ -5,10 +5,27 @@
             [isHeader]="true"
         ></kk-text>
     </div>
+    <div class="before-after-toggle-wrap">
+        <div class="before-after-label-wrap">
+            <kk-text [content]="'Before and After'"></kk-text>
+        </div>
+        <kk-toggle (isToggledChange)="showBeforeAfter = $event"></kk-toggle>
+    </div>
 </section>
 <section class="photos-section">
-    <div class="photos-section-wrap">
+    <div
+        class="photos-section-wrap"
+        [class.hidden]="showBeforeAfter"
+    >
         <ng-container #PhotosContainer></ng-container>
+    </div>
+    <div
+        class="before-after-wrap"
+        [class.hidden]="!showBeforeAfter"
+    >
+        <ng-container #BeforeAfterContainer></ng-container>
+
+
     </div>
 </section>
 <kk-lightbox></kk-lightbox>
