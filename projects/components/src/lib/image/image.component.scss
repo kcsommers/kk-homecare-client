@@ -7,7 +7,7 @@
     cursor: pointer;
     position: relative;
     z-index: 400;
-
+    transition: filter 0.3s ease;
     &.slide-in {
         animation: slideIn 0.5s ease forwards;
     }
@@ -35,6 +35,9 @@
         &.use-background-color {
             background-color: rgba($gray, 0.5);
         }
+    }
+    &.blurred-after-image {
+        filter: blur(5px);
     }
 }
 

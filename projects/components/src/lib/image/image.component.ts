@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, HostBinding, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, HostBinding, HostListener, Output, EventEmitter, ElementRef, Renderer2 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ImageModel } from '@kk/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
@@ -15,8 +15,10 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ])
   ]
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent {
   private _image: ImageModel;
+
+  public loaded$ = new BehaviorSubject(false);
 
   @Input()
   public placeholderBackground = true;
@@ -24,11 +26,19 @@ export class ImageComponent implements OnInit {
   @Input()
   public growOnHover = false;
 
+  @Input()
+  public isAfterImage = false;
+
   @Output()
   public imageSelected = new EventEmitter<ImageModel>();
 
   @HostBinding('class.slide-in')
   private slideIn = true;
+
+  @HostBinding('class.blurred-after-image')
+  public get afterImage(): boolean {
+    return this.isAfterImage;
+  }
 
   @HostBinding('class.hover-grow')
   public get shouldGrow(): boolean {
@@ -51,12 +61,14 @@ export class ImageComponent implements OnInit {
     return this._image;
   }
 
-  public loaded$ = new BehaviorSubject(false);
-
-  ngOnInit() {
+  constructor(private _el: ElementRef, private _renderer: Renderer2) {
   }
 
   public onLoad(): void {
     this.loaded$.next(true);
+  }
+
+  public revealAfterImage() {
+    this._renderer.removeClass(this._el.nativeElement, 'blurred-after-image');
   }
 }

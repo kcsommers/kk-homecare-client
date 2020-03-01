@@ -51,7 +51,7 @@ export class LightboxService {
       console.log('CURRENT INDEX', this._currentIndex);
       this.currentImage$.next(this._images[this._currentIndex]);
     } else {
-      this.photosService.getImages(1, false, false)
+      this.photosService.getRegularPhotos(1, false, false)
         .pipe(take(1))
         .subscribe(
           (result: { images: ImageModel[], error: Error, total: number }) => {

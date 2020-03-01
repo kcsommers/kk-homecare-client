@@ -9,7 +9,7 @@ import { ImageComponent } from 'projects/components/src/lib/image/image.componen
   providedIn: 'root'
 })
 export class PhotosService {
-  public photosContainer: ViewContainerRef
+  public photosContainer: ViewContainerRef;
   public lastId: string;
 
   constructor(private http: HttpClient, public cfr: ComponentFactoryResolver) { }
