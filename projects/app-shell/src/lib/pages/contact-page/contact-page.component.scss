@@ -1,0 +1,26 @@
+@import '_variables';
+:host {
+    .contact-page-wrap {
+        display: flex;
+    }
+    .contact-info {
+        margin-right: $kk-spacing-xl;
+        line-height: 1.75rem;
+        margin-bottom: $kk-spacing-xl;
+        kk-text:first-child {
+            margin-bottom: $kk-spacing-md;
+        }
+    }
+    .contact-info-wrap {
+        flex: 0.65;
+        padding: $kk-spacing-xl * 4 $kk-spacing-xl * 2;
+        >kk-text {
+            margin-bottom: $kk-spacing-xl;
+        }
+    }
+    .contact-form-wrap {
+        flex: 1;
+        background-color: $gray;
+        padding: $kk-spacing-xl * 4 0;
+    }
+}

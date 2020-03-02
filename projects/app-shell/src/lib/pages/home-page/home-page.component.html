@@ -30,6 +30,7 @@
                     [text]="'Request a Free Estimate!'"
                     [type]="'accent'"
                     [isFullWidth]="true"
+                    (click)="openGetQuoteModal()"
                 ></kk-button>
             </div>
         </div>
@@ -74,47 +75,7 @@
             </div>
         </div>
         <div class="contact-form-wrap">
-            <div class="contact-form">
-                <div class="input-wrap">
-                    <label for="name">
-                        <kk-text
-                            [content]="'Name'"
-                            [color]="'offwhite'"
-                        ></kk-text>
-                    </label>
-                    <input
-                        id="name"
-                        type="text"
-                    >
-                </div>
-                <div class="input-wrap">
-                    <label for="email">
-                        <kk-text
-                            [content]="'Email'"
-                            [color]="'offwhite'"
-                        ></kk-text>
-                    </label>
-                    <input
-                        id="email"
-                        type="email"
-                    >
-                </div>
-                <div class="input-wrap">
-                    <label for="message">
-                        <kk-text
-                            [content]="'Message'"
-                            [color]="'offwhite'"
-                        ></kk-text>
-                    </label>
-                    <textarea id="message"></textarea>
-                </div>
-                <div class="submit-btn-wrap">
-                    <kk-button
-                        [text]="'Submit Message'"
-                        [isFullWidth]="true"
-                    ></kk-button>
-                </div>
-            </div>
+            <kk-contact-form></kk-contact-form>
         </div>
     </div>
 </section>

@@ -2,7 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { GlobalService } from 'projects/core/src/lib/services/global.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { services } from '@kk/core';
+import { services, ModalTemplates } from '@kk/core';
+import { ModalService } from 'projects/core/src/lib/services/modal.service';
 
 @Component({
   selector: 'kk-home-page',
@@ -14,7 +15,7 @@ export class HomePageComponent implements OnDestroy {
   public animate = true;
   public services = services;
 
-  constructor(public globalService: GlobalService) {
+  constructor(public globalService: GlobalService, private _modalService: ModalService) {
     this.globalService.appLoaded$.pipe(
       takeUntil(this._destroy$)
     ).subscribe((isLoaded: boolean) => {
@@ -33,5 +34,9 @@ export class HomePageComponent implements OnDestroy {
   ngOnDestroy(): void {
     this._destroy$.next(null);
     this._destroy$.unsubscribe();
+  }
+
+  public openGetQuoteModal(): void {
+    this._modalService.openModal(ModalTemplates.QUOTE);
   }
 }

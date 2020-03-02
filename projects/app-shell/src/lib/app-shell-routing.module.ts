@@ -5,6 +5,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { ServicePageComponent } from './pages/service-page/service-page.component';
 import { PhotosPageComponent } from './pages/photos-page/photos-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'photos',
     component: PhotosPageComponent
+  },
+  {
+    path: 'contact',
+    component: ContactPageComponent
   }
 ];
 

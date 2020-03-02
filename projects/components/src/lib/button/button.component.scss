@@ -1,11 +1,12 @@
 @import '_variables';
 
 :host {
-    a {
+    a, p {
         border-radius: 3px;
         color: $offwhite;
         white-space: nowrap;
         display: inline-block;
+        cursor: pointer;
     }
     .kk-btn-primary {
         background-color: $primary;

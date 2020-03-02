@@ -1,7 +1,16 @@
 <a
+    *ngIf="!!link"
     class="kk-btn"
-    [routerLink]="[link] || []"
+    [routerLink]="[link]"
     [ngClass]="classList"
 >
     {{text}}
 </a>
+
+<p
+    *ngIf="!link"
+    class="kk-btn"
+    [ngClass]="classList"
+>
+    {{text}}
+</p>

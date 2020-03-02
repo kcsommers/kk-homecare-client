@@ -1,0 +1,60 @@
+<div class="contact-form">
+    <div class="input-wrap">
+        <label for="name">
+            <kk-text
+                [content]="'Name'"
+                [color]="'offwhite'"
+            ></kk-text>
+        </label>
+        <input
+            id="name"
+            type="text"
+            [(ngModel)]="nameInput"
+        >
+    </div>
+    <div class="input-wrap">
+        <label for="email">
+            <kk-text
+                [content]="'Email'"
+                [color]="'offwhite'"
+            ></kk-text>
+        </label>
+        <input
+            id="email"
+            type="email"
+            [(ngModel)]="emailInput"
+        >
+    </div>
+    <div class="input-wrap">
+        <label for="phone">
+            <kk-text
+                [content]="'Phone'"
+                [color]="'offwhite'"
+            ></kk-text>
+        </label>
+        <input
+            id="email"
+            type="email"
+            [(ngModel)]="phoneInput"
+        >
+    </div>
+    <div class="input-wrap">
+        <label for="message">
+            <kk-text
+                [content]="'Message'"
+                [color]="'offwhite'"
+            ></kk-text>
+        </label>
+        <textarea
+            id="message"
+            [(ngModel)]="messageInput"
+        ></textarea>
+    </div>
+    <div class="submit-btn-wrap">
+        <kk-button
+            [text]="'Submit Message'"
+            [isFullWidth]="true"
+            (click)="formValid && submit()"
+        ></kk-button>
+    </div>
+</div>

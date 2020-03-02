@@ -135,3 +135,7 @@ export interface BeforeAfterResponse {
   error: Error;
   images: BeforeAfterModel[];
 }
+
+export enum ModalTemplates {
+  QUOTE = 'quote'
+}

@@ -13,6 +13,9 @@ import { ImageComponent } from './image/image.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { LightboxComponent } from './lightbox/lightbox.component';
 import { ToggleComponent } from './toggle/toggle.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ModalComponent } from './modal/modal.component';
+import { GetQuoteTemplateComponent } from './modal/modal-templates/get-quote-template/get-quote-template.component';
 
 const apiKey = 'AIzaSyCiOpWBea90oaarpYelbTYeI_-0ajplfQw';
 const clientId = '671573167109-mgtqvm775p8o36tft3tmd2uitbhdm772.apps.googleusercontent.com';
@@ -28,7 +31,10 @@ const components = [
   ImageComponent,
   LoadingSpinnerComponent,
   LightboxComponent,
-  ToggleComponent
+  ToggleComponent,
+  ContactFormComponent,
+  ModalComponent,
+  GetQuoteTemplateComponent
 ];
 
 @NgModule({
@@ -40,6 +46,6 @@ const components = [
     FontAwesomeModule
   ],
   exports: components,
-  entryComponents: [ImageComponent]
+  entryComponents: [ImageComponent, GetQuoteTemplateComponent]
 })
 export class ComponentsModule { }

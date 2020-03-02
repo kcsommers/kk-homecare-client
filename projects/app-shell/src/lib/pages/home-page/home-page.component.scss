@@ -98,21 +98,6 @@
         background-color: $light-peach;
         padding: $kk-spacing-xl * 2 0;
     }
-    .contact-form {
-        width: 75%;
-        margin: 0 auto;
-    }
-    .input-wrap {
-        margin-bottom: $kk-spacing-md;
-        label {
-            display: block;
-            // text-align: right;
-            padding: $kk-spacing-sm 0;
-        }
-    }
-    .submit-btn-wrap {
-        margin-top: $kk-spacing-xl;
-    }
 }
 
 @keyframes fadeIn {

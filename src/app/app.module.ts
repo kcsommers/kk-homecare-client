@@ -7,6 +7,7 @@ import { AppShellModule } from 'projects/app-shell/src/public-api';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { FaIconsComponent } from '../assets/icons/font-awesome.icons';
 import { HttpClientModule } from '@angular/common/http';
+import { ComponentsModule } from 'projects/components/src/public-api';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     AppShellModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

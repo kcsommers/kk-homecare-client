@@ -1,0 +1,26 @@
+@import '_variables';
+:host {
+    display: none;
+    transition: opacity 0.5s ease;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($dark-gray, 0.85);
+    z-index: 11000;
+    animation: backgroundFade 0.5s ease forwards;
+
+    &.modal-open {
+        display: block;
+    }
+}
+
+@keyframes backgroundFade {
+  0% {
+    background-color: rgba($dark-gray, 0);
+  }
+  100% {
+    background-color: rgba($dark-gray, 0.85);
+  }
+}

@@ -10,6 +10,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { ServicePageComponent } from './pages/service-page/service-page.component';
 import { PhotosPageComponent } from './pages/photos-page/photos-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 
 const components = [
   HeaderComponent,
@@ -18,7 +19,8 @@ const components = [
   AboutPageComponent,
   ServicesPageComponent,
   ServicePageComponent,
-  PhotosPageComponent
+  PhotosPageComponent,
+  ContactPageComponent
 ];
 
 @NgModule({
