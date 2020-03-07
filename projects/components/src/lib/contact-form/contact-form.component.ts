@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, HostBinding, HostListener, Output, EventEmitter, ElementRef, Renderer2 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ImageModel, ContactService, JobTypes } from '@kk/core';
+import { ImageModel, ContactService, JobTypes, ContactFormResponse } from '@kk/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { take } from 'rxjs/operators';
 
@@ -27,12 +27,13 @@ export class ContactFormComponent {
   }
 
   @Output()
-  public submitted = new EventEmitter<{ success: boolean, error: Error }>();
+  public submitted = new EventEmitter<ContactFormResponse>();
 
   constructor(private _contactService: ContactService) {
   }
 
   public submit() {
+    console.log('Submitting')
     this._contactService.submitForm({
       name: this.nameInput,
       email: this.emailInput,

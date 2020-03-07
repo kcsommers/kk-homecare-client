@@ -139,3 +139,9 @@ export interface BeforeAfterResponse {
 export enum ModalTemplates {
   QUOTE = 'quote'
 }
+
+
+export interface ContactFormResponse {
+  success: boolean;
+  error: Error;
+}
