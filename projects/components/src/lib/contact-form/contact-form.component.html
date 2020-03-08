@@ -1,60 +1,135 @@
-<div class="contact-form">
-    <div class="input-wrap">
-        <label for="name">
-            <kk-text
-                [content]="'Name'"
-                [color]="'offwhite'"
-            ></kk-text>
-        </label>
-        <input
-            id="name"
-            type="text"
-            [(ngModel)]="nameInput"
-        >
+<div
+    *ngIf="(submitError$ | async) as msg"
+    class="submit-error-container"
+>
+    <kk-text
+        [content]="msg"
+        [color]="'danger'"
+    ></kk-text>
+</div>
+<div
+    *ngIf="submitSuccess$ | async"
+    class="submit-success-container"
+>
+    <fa-icon
+        [icon]="'check-circle'"
+        [size]="'2x'"
+    ></fa-icon>
+    <kk-text
+        [content]="'Thank you for getting in touch! You\'ll be hearing from us shortly.'"
+        [textAlign]="'center'"
+    ></kk-text>
+</div>
+<div
+    *ngIf="!(submitSuccess$ | async)"
+    class="contact-form-container"
+>
+    <div
+        *ngIf="submitting$ | async"
+        class="submitting-spinner-container"
+    >
+        <span class="submitting-spinner-wrap">
+            <fa-icon
+                [icon]="'spinner'"
+                [size]="'4x'"
+            ></fa-icon>
+        </span>
     </div>
-    <div class="input-wrap">
-        <label for="email">
-            <kk-text
-                [content]="'Email'"
-                [color]="'offwhite'"
-            ></kk-text>
-        </label>
-        <input
-            id="email"
-            type="email"
-            [(ngModel)]="emailInput"
-        >
-    </div>
-    <div class="input-wrap">
-        <label for="phone">
-            <kk-text
-                [content]="'Phone'"
-                [color]="'offwhite'"
-            ></kk-text>
-        </label>
-        <input
-            id="phone"
-            type="email"
-            [(ngModel)]="phoneInput"
-        >
-    </div>
-    <div class="input-wrap">
-        <label for="message">
-            <kk-text
-                [content]="'Message'"
-                [color]="'offwhite'"
-            ></kk-text>
-        </label>
-        <textarea
-            id="message"
-            [(ngModel)]="messageInput"
-        ></textarea>
-    </div>
-    <div class="submit-btn-wrap">
-        <kk-button
-            [text]="'Submit Message'"
-            [isFullWidth]="true"
-            (click)="formValid && submit()"
-        ></kk-button>
+    <div
+        class="contact-form"
+        [class.fade-out]="submitting$ | async"
+    >
+        <div class="input-wrap">
+            <span class="input-label-wrap">
+                <label for="name">
+                    <kk-text
+                        [content]="'Name'"
+                        [color]="'offwhite'"
+                    ></kk-text>
+                </label>
+                <kk-text
+                    *ngIf="formErrors.name$ | async"
+                    [content]="'*Required'"
+                    [color]="'danger'"
+                    [size]="'0.75rem'"
+                ></kk-text>
+            </span>
+            <input
+                id="name"
+                type="text"
+                [(ngModel)]="nameInput"
+            >
+        </div>
+        <div class="input-wrap">
+            <span class="input-label-wrap">
+                <label for="email">
+                    <kk-text
+                        [content]="'Email'"
+                        [color]="'offwhite'"
+                    ></kk-text>
+                </label>
+                <kk-text
+                    *ngIf="formErrors.email$ | async"
+                    [content]="'*Required'"
+                    [color]="'danger'"
+                    [size]="'0.75rem'"
+                ></kk-text>
+            </span>
+            <input
+                id="email"
+                type="email"
+                [(ngModel)]="emailInput"
+            >
+        </div>
+        <div class="input-wrap">
+            <span class="input-label-wrap">
+                <label for="phone">
+                    <kk-text
+                        [content]="'Phone'"
+                        [color]="'offwhite'"
+                    ></kk-text>
+                </label>
+                <kk-text
+                    *ngIf="formErrors.phone$ | async"
+                    [content]="'*Required'"
+                    [color]="'danger'"
+                    [size]="'0.75rem'"
+                ></kk-text>
+            </span>
+            <input
+                #PhoneInput
+                id="phone"
+                type="tel"
+                [(ngModel)]="phoneInput"
+                (ngModelChange)="validatePhoneInput($event)"
+            >
+        </div>
+        <div class="input-wrap">
+            <span class="input-label-wrap">
+                <label for="message">
+                    <kk-text
+                        [content]="'Message'"
+                        [color]="'offwhite'"
+                    ></kk-text>
+                </label>
+                <kk-text
+                    *ngIf="formErrors.message$ | async"
+                    [content]="'*Required'"
+                    [color]="'danger'"
+                    [size]="'0.75rem'"
+                ></kk-text>
+            </span>
+            <textarea
+                id="message"
+                [(ngModel)]="messageInput"
+            ></textarea>
+        </div>
+        <div class="submit-btn-wrap">
+            <kk-button
+                [text]="'Submit Message'"
+                [isFullWidth]="true"
+                (click)="validateForm()"
+            ></kk-button>
+        </div>
     </div>
 </div>

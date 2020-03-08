@@ -10,9 +10,23 @@
     background-color: rgba($dark-gray, 0.85);
     z-index: 11000;
     animation: backgroundFade 0.5s ease forwards;
+    justify-content: center;
+    align-items: center;
 
     &.modal-open {
-        display: block;
+        display: flex;
+    }
+    .modal-content-wrap {
+        background-color: $offwhite;
+        border-radius: 3px;
+        padding: $kk-spacing-lg;
+        max-height: 85vh;
+        flex: 1;
+        max-width: 65%;
+        overflow-y: auto;
+        &.fade-in-up {
+            animation: fadeInUp 0.5s ease forwards;
+        }
     }
 }
 
@@ -24,3 +38,14 @@
     background-color: rgba($dark-gray, 0.85);
   }
 }
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+

@@ -19,6 +19,9 @@
     .kk-text-underline {
         font-style: underline;
     }
+    .kk-color-danger {
+        color: $danger;
+    }
     &.inherit-color p {
         color: inherit;
     }

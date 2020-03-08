@@ -41,9 +41,12 @@ export class TextComponent implements OnInit {
   @Input()
   public link: string;
 
+  @Input()
+  public textAlign: string;
+
   public classList: string;
 
-  private colors = ['primary', 'accent', 'offwhite', 'peach'];
+  private colors = ['primary', 'accent', 'offwhite', 'peach', 'danger'];
 
   @HostBinding('style.color')
   private get colorBinding(): string {
@@ -52,7 +55,7 @@ export class TextComponent implements OnInit {
 
   @HostBinding('class.inherit-color')
   private get inheritColor(): boolean {
-    return !!(this.color) && !this.colors.includes(this.color);
+    return !this.color && !this.colors.includes(this.color);
   }
 
   @HostBinding('style.fontSize')
@@ -73,6 +76,11 @@ export class TextComponent implements OnInit {
   @HostBinding('style.fontWeight')
   private get fontWeightBinding(): string {
     return this.fontWeight || '';
+  }
+
+  @HostBinding('style.textAlign')
+  private get textAlignBinding(): string {
+    return this.textAlign || '';
   }
 
   ngOnInit(): void {

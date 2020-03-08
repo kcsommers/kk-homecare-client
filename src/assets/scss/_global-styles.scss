@@ -66,6 +66,7 @@ ul {
 input[type=text],
 input[type=email],
 input[type=date],
+input[type=tel],
 input[type=password],
 textarea {
     display: block;
@@ -98,3 +99,4 @@ textarea {
 .kk-color-peach {
     color: $peach;
 }
+

@@ -20,7 +20,12 @@
     }
     .contact-form-wrap {
         flex: 1;
+        display: flex;
+        align-items: center;
         background-color: $gray;
         padding: $kk-spacing-xl * 4 0;
+        kk-contact-form {
+            flex: 1;
+        }
     }
 }

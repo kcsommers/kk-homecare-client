@@ -1,1 +1,6 @@
-<ng-container #Container></ng-container>
+<div
+    class="modal-content-wrap"
+    [class.fade-in-up]="isOpen$ | async"
+>
+    <ng-container #Container></ng-container>
+</div>

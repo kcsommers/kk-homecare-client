@@ -1,8 +1,14 @@
 @import '_variables';
 :host {
-    .contact-form {
+    .contact-form-container {
         width: 75%;
         margin: 0 auto;
+        position: relative;
+    }
+    .contact-form {
+        &.fade-out {
+            animation: fadeOut 0.2s linear forwards;
+        }
     }
     .input-wrap {
         margin-bottom: $kk-spacing-md;
@@ -15,4 +21,66 @@
     .submit-btn-wrap {
         margin-top: $kk-spacing-xl;
     }
+    .input-label-wrap {
+        display: flex;
+        align-items: center;
+        >label {
+            margin-right: $kk-spacing-md;
+        }
+    }
+    .submit-error-container {
+        width: 75%;
+        margin: 0 auto;
+        padding: $kk-spacing-md 0;
+    }
+    .submit-success-container {
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: $offwhite;
+        kk-text {
+            margin-top: $kk-spacing-md;
+        }
+    }
+    .submitting-spinner-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .submitting-spinner-wrap {
+        display: inline-block;
+        animation: spin 1s linear infinite;
+        fa-icon {
+            color: $primary;
+        }
+    }
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+      visibility: hidden;
+  }
 }

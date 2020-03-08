@@ -23,7 +23,7 @@ export class PhotosService {
   }
 
   public getBeforeAfterPhotos(offset: number, fetchAll: boolean): Observable<BeforeAfterResponse> {
-    return this.http.post<BeforeAfterResponse>(`${environment.apiUrl}/before-after`, { offset });
+    return this.http.post<BeforeAfterResponse>(`${environment.apiUrl}/photos/before-after`, { offset });
   }
 
   public createImageComponents(imgModels: ImageModel[], clickCb?: (img: ImageModel) => void, viewContainer?: ViewContainerRef) {

@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 export interface FormSubmission {
   name: string;
   email: string;
-  phone: string;
+  phone: number;
   message: string;
   jobType: JobTypes;
 }
