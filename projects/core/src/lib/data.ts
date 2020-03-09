@@ -145,3 +145,14 @@ export interface ContactFormResponse {
   success: boolean;
   error: Error;
 }
+
+export interface LoginRequest {
+  username: string;
+  password: string;
+}
+
+export interface AuthorizedAdmin {
+  username: string;
+  id: string;
+  token: string;
+}

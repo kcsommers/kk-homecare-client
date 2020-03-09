@@ -25,6 +25,9 @@
       "@kk/components": [
         "projects/widgets/src/public-api.ts"
       ],
+      "@kk/app-shell": [
+        "projects/app-shell/src/public-api.ts"
+      ],
       "core": [
         "dist/core"
       ],

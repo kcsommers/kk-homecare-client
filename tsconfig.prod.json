@@ -25,6 +25,9 @@
       "@kk/core": [
         "dist/core"
       ],
+      "@kk/app-shell": [
+        "dist/app-shell"
+      ]
     }
   },
   "angularCompilerOptions": {

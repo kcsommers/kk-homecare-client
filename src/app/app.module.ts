@@ -8,6 +8,8 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { FaIconsComponent } from '../assets/icons/font-awesome.icons';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from 'projects/components/src/public-api';
+import { httpErrorProvider } from 'projects/core/src/lib/http/error-interceptor';
+import { jwtProvider } from 'projects/core/src/lib/auth/jwt-interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { ComponentsModule } from 'projects/components/src/public-api';
     HttpClientModule,
     ComponentsModule
   ],
-  providers: [],
+  providers: [
+    httpErrorProvider,
+    jwtProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
