@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, HostBinding, HostListener, Output, EventEmitter, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ImageModel, ContactService, JobTypes, ContactFormResponse } from '@kk/core';
+import { ImageModel, ContactService, JobTypes, HttpResponse } from '@kk/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { take } from 'rxjs/operators';
 
@@ -40,7 +40,7 @@ export class ContactFormComponent {
   private _phoneInputEl: ElementRef<HTMLInputElement>;
 
   @Output()
-  public submitted = new EventEmitter<ContactFormResponse>();
+  public submitted = new EventEmitter<HttpResponse>();
 
   constructor(private _contactService: ContactService) {
   }

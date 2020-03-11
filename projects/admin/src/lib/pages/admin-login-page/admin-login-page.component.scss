@@ -1,0 +1,19 @@
+@import '_variables';
+
+:host {
+    background-color: $light-peach;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .login-form {
+        align-self: stretch;
+        margin: $kk-spacing-xl auto;
+        width: 50%;
+        input {
+            margin: $kk-spacing-sm 0;
+        }
+    }
+}

@@ -1,1 +1,43 @@
-<h1>ADMIN PAGE</h1>
+<div class="admin-page-header">
+    <kk-text [content]="'Hello, ' + username"></kk-text>
+    <kk-button
+        [text]="'Logout'"
+        [size]="'sm'"
+        (click)="logout()"
+    ></kk-button>
+</div>
+<div class="admin-page-body">
+    <div class="admin-page-card">
+        <kk-text
+            [size]="'1.25rem'"
+            [content]="'Invoices'"
+        ></kk-text>
+        <div class="admin-page-card-body">
+            <kk-text
+                [size]="'2rem'"
+                [content]="'4 Pending'"
+            ></kk-text>
+        </div>
+    </div>
+    <div class="admin-page-card">
+        <kk-text
+            [size]="'1.25rem'"
+            [content]="'Messages'"
+        ></kk-text>
+        <div class="admin-page-card-body">
+            <kk-text
+                [size]="'2rem'"
+                [content]="'5 New'"
+            ></kk-text>
+        </div>
+    </div>
+    <div class="admin-page-card">
+        <kk-text
+            [size]="'1.25rem'"
+            [content]="'Photos'"
+        ></kk-text>
+        <div class="admin-page-card-body">
+            <kk-button [text]="'Upload Now'"></kk-button>
+        </div>
+    </div>
+</div>

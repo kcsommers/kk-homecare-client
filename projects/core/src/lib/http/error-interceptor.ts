@@ -8,7 +8,6 @@ import { AuthenticationService } from '../services/authentication.service';
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(private authenticationService: AuthenticationService) {
-    console.log('ERRRRRRRR')
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

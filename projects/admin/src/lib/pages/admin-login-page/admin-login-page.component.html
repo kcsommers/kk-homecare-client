@@ -1,14 +1,26 @@
+<kk-text
+    [content]="'Admin Login'"
+    [isHeader]="true"
+    [color]="'offwhite'"
+></kk-text>
 <div class="login-form">
     <div class="login-form-input-wrap">
         <input
             type="text"
+            [(ngModel)]="usernameInput"
             placeholder="Username"
         >
     </div>
     <div class="login-form-input-wrap">
         <input
             type="password"
+            [(ngModel)]="passwordInput"
             placeholder="Password"
         >
     </div>
+    <kk-button
+        [text]="'Log In'"
+        [isFullWidth]="true"
+        (click)="formValid && login()"
+    ></kk-button>
 </div>

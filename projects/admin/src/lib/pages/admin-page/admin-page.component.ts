@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from '@kk/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'kk-admin-page',
@@ -6,7 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent {
-  constructor() {
-    console.log('Admin page')
+  public username: string;
+  constructor(private _authService: AuthenticationService, private _router: Router) {
+    const admin = this._authService.currentAdmin$.value;
+    if (admin) {
+      this.username = admin.username;
+    } else {
+      this._router.navigate(['/admin/login'], { queryParams: { returnUrl: '/admin' } });
+    }
+  }
+
+  public logout(): void {
+
   }
 }

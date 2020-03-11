@@ -141,7 +141,7 @@ export enum ModalTemplates {
 }
 
 
-export interface ContactFormResponse {
+export interface HttpResponse {
   success: boolean;
   error: Error;
 }
@@ -155,4 +155,11 @@ export interface AuthorizedAdmin {
   username: string;
   id: string;
   token: string;
+  expiresAt: number;
+}
+
+export interface LoginResult extends HttpResponse {
+  data: {
+    admin: AuthorizedAdmin
+  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContactFormResponse } from '@kk/core';
+import { HttpResponse } from '@kk/core';
 
 @Component({
   selector: 'kk-contact-page',
@@ -8,7 +8,7 @@ import { ContactFormResponse } from '@kk/core';
 })
 export class ContactPageComponent {
 
-  public formSubmitted(response: ContactFormResponse) {
+  public formSubmitted(response: HttpResponse) {
     if (response.error) {
       console.error(response.error);
       return;

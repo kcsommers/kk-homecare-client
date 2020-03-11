@@ -23,7 +23,7 @@
         "projects/core/src/public-api.ts"
       ],
       "@kk/components": [
-        "projects/widgets/src/public-api.ts"
+        "projects/components/src/public-api.ts"
       ],
       "@kk/app-shell": [
         "projects/app-shell/src/public-api.ts"
