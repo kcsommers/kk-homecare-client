@@ -1,0 +1,27 @@
+<input
+    type="text"
+    placeholder="Search"
+>
+<section class="past-due-invoices-section">
+    <kk-text
+        [content]="'Past Due'"
+        [isHeader]="true"
+    ></kk-text>
+</section>
+<section class="unpaid-invoices-section">
+    <kk-text
+        [content]="'Unpaid'"
+        [isHeader]="true"
+    ></kk-text>
+</section>
+<section class="all-invoices-section"></section>
+<kk-text
+    [content]="'All Invoices'"
+    [isHeader]="true"
+></kk-text>
+<section class="new-invoice-section">
+    <kk-button
+        [text]="'New Invoice'"
+        (click)="openInvoiceModal()"
+    ></kk-button>
+</section>

@@ -3,29 +3,13 @@
 :host {
   display: block;
   height: 100vh;
-  .admin-page-header {
-      height: 10rem;
-      display: flex;
-      padding: 0 $kk-spacing-xl * 3;
-      align-items: center;
-      justify-content: space-between;
-  }
-  .admin-page-body {
-      display: flex;
-      justify-content: space-between;
-      padding: $kk-spacing-xl $kk-spacing-xl * 3;
-      flex-wrap: wrap;
-  }
-  .admin-page-card-body {
-      display: flex;
-      padding-top: $kk-spacing-xl;
-      min-height: 300px;
-  }
-  .admin-page-card {
-      flex-basis: 30%;
-      border-radius: 2px;
-      cursor: pointer;
-      box-shadow: $box-shadow;
-      padding: $kk-spacing-lg;
-  }
+
+    .admin-page-header {
+        height: 10rem;
+        display: flex;
+        padding: 0 $kk-spacing-xl * 3;
+        align-items: center;
+        background-color: rgba($gray, 0.14);
+        justify-content: space-between;
+    }
 }

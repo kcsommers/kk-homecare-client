@@ -9,7 +9,11 @@ import {
   faAngleLeft,
   faAngleRight,
   faSpinner,
-  faCheckCircle
+  faCheckCircle,
+  faDollarSign,
+  faEnvelope,
+  faUpload,
+  faImages
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook,
@@ -39,7 +43,11 @@ export class FaIconsComponent {
       faInstagram,
       faFacebookF,
       faSpinner,
-      faCheckCircle
+      faCheckCircle,
+      faDollarSign,
+      faEnvelope,
+      faUpload,
+      faImages
     );
   }
 }

@@ -7,6 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { AdminMessagesComponent } from './components/admin-messages/admin-messages.component';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { InvoicesComponent } from './components/invoices/invoices.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { InvoicePageComponent } from './pages/invoice-page/invoice-page.component';
+import { AdminMessagesPageComponent } from './pages/admin-messages-page/admin-messages-page.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -14,12 +19,16 @@ import { InvoicesComponent } from './components/invoices/invoices.component';
     AdminLoginPageComponent,
     AdminMessagesComponent,
     ImageUploaderComponent,
-    InvoicesComponent
+    InvoicesComponent,
+    InvoicePageComponent,
+    AdminMessagesPageComponent,
+    AdminDashboardComponent
   ],
   imports: [
-    AdminRoutingModule,
+    CommonModule,
     ComponentsModule,
     FormsModule,
+    FontAwesomeModule
   ],
   exports: []
 })

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PhotosPageComponent } from './photos-page.component';
-import { ComponentsModule } from 'projects/components/src/public-api';
+import { ComponentsModule, TextComponentModule, ToggleComponentModule, LightboxComponentModule } from 'projects/components/src/public-api';
 import { CommonModule } from '@angular/common';
 import { PhotosPageRoutingModule } from './photos-page-routing.module';
 
@@ -9,7 +9,10 @@ import { PhotosPageRoutingModule } from './photos-page-routing.module';
   imports: [
     ComponentsModule,
     CommonModule,
-    PhotosPageRoutingModule
+    PhotosPageRoutingModule,
+    TextComponentModule,
+    ToggleComponentModule,
+    LightboxComponentModule
   ],
   exports: [PhotosPageComponent]
 })

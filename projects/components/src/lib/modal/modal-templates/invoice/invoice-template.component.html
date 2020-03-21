@@ -1,0 +1,103 @@
+<h4>New Invoice</h4>
+<div class="new-invoice-form-wrap">
+    <div class="invoice-form-input-wrap">
+        <label for="client">Client Name</label>
+        <div class="client-name-input-wrap">
+            <kk-text
+                *ngIf="errors.clientName$ | async"
+                [content]="errors.clientName$ | async"
+                [color]="'danger'"
+                [size]="'0.75rem'"
+            ></kk-text>
+            <input
+                type="text"
+                [(ngModel)]="clientName"
+            >
+        </div>
+    </div>
+    <div class="invoice-form-input-wrap">
+        <label for="client">New Item</label>
+        <div class="new-item-wrap">
+            <kk-text
+                *ngIf="errors.noItems$ | async"
+                [content]="errors.noItems$ | async"
+                [color]="'danger'"
+                [size]="'0.75rem'"
+            ></kk-text>
+            <input
+                type="text"
+                placeholder="Item Name"
+                [(ngModel)]="currentItemName"
+            >
+            <input
+                type="text"
+                placeholder="Item Description"
+                [(ngModel)]="currentItemDescription"
+            >
+            <div class="current-item-total-wrap">
+                <kk-text [content]="'$'"></kk-text>
+                <input
+                    #CurrentItemTotalInput
+                    type="text"
+                    placeholder="0.00"
+                    [(ngModel)]="currentItemTotal"
+                    (ngModelChange)="validateTotal($event)"
+                >
+            </div>
+            <kk-button
+                [isFullWidth]="true"
+                [size]="'sm'"
+                [text]="'Add Item'"
+                (click)="formValid && addItem()"
+            ></kk-button>
+        </div>
+    </div>
+</div>
+<div class="due-date-wrap">
+    <kk-text [content]="'Due Date: '"></kk-text>
+    <mat-form-field>
+        <input
+            matInput
+            [matDatepicker]="Datepicker"
+        >
+        <mat-label>Choose a date</mat-label>
+        <mat-datepicker #Datepicker></mat-datepicker>
+        <mat-datepicker-toggle [for]="Datepicker"></mat-datepicker-toggle>
+    </mat-form-field>
+</div>
+<div class="items-wrap">
+    <div
+        *ngFor="let item of items"
+        class="item-wrap"
+    >
+        <div class="name-total-wrap">
+            <kk-text
+                [content]="item.name + ':'"
+                [fontWeight]="'bold'"
+            ></kk-text>
+            <kk-text [content]="'$' + item.totalString"></kk-text>
+        </div>
+        <kk-text
+            [content]="item.description"
+            [fontStyle]="'italic'"
+        ></kk-text>
+    </div>
+    <div
+        class="invoice-total-wrap"
+        [class.border-top]="items.length"
+    >
+        <kk-text [content]="'Total: '"></kk-text>
+        <kk-text [content]="invoiceTotal"></kk-text>
+    </div>
+</div>
+<div class="actions-wrap">
+    <kk-button
+        [text]="'Cancel'"
+        [type]="'danger'"
+        (click)="cancel()"
+    ></kk-button>
+    <kk-button
+        [text]="'Create Invoice'"
+        (click)="createInvoice()"
+    ></kk-button>
+</div>

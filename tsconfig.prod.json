@@ -27,7 +27,10 @@
       ],
       "@kk/app-shell": [
         "dist/app-shell"
-      ]
+      ],
+      "@kk/admin": [
+        "dist/admin"
+      ],
     }
   },
   "angularCompilerOptions": {

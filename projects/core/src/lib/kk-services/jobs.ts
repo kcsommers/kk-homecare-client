@@ -18,7 +18,6 @@ export interface Service {
   cardText: string[];
   icon: string;
 }
-
 export const services: Service[] = [
   {
     name: Services.CLEANING,
@@ -74,18 +73,6 @@ export const services: Service[] = [
   }
 ];
 
-export enum Pages {
-  HOME = 'home',
-  ABOUT = 'about',
-  SERVICES = 'services',
-  CONTACT = 'contact'
-}
-
-export interface Testimonial {
-  name: string;
-  content: string;
-}
-
 export const testimonials: Testimonial[] = [
   {
     name: 'Kacy Sommers',
@@ -105,61 +92,7 @@ export const testimonials: Testimonial[] = [
   }
 ];
 
-export enum Filters {
-  CLEANING = 'cleaning',
-  PAINTING = 'painting',
-  LANDSCAPING = 'landscaping',
-  COMMERCIAL = 'commercial',
-  RESIDENTIAL = 'residential'
-}
-
-export interface ImageModel {
-  _id: string,
-  url: string;
-  tag?: Filters;
-}
-
-export interface BeforeAfterModel {
-  _id: string;
-  beforeUrl: string;
-  afterUrl: string;
-}
-
-export interface PhotosResponse {
-  error: Error;
-  images: ImageModel[];
-  total: number;
-}
-
-export interface BeforeAfterResponse {
-  error: Error;
-  images: BeforeAfterModel[];
-}
-
-export enum ModalTemplates {
-  QUOTE = 'quote'
-}
-
-
-export interface HttpResponse {
-  success: boolean;
-  error: Error;
-}
-
-export interface LoginRequest {
-  username: string;
-  password: string;
-}
-
-export interface AuthorizedAdmin {
-  username: string;
-  id: string;
-  token: string;
-  expiresAt: number;
-}
-
-export interface LoginResult extends HttpResponse {
-  data: {
-    admin: AuthorizedAdmin
-  }
+export interface Testimonial {
+  name: string;
+  content: string;
 }

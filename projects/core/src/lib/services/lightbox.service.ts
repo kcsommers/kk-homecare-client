@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ImageModel } from '../data';
+import { ImageModel } from '../photos/photos';
 import { BehaviorSubject } from 'rxjs';
 import { PhotosService } from './photos.service';
 import { take } from 'rxjs/operators';
@@ -48,7 +48,6 @@ export class LightboxService {
 
   private updateActiveImage() {
     if (this._images[this._currentIndex]) {
-      console.log('CURRENT INDEX', this._currentIndex);
       this.currentImage$.next(this._images[this._currentIndex]);
     } else {
       this.photosService.getRegularPhotos(1, false, false)

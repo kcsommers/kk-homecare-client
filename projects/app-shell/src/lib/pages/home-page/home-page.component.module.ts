@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HomePageComponent } from './home-page.component';
-import { ComponentsModule } from 'projects/components/src/public-api';
+import { ComponentsModule, ServiceListComponentModule, TextComponentModule, ServiceCardComponentModule, ButtonComponentModule, TestimonialsComponentModule, ContactFormComponentModule } from '@kk/components';
 import { CommonModule } from '@angular/common';
 import { HomePageRoutingModule } from './home-page-routing.module';
 
@@ -9,7 +9,13 @@ import { HomePageRoutingModule } from './home-page-routing.module';
   imports: [
     ComponentsModule,
     CommonModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    ServiceListComponentModule,
+    TextComponentModule,
+    ServiceCardComponentModule,
+    ButtonComponentModule,
+    TestimonialsComponentModule,
+    ContactFormComponentModule
   ],
   exports: [HomePageComponent]
 })

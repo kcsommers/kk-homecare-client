@@ -1,0 +1,65 @@
+<div class="admin-page-body">
+    <a
+        class="admin-page-card"
+        [routerLink]="'invoices'"
+    >
+        <div class="admin-page-card-header">
+            <kk-text
+                [size]="'1.25rem'"
+                [content]="'Invoices'"
+            ></kk-text>
+        </div>
+        <div class="admin-page-card-body">
+            <kk-text
+                [size]="'2rem'"
+                [content]="'4 Pending'"
+            ></kk-text>
+            <div class="icon-wrap">
+                <fa-icon
+                    [icon]="'dollar-sign'"
+                    [size]="'8x'"
+                ></fa-icon>
+            </div>
+        </div>
+    </a>
+    <a
+        class="admin-page-card"
+        [routerLink]="'messages'"
+    >
+        <div class="admin-page-card-header">
+            <kk-text
+                [size]="'1.25rem'"
+                [content]="'Messages'"
+            ></kk-text>
+        </div>
+        <div class="admin-page-card-body">
+            <kk-text
+                [size]="'2rem'"
+                [content]="'5 New'"
+            ></kk-text>
+            <div class="icon-wrap">
+                <fa-icon
+                    [icon]="'envelope'"
+                    [size]="'8x'"
+                ></fa-icon>
+            </div>
+        </div>
+    </a>
+    <div class="admin-page-card">
+        <div class="admin-page-card-header">
+            <kk-text
+                [size]="'1.25rem'"
+                [content]="'Photos'"
+            ></kk-text>
+        </div>
+        <div class="admin-page-card-body">
+            <kk-button [text]="'Upload Now'"></kk-button>
+            <div class="icon-wrap">
+                <fa-icon
+                    [icon]="'images'"
+                    [size]="'8x'"
+                ></fa-icon>
+            </div>
+        </div>
+    </div>
+</div>

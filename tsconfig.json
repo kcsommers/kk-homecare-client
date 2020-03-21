@@ -28,6 +28,9 @@
       "@kk/app-shell": [
         "projects/app-shell/src/public-api.ts"
       ],
+      "@kk/admin": [
+        "projects/admin/src/public-api.ts"
+      ],
       "core": [
         "dist/core"
       ],

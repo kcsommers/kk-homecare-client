@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ServicePageComponent } from './service-page.component';
-import { ComponentsModule } from 'projects/components/src/public-api';
+import { ComponentsModule, TextComponentModule, ButtonComponentModule, ServiceListComponentModule } from '@kk/components';
 import { CommonModule } from '@angular/common';
 import { ServicePageRoutingModule } from './service-page-routing.module';
 
@@ -9,7 +9,10 @@ import { ServicePageRoutingModule } from './service-page-routing.module';
   imports: [
     ComponentsModule,
     CommonModule,
-    ServicePageRoutingModule
+    ServicePageRoutingModule,
+    TextComponentModule,
+    ButtonComponentModule,
+    ServiceListComponentModule
   ],
   exports: [ServicePageComponent]
 })

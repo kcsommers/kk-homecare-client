@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppShellComponent, AppShellNoMenuComponent } from '@kk/app-shell';
+import { AuthGuard } from '@kk/core';
 
 const routes: Routes = [
   {
@@ -42,10 +43,19 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AppShellNoMenuComponent,
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: '',
-        loadChildren: () => import('./loader-modules/admin-loader.module').then(m => m.AdminLoaderModule)
+        loadChildren: () => import('./loader-modules/page-loaders/admin-pages/admin-dashboard-page-loader.module').then(m => m.AdminDashboardPageLoaderModule)
+      },
+      {
+        path: 'invoices',
+        loadChildren: () => import('./loader-modules/page-loaders/admin-pages/invoice-page-loader.module').then(m => m.InvoicePageComponentLoaderModule)
+      },
+      {
+        path: 'login',
+        loadChildren: () => import('./loader-modules/page-loaders/admin-pages/admin-login-page-loader.module').then(m => m.AdminLoginPageLoaderModule)
       }
     ]
   }
@@ -53,6 +63,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
+

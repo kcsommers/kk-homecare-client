@@ -10,15 +10,15 @@ import { Router } from '@angular/router';
 export class AdminPageComponent {
   public username: string;
   constructor(private _authService: AuthenticationService, private _router: Router) {
-    const admin = this._authService.currentAdmin$.value;
+    const admin = this._authService.getAdmin();
     if (admin) {
       this.username = admin.username;
     } else {
       this._router.navigate(['/admin/login'], { queryParams: { returnUrl: '/admin' } });
     }
+
   }
-
   public logout(): void {
-
+    this._authService.logout();
   }
 }

@@ -4,18 +4,27 @@
     [color]="'offwhite'"
 ></kk-text>
 <div class="login-form">
+    <div
+        *ngIf="getErrorMessage() as msg"
+        class="error-container"
+    >
+        <kk-text
+            [content]="msg"
+            [color]="'danger'"
+        ></kk-text>
+    </div>
     <div class="login-form-input-wrap">
         <input
             type="text"
-            [(ngModel)]="usernameInput"
             placeholder="Username"
+            [(ngModel)]="usernameInput"
         >
     </div>
     <div class="login-form-input-wrap">
         <input
             type="password"
-            [(ngModel)]="passwordInput"
             placeholder="Password"
+            [(ngModel)]="passwordInput"
         >
     </div>
     <kk-button

@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Pages } from '../data';
+import { Pages } from '../data/data';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, BehaviorSubject } from 'rxjs';

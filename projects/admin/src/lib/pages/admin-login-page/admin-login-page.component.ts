@@ -26,6 +26,10 @@ export class AdminLoginPageComponent {
   ) {
   }
 
+  public getErrorMessage(): string {
+    return localStorage.getItem(AuthenticationService.LOGIN_ERROR_KEY);
+  }
+
   public login(): void {
     if (this.formValid) {
       this._authService.login({
@@ -35,17 +39,21 @@ export class AdminLoginPageComponent {
         .pipe(take(1))
         .subscribe(
           (result: LoginResult) => {
-            console.log('RES', result);
             if (result.error) {
+              this._authService.loginError('*Incorrect username or password');
               console.error(result.error);
             }
             if (result.success && result.data) {
               this._authService.setAdmin(result.data.admin);
+              this._authService.clearLoginError();
               const returnUrl = this._route.snapshot.queryParams['returnUrl'];
               this._router.navigateByUrl(returnUrl || '/admin');
             }
           },
-          err => console.error(err)
+          err => {
+            this._authService.loginError('Incorrect username or password');
+            console.error(err)
+          }
         );
     }
   }

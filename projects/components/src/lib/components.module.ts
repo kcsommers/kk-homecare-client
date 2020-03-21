@@ -1,51 +1,52 @@
 import { NgModule } from '@angular/core';
-import { TextComponent } from './text/text.component';
+import { TextComponentModule } from './text/text.component.module';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ButtonComponent } from './button/button.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TestimonialsComponent } from './testimonials/testimonials.component';
-import { ServiceCardComponent } from './service-card/service-card.component';
-import { ServiceListComponent } from './service-list/service-list.component';
 import { ParallaxImageDirective } from './directives/parallax-image/parallax-image.directive';
-import { ImageComponent } from './image/image.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
-import { LightboxComponent } from './lightbox/lightbox.component';
-import { ToggleComponent } from './toggle/toggle.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
-import { ModalComponent } from './modal/modal.component';
-import { GetQuoteTemplateComponent } from './modal/modal-templates/get-quote-template/get-quote-template.component';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ToggleComponentModule } from './toggle/toggle.component.module';
+import { TestimonialsComponentModule } from './testimonials/testimonials.component.module';
+import { ServiceListComponentModule } from './service-list/service-list.component.module';
+import { ServiceCardComponentModule } from './service-card/service-card.component.module';
+import { ModalComponentModule } from './modal/modal.component.module';
+import { LoadingSpinnerComponentModule } from './loading-spinner/loading-spinner.component.module';
+import { LightboxComponentModule } from './lightbox/lightbox.component.module';
+import { ImageComponentModule } from './image/image.component.module';
+import { ContactFormComponentModule } from './contact-form/contact-form.component.module';
+import { ButtonComponentModule } from './button/button.component.module';
 
 const apiKey = 'AIzaSyCiOpWBea90oaarpYelbTYeI_-0ajplfQw';
 const clientId = '671573167109-mgtqvm775p8o36tft3tmd2uitbhdm772.apps.googleusercontent.com';
 const clientSecret = 'gNKa3TVxmlfXliPsg0uT8nrf';
 
-const components = [
-  TextComponent,
-  ButtonComponent,
-  TestimonialsComponent,
-  ServiceCardComponent,
-  ServiceListComponent,
-  ParallaxImageDirective,
-  ImageComponent,
-  LoadingSpinnerComponent,
-  LightboxComponent,
-  ToggleComponent,
-  ContactFormComponent,
-  ModalComponent,
-  GetQuoteTemplateComponent
-];
-
 @NgModule({
-  declarations: components,
+  declarations: [ParallaxImageDirective],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatMomentDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ToggleComponentModule,
+    TextComponentModule,
+    TestimonialsComponentModule,
+    ServiceListComponentModule,
+    ServiceCardComponentModule,
+    ModalComponentModule,
+    LoadingSpinnerComponentModule,
+    LightboxComponentModule,
+    ImageComponentModule,
+    ContactFormComponentModule,
+    ButtonComponentModule
   ],
-  exports: components,
-  entryComponents: [ImageComponent, GetQuoteTemplateComponent]
+  exports: [ParallaxImageDirective]
 })
 export class ComponentsModule { }

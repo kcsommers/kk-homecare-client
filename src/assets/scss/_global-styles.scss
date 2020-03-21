@@ -21,15 +21,15 @@ a,
 li,
 span,
 input,
-textarea
+textarea,
+label,
 div {
     font-family: $kk-fonts-primary;
     color: $dark-gray;
 }
 h1,
 h2,
-h3,
-h4 {
+h3 {
     font-family: $kk-fonts-header;
 }
 h1 {

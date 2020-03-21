@@ -2,7 +2,7 @@ import { Injectable, ViewContainerRef, ComponentFactoryResolver } from '@angular
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ImageModel, PhotosResponse, BeforeAfterResponse } from '../data';
+import { ImageModel, PhotosResponse, BeforeAfterResponse } from '../photos/photos';
 import { ImageComponent } from 'projects/components/src/lib/image/image.component';
 
 @Injectable({

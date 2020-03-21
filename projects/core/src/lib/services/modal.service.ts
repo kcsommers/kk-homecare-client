@@ -1,24 +1,21 @@
-import { Injectable, Type } from '@angular/core';
-import { ModalTemplates } from '../data';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { GetQuoteTemplateComponent } from 'projects/components/src/lib/modal/modal-templates/get-quote-template/get-quote-template.component';
-
-const templateMap = new Map<ModalTemplates, Type<any>>([
-  [ModalTemplates.QUOTE, GetQuoteTemplateComponent]
-]);
+import { ModalTemplates } from '@kk/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModalService {
-  public openModal$ = new BehaviorSubject<Type<any>>(null);
+
+  public openModal$ = new BehaviorSubject<ModalTemplates>(null);
+
+  public closeOnClick = true;
 
   constructor() { }
 
-  public openModal(template: ModalTemplates): void {
-    if (templateMap.get(template)) {
-      this.openModal$.next(templateMap.get(template));
-    }
+  public openModal(template: ModalTemplates, closeOnClick = true): void {
+    this.closeOnClick = closeOnClick;
+    this.openModal$.next(template);
   }
 
   public closeModal(): void {

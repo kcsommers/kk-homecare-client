@@ -1,0 +1,107 @@
+@import '_variables';
+:host {
+    h4 {
+        margin-bottom: $kk-spacing-lg;
+    }
+    .invoice-form-input-wrap {
+        display: flex;
+        margin-bottom: $kk-spacing-md;
+        >label {
+            flex: 0.25;
+        }
+        >input,
+        >.client-name-input-wrap,
+        >.new-item-wrap {
+            flex: 1;
+        }
+    }
+    .client-name-input-wrap {
+        position: relative;
+        kk-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-100%);
+        }
+    }
+    .new-item-wrap {
+        input {
+            margin-bottom: $kk-spacing-md;
+        }
+    }
+    .due-date-wrap {
+        display: flex;
+        margin-bottom: $kk-spacing-md;
+        align-items: center;
+        kk-text:first-child {
+            flex: 0.25;
+        }
+        kk-text:last-child,
+        input {
+            flex: 1;
+        }
+    }
+    .current-item-total-wrap {
+        position: relative;
+        kk-text {
+            position: absolute;
+            left: $kk-spacing-sm;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 200;
+        }
+        input {
+            padding-left: $kk-spacing-lg;
+        }
+    }
+    .invoice-total-wrap {
+        display: flex;
+        align-items: center;
+        kk-text:first-child {
+            flex: 1;
+            text-align: right;
+            margin-right: $kk-spacing-lg;
+        }
+        &.border-top {
+            border-top: 1px solid $gray;
+            margin-top: $kk-spacing-sm;
+            padding-top: $kk-spacing-sm;
+        }
+    }
+    .actions-wrap {
+        text-align: right;
+        margin-top: $kk-spacing-lg;
+        kk-button:first-child {
+            margin-right: $kk-spacing-md;
+        }
+    }
+    mat-form-field {
+        position: relative;
+        mat-datepicker-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            transform: translateY(-0.4375em);
+        }
+    }
+    .items-wrap {
+        background-color: #fff;
+        padding: $kk-spacing-lg;
+        border-radius: 3px;
+        margin-bottom: $kk-spacing-lg;
+    }
+    .item-wrap {
+        padding: $kk-spacing-sm 0;
+    }
+    .name-total-wrap {
+        display: flex;
+        margin-bottom: $kk-spacing-sm;
+        kk-text:first-child {
+            flex: 0.25;
+        }
+        kk-text:last-child {
+            flex: 1;
+        }
+    }
+}

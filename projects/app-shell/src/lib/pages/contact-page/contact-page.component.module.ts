@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ContactPageComponent } from './contact-page.component';
-import { ComponentsModule } from 'projects/components/src/public-api';
+import { ComponentsModule, TextComponentModule, ContactFormComponentModule } from 'projects/components/src/public-api';
 import { CommonModule } from '@angular/common';
 import { ContactPageRoutingModule } from './contact-page-routing.module';
 
@@ -9,7 +9,9 @@ import { ContactPageRoutingModule } from './contact-page-routing.module';
   imports: [
     ComponentsModule,
     CommonModule,
-    ContactPageRoutingModule
+    ContactPageRoutingModule,
+    TextComponentModule,
+    ContactFormComponentModule
   ],
   exports: [ContactPageComponent]
 })

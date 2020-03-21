@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AboutPageComponent } from './about-page.component';
-import { ComponentsModule } from 'projects/components/src/public-api';
+import { ComponentsModule, TextComponentModule } from '@kk/components';
 import { CommonModule } from '@angular/common';
 import { AboutPageRoutingModule } from './about-page-routing.module';
 
@@ -9,7 +9,8 @@ import { AboutPageRoutingModule } from './about-page-routing.module';
   imports: [
     ComponentsModule,
     CommonModule,
-    AboutPageRoutingModule
+    AboutPageRoutingModule,
+    TextComponentModule
   ],
   exports: [AboutPageComponent]
 })

@@ -22,7 +22,8 @@ import { jwtProvider } from 'projects/core/src/lib/auth/jwt-interceptor';
     AppShellModule,
     FontAwesomeModule,
     HttpClientModule,
-    ComponentsModule
+    ComponentsModule,
+
   ],
   providers: [
     httpErrorProvider,
