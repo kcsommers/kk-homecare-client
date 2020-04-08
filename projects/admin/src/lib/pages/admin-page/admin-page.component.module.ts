@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { TextComponentModule } from 'projects/components/src/public-api';
+import { TextComponentModule, ButtonComponentModule } from 'projects/components/src/public-api';
 import { CommonModule } from '@angular/common';
 import { AdminPageComponent } from './admin-page.component';
 import { AdminPageRoutingModule } from './admin-page-routing.module';
@@ -9,7 +9,8 @@ import { AdminPageRoutingModule } from './admin-page-routing.module';
   imports: [
     CommonModule,
     TextComponentModule,
-    AdminPageRoutingModule
+    AdminPageRoutingModule,
+    ButtonComponentModule
   ],
   exports: [AdminPageComponent]
 })

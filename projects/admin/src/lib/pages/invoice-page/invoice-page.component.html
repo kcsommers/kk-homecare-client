@@ -1,27 +1,151 @@
-<input
-    type="text"
-    placeholder="Search"
->
-<section class="past-due-invoices-section">
-    <kk-text
-        [content]="'Past Due'"
-        [isHeader]="true"
-    ></kk-text>
-</section>
-<section class="unpaid-invoices-section">
-    <kk-text
-        [content]="'Unpaid'"
-        [isHeader]="true"
-    ></kk-text>
-</section>
-<section class="all-invoices-section"></section>
-<kk-text
-    [content]="'All Invoices'"
-    [isHeader]="true"
-></kk-text>
-<section class="new-invoice-section">
-    <kk-button
-        [text]="'New Invoice'"
-        (click)="openInvoiceModal()"
-    ></kk-button>
-</section>
+<div class="invoice-page-wrap">
+    <div class="invoice-form-wrap">
+        <kk-text
+            [isHeader]="true"
+            [content]="isNewInvoice ? 'New Invoice' : 'Edit Invoice'"
+        ></kk-text>
+        <div class="invoice-form-input-wrap">
+            <label for="client-name-input">
+                Client Name
+                <kk-text
+                    *ngIf="errors.clientName$ | async"
+                    [content]="errors.clientName$ | async"
+                    [color]="'danger'"
+                    [size]="'0.75rem'"
+                ></kk-text>
+            </label>
+            <input
+                id="client-name-input"
+                type="text"
+                [(ngModel)]="invoice && invoice.clientName"
+            >
+        </div>
+        <div class="invoice-form-input-wrap">
+            <label for="client-email-input">Client Email</label>
+            <input
+                id="client-email-input"
+                type="text"
+                [(ngModel)]="invoice && invoice.clientEmail"
+            >
+        </div>
+        <div class="invoice-form-input-wrap">
+            <label for="client-phone-input">Client Phone</label>
+            <input
+                id="client-phone-input"
+                type="text"
+                [(ngModel)]="invoice && invoice.clientPhone"
+            >
+        </div>
+        <div class="invoice-form-input-wrap due-date-input-wrap">
+            <label for="due-date-input">Due Date</label>
+            <mat-datepicker #Datepicker></mat-datepicker>
+            <input
+                matInput
+                readonly
+                type="text"
+                id="due-date-input"
+                [matDatepicker]="Datepicker"
+                [(ngModel)]="invoice && invoice.dueDate"
+            >
+            <mat-datepicker-toggle [for]="Datepicker"></mat-datepicker-toggle>
+        </div>
+        <div class="invoice-form-input-wrap">
+            <label for="item-name-input">
+                New Item Name
+                <kk-text
+                    *ngIf="errors.noItems$ | async"
+                    [content]="errors.noItems$ | async"
+                    [color]="'danger'"
+                    [size]="'0.75rem'"
+                ></kk-text>
+            </label>
+            <input
+                id="item-name-input"
+                type="text"
+                [(ngModel)]="newItemName"
+            >
+        </div>
+        <div class="invoice-form-input-wrap">
+            <label for="item-description-input">New Item Description</label>
+            <textarea
+                id="item-description-input"
+                type="text"
+                [(ngModel)]="newItemDescription"
+            ></textarea>
+        </div>
+        <div class="invoice-form-input-wrap">
+            <label for="item-total-input">New Item Total</label>
+            <input
+                #NewItemTotalInput
+                id="item-total-input"
+                type="text"
+                placeholder="$0.00"
+                [(ngModel)]="newItemTotal"
+                (ngModelChange)="validateTotal($event)"
+            >
+        </div>
+        <div class="invoice-form-button-wrap">
+            <kk-button
+                [text]="'Add Item'"
+                [isFullWidth]="true"
+                [size]="'sm'"
+                (click)="newItemValid && addItem()"
+            ></kk-button>
+        </div>
+        <div class="invoice-form-button-wrap">
+            <kk-button
+                [text]="'Save Invoice'"
+                [isFullWidth]="true"
+                [type]="'accent'"
+                (click)="save()"
+            ></kk-button>
+        </div>
+    </div>
+    <div
+        *ngIf="!!invoice"
+        class="invoice-items-wrap"
+    >
+        <div class="invoice-items-wrap-inner">
+            <kk-text
+                [content]="'Invoice Items'"
+                [size]="'0.85rem'"
+            ></kk-text>
+            <div
+                *ngFor="let item of invoice.items"
+                class="invoice-item-wrap"
+            >
+                <div class="item-name-total-wrap">
+                    <kk-text
+                        [content]="item.name"
+                        [fontWeight]="'bold'"
+                    ></kk-text>
+                    <kk-text [content]="item.totalString"></kk-text>
+                </div>
+                <kk-text
+                    [content]="item.description"
+                    [fontStyle]="'italic'"
+                    [size]="'0.85rem'"
+                ></kk-text>
+            </div>
+            <div class="invoice-total-wrap">
+                <kk-text
+                    [content]="'Total: ' + invoice.total"
+                    [fontWeight]="'bold'"
+                ></kk-text>
+            </div>
+            <div class="actions-wrap">
+                <kk-button
+                    [text]="invoice.sent ? 'Send Reminder' : 'Send to Client'"
+                    [isFullWidth]="true"
+                    [size]="'sm'"
+                ></kk-button>
+                <kk-button
+                    [text]="'Mark as Paid'"
+                    [isFullWidth]="true"
+                    [size]="'sm'"
+                    [type]="'success'"
+                ></kk-button>
+            </div>
+        </div>
+    </div>
+</div>

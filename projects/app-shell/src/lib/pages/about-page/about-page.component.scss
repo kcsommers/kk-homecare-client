@@ -1,66 +1,52 @@
 @import '_variables';
 :host {
     .about-intro-section {
-        padding-top: 65px;
-        .kk-section-wrap {
-            position: relative;
-            z-index: 300;
-        }
+       display: flex;
+       padding: $kk-spacing-xl * 5 $kk-spacing-xl * 3;
     }
-    .about-title-wrap {
-        margin-bottom: $kk-spacing-xl;
+    .about-intro-wrap,
+    .about-image-wrap {
+        position: relative;
+        z-index: 99;
+    }
+    .about-title,
+    .about-blurb {
+        color: #fff;
+    }
+    .about-blurb {
+        padding: $kk-spacing-xl;
+        margin: $kk-spacing-xl $kk-spacing-xl * 3 $kk-spacing-xl 0;
+        line-height: 1.5rem;
+        border: 5px solid #fff;
+        background-color: rgba($dark-gray, 0.5);
     }
     .about-intro-wrap {
-        display: flex;
-    }
-    .about-blurb-wrap {
-        line-height: 2rem;
-        padding-right: $kk-spacing-xl * 3;
-    }
-    .about-image-wrap {
-        // flex: 1;
-        min-width: 400px;
-        img {
-            border-radius: 3px;
-            box-shadow: $box-shadow;
-            display: inline-block;
-            max-width: 350px;
-            border: 5px solid #fff;
-        }
-    }
-    .about-k-section {
-        background-color: #fff;
-        position: relative;
-        z-index: 500;
-        padding: $kk-spacing-xl * 3 0;
-    }
-    .about-k-wrap {
-        background-color: #fff;
-        display: flex;
-    }
-    .about-k-image-wrap {
-        background-color: $light-peach;
-        padding: $kk-spacing-xl * 2;
-        flex: 0.75;
-        img {
-            border-radius: 3px;
-            box-shadow: $box-shadow;
-        }
-    }
-    .about-k-info-wrap {
-        padding: $kk-spacing-xl * 2;
         flex: 1;
     }
-    .about-k-title-wrap {
-        margin-bottom: $kk-spacing-lg;
-    }
-    .about-k-text-wrap {
-        line-height: 1.75rem;
-    }
-    .about-kellie-wrap {
-        background-color: #fff;
-        .about-k-image-wrap {
-            background-color: $light-peach;
+    .about-image-wrap {
+        width: 400px;
+        img {
+            border-radius: 3px;
+            box-shadow: $box-shadow;
+            border: 3px solid #fff;
         }
+    }
+    .about-k-wrap {
+        padding: $kk-spacing-xl * 2 0;
+        display: flex;
+    }
+    .about-k-info-wrap,
+    .about-k-img-wrap {
+        flex: 1;
+    }
+    .about-k-img-wrap img {
+        border: 35px solid $light-peach;
+    }
+    .about-k-info-wrap {
+        padding: $kk-spacing-xl;
+    }
+    .about-k-blurb {
+        line-height: 1.5rem;
+        margin: $kk-spacing-lg 0;
     }
 }

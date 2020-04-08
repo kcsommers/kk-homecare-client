@@ -19,6 +19,7 @@ export class ContactService {
   constructor(private http: HttpClient) { }
 
   public submitForm(data: FormSubmission): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/contact`, data);
+    return this.http.post(`${environment.apiUrl}/admin/messages`, data);
   }
+
 }

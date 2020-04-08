@@ -13,7 +13,10 @@ import {
   faDollarSign,
   faEnvelope,
   faUpload,
-  faImages
+  faImages,
+  faFileInvoiceDollar,
+  faTrash,
+  faEye
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook,
@@ -47,7 +50,10 @@ export class FaIconsComponent {
       faDollarSign,
       faEnvelope,
       faUpload,
-      faImages
+      faImages,
+      faFileInvoiceDollar,
+      faTrash,
+      faEye
     );
   }
 }

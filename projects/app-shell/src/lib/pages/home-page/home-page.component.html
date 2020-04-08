@@ -1,49 +1,91 @@
-<section
-    class="landing-section"
-    [class.fade-in]="animate"
->
-</section>
-<section class="what-we-do-section">
-    <div class="kk-section-wrap what-we-do-section-wrap">
-        <!-- <div class="what-we-do-image-wrap">
+<section class="landing-section">
+    <div class="landing-cta">
+        <div class="landing-logo-wrap">
             <img
-                src="assets/images/deck_filter.jpg"
-                alt
+                src="assets/images/logos/2k-logo-white.png"
+                alt="2K Logo"
             >
-        </div> -->
-        <div class="what-we-do-list-wrap">
-            <kk-service-list></kk-service-list>
         </div>
-        <div class="what-we-do-blurb-wrap">
-            <div class="what-we-do-header-wrap">
-                <kk-text
-                    [content]="'WHAT WE DO'"
-                    [isHeader]="true"
-                    [size]="'2.3rem'"
-                ></kk-text>
-            </div>
-            <div class="what-we-do-text-wrap">
-                <kk-text [content]="['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.']"></kk-text>
-            </div>
-            <div class="what-we-do-btn-wrap">
-                <kk-button
-                    [text]="'Request a Free Estimate!'"
-                    [type]="'accent'"
-                    [isFullWidth]="true"
-                    (click)="openGetQuoteModal()"
-                ></kk-button>
-            </div>
+        <div class="tagline-wrap">
+            <span class="tagline">
+                Cleaning, painting, landscaping and more!
+            </span>
+        </div>
+        <div class="cta-buttons-wrap">
+            <kk-button
+                [text]="'Get a Free Quote'"
+                (click)="openGetQuoteModal()"
+            ></kk-button>
         </div>
     </div>
 </section>
-<section class="service-cards-section">
-    <div class="service-cards-wrap kk-section-wrap">
-        <ng-container *ngFor="let service of services">
-            <kk-service-card
-                *ngIf="service.name !== 'wallpapering'"
-                [service]="service"
-            ></kk-service-card>
-        </ng-container>
+<section class="service-intro-section">
+    <div
+        class="service-blurb-wrap"
+        [routerLink]="'/services/cleaning'"
+    >
+        <span class="service-icon-wrap">
+            <fa-icon
+                [icon]="'broom'"
+                [size]="'3x'"
+            ></fa-icon>
+        </span>
+        <span class="service-blurb-name">Cleaning</span>
+        <span class="service-blurb">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </span>
+    </div>
+    <div
+        class="service-blurb-wrap"
+        [routerLink]="'/services/painting'"
+    >
+        <span class="service-icon-wrap">
+            <fa-icon
+                [icon]="'paint-roller'"
+                [size]="'3x'"
+            ></fa-icon>
+        </span>
+        <span class="service-blurb-name">Painting</span>
+        <span class="service-blurb">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </span>
+    </div>
+    <div
+        class="service-blurb-wrap"
+        [routerLink]="'/services/landscaping'"
+    >
+        <span class="service-icon-wrap">
+            <fa-icon
+                [icon]="'tree'"
+                [size]="'3x'"
+            ></fa-icon>
+        </span>
+        <span class="service-blurb-name">Landscaping</span>
+        <span class="service-blurb">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </span>
+    </div>
+</section>
+<section class="what-we-do-section">
+    <img
+        class="hanging-plant-img"
+        src="assets/images/decor/hanging-plant-light.png"
+        alt="Hanging Plant"
+    >
+    <h2 class="what-we-do-title">What We Do</h2>
+    <div class="what-we-do-body-wrap">
+        <div class="what-we-do-left">
+            <p class="what-we-do-blurb">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <kk-button
+                [text]="'Request a Free Estimate'"
+                (click)="openGetQuoteModal()"
+            ></kk-button>
+        </div>
+        <div class="what-we-do-right">
+            <kk-service-list></kk-service-list>
+        </div>
     </div>
 </section>
 <section class="testimonials-section">
@@ -75,7 +117,7 @@
             </div>
         </div>
         <div class="contact-form-wrap">
-            <kk-contact-form></kk-contact-form>
+            <kk-contact-form [textColor]="'offwhite'"></kk-contact-form>
         </div>
     </div>
 </section>

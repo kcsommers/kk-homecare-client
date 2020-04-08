@@ -53,13 +53,14 @@ export class ModalComponent implements OnDestroy {
     const factory = this._cfr.resolveComponentFactory(componentType);
     const compRef = this._container.createComponent(factory);
     compRef.instance.closeModal = this._modalService.closeModal.bind(this._modalService);
+    document.querySelector('html').classList.add('no-scroll');
 
     this._renderer.addClass(this._el.nativeElement, 'modal-open');
     this.isOpen$.next(true);
     if (this._modalService.closeOnClick) {
       this._click$ = fromEvent(document, 'click').subscribe((e: MouseEvent) => {
-        e.preventDefault();
-        if (e.target['classList'].contains('modal-open') || e.target['classList'].contains('modal-content-wrap')) {
+        // e.preventDefault();
+        if (e.target['classList'].contains('modal-open')) {
           this.close();
         }
       });
@@ -68,6 +69,7 @@ export class ModalComponent implements OnDestroy {
 
   private close(): void {
     this.isOpen$.next(false);
+    document.querySelector('html').classList.remove('no-scroll');
     if (this._click$) {
       this._click$.unsubscribe();
     }

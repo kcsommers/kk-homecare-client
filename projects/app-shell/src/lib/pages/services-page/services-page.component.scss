@@ -1,31 +1,35 @@
 @import '_variables';
 :host {
-    .services-section {
-        padding-top: 65px;
-    }
-    .services-title-wrap {
-        text-align: center;
-    }
-    .services-blurb-wrap {
-        text-align: center;
-        line-height: 2rem;
-        margin-top: $kk-spacing-xl;
-    }
-    .services-wrap {
+    .services-intro-section {
+        height: 60vh;
+        min-height: 500px;
         display: flex;
-        flex-wrap: wrap;
-        padding: $kk-spacing-xl 0;
-        width: 90%;
-        max-width: 1200px;
-        min-width: 800px;
-        margin: 0 auto;
-    }
-    .service-card-wrap {
-        flex: 1 1 33%;
-        flex-grow: 0;
-        margin-top: $kk-spacing-xl;
+        align-items: center;
     }
     .services-intro-wrap {
-        padding: $kk-spacing-xl * 4;
+        position: relative;
+        z-index: 99;
+        text-align: center;
+    }
+    .services-title,
+    .services-blurb {
+        color: #fff;
+    }
+    .services-blurb {
+        line-height: 1.5rem;
+        margin: $kk-spacing-xl auto;
+        width: 65%;
+        min-width: 200px;
+    }
+    .services-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-auto-rows: auto;
+        row-gap: $kk-spacing-xl;
+        column-gap: $kk-spacing-xl;
+        padding: $kk-spacing-xl * 3;
+    }
+    .service-card-wrap {
+        max-width: 400px;
     }
 }

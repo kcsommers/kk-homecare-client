@@ -1,0 +1,33 @@
+<div class="new-messages-wrap">
+    <div
+        *ngIf="loading$ | async"
+        class="loading"
+    ></div>
+    <ng-container *ngIf="!(loading$ | async)">
+        <div
+            *ngIf="!messages || !messages.length"
+            class="no-messages-container"
+        >
+            <kk-text
+                [content]="'No New Messages'"
+                [color]="'primary'"
+                [isHeader]="true"
+            ></kk-text>
+        </div>
+        <div
+            *ngIf="messages && messages.length"
+            class="messages-container"
+        >
+            <div
+                *ngFor="let message of messages"
+                class="message-container"
+            >
+                <kk-admin-message
+                    [message]="message"
+                    (delete)="deleteMessage($event)"
+                    (seen)="messageSeen($event)"
+                ></kk-admin-message>
+            </div>
+        </div>
+    </ng-container>
+</div>

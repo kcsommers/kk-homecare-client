@@ -12,4 +12,9 @@
         background-color: rgba($gray, 0.14);
         justify-content: space-between;
     }
+    .header-btns-wrap {
+        kk-button:last-child {
+            margin-left: $kk-spacing-md;
+        }
+    }
 }

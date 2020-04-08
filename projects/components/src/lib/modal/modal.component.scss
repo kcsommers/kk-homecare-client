@@ -8,7 +8,7 @@
     left: 0;
     right: 0;
     background-color: rgba($dark-gray, 0.85);
-    z-index: 100;
+    z-index: 101;
     animation: backgroundFade 0.5s ease forwards;
     justify-content: center;
     align-items: center;
@@ -17,10 +17,10 @@
         display: flex;
     }
     .modal-content-wrap {
+        height: 75vh;
         background-color: $offwhite;
         border-radius: 3px;
         padding: $kk-spacing-lg;
-        max-height: 85vh;
         flex: 1;
         max-width: 65%;
         overflow-y: auto;

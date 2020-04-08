@@ -1,0 +1,52 @@
+@import '_variables';
+
+:host {
+    .file-input-wrap {
+        height: 50vh;
+        position: relative;
+        margin: $kk-spacing-md 0;
+        border: 1px dashed;
+        border-color: $dark-gray;
+        transition: all 0.2s ease;;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.dragged-over {
+            border-color: $accent;
+            border-width: 3px;
+            .icon-wrap {
+                opacity: 0.75;
+                color: $primary;
+            }
+        }
+    }
+    input[type=file] {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: 102;
+        cursor: pointer;
+    }
+    .image-names-wrap {
+        width: 35%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        overflow-y: auto;
+        z-index: 101;
+        padding: $kk-spacing-md;
+        &.has-content {
+            z-index: 103;
+        }
+    }
+    .icon-wrap {
+        transition: all 0.2s ease;
+        opacity: 0.4;
+        color: $dark-gray;
+    }
+}

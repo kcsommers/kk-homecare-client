@@ -1,0 +1,63 @@
+@import '_variables';
+
+:host {
+    .invoice-page-wrap {
+        display: grid;
+        grid-template-columns: 1fr 0.5fr;
+    }
+    .invoice-form-wrap,
+    .invoice-items-wrap {
+        padding: $kk-spacing-xl;
+    }
+    .invoice-items-wrap-inner {
+        background-color: #fff;
+        border-radius: 3px;
+        padding: $kk-spacing-md;
+    }
+    .invoice-form-input-wrap {
+        margin: $kk-spacing-md 0;
+    }
+    label {
+        font-size: 0.75rem;
+        display: inline-block;
+        margin-bottom: $kk-spacing-sm;
+    }
+    .due-date-input-wrap {
+        position: relative;
+        input {
+            padding-left: 2.5rem;
+        }
+        mat-datepicker-toggle {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-20%);
+        }
+    }
+    .invoice-total-wrap {
+        text-align: right;
+    }
+    .invoice-form-button-wrap {
+      margin-bottom: $kk-spacing-md;
+    }
+    .invoice-item-wrap {
+        margin: $kk-spacing-md 0;
+    }
+    .item-name-total-wrap {
+        display: flex;
+        margin-bottom: $kk-spacing-sm;
+        kk-text:first-child {
+            flex: 1;
+        }
+        kk-text:last-child {
+            flex: 0.75;
+        }
+    }
+    .actions-wrap {
+        margin: $kk-spacing-lg 0;
+        kk-button {
+            display: block;
+            margin-bottom: $kk-spacing-sm;
+        }
+    }
+}

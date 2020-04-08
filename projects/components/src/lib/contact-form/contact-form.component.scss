@@ -40,9 +40,12 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: $offwhite;
+        color: $dark-gray;
         kk-text {
             margin-top: $kk-spacing-md;
+        }
+        &.text-color-offwhite {
+            color: $offwhite;
         }
     }
     .submitting-spinner-container {

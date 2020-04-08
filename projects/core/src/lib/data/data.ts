@@ -2,10 +2,11 @@ export enum Pages {
   HOME = 'home',
   ABOUT = 'about',
   SERVICES = 'services',
-  CONTACT = 'contact'
+  CONTACT = 'contact',
+  PHOTOS = 'photos'
 }
 
 export enum ModalTemplates {
   QUOTE = 'quote',
-  INVOICE = 'invoice'
+  IMAGE_UPLOAD = 'image_upload'
 }

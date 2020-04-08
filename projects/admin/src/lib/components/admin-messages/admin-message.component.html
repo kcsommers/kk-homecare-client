@@ -1,0 +1,42 @@
+<div
+    class="message-wrap"
+    [class.seen]="message.seen"
+>
+    <div
+        class="message-header"
+        (click)="isExpanded = !isExpanded"
+    >
+        <div class="message-header-left">
+            <div class="name-wrap">
+                <kk-text
+                    [content]="message.client.name"
+                    [isHeader]="true"
+                ></kk-text>
+            </div>
+            <div class="date-wrap">
+                <kk-text [content]="dateSent(message.date)"></kk-text>
+            </div>
+        </div>
+        <div class="message-header-right">
+            <fa-icon
+                title="Mark as Seen"
+                [icon]="'eye'"
+                (click)="messageSeen()"
+            ></fa-icon>
+            <fa-icon
+                title="Delete Message"
+                [icon]="'trash'"
+                (click)="deleteMessage()"
+            ></fa-icon>
+        </div>
+    </div>
+    <div
+        class="message-body"
+        [class.expanded]="isExpanded"
+    >
+        <kk-text
+            [content]="message.message"
+            [fontStyle]="'italic'"
+        ></kk-text>
+    </div>
+</div>

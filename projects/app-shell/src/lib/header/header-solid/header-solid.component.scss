@@ -1,0 +1,45 @@
+@import '_variables';
+
+:host {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        height: 4.5rem;
+        transition: all 0.3s ease;
+        z-index: 100;
+        padding: 0 $kk-spacing-md;
+        background-color: #fff;
+        box-shadow: $box-shadow;
+    }
+    .header-logo-wrap {
+        display: inline-block;
+        height: 100%;
+        padding: $kk-spacing-sm 0;
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+    .header-right,
+    .header-nav,
+    .header-nav >a {
+        display: flex;
+    }
+    .header-nav >a {
+        align-items: center;
+        padding: 0 $kk-spacing-md;
+        transition: all 0.3s ease;
+        color: $dark-gray;
+        &:hover {
+            background-color: $primary;
+            color: #fff;
+        }
+        &.active {
+            color: $primary;
+        }
+    }
+}

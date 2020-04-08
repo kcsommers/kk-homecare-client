@@ -1,0 +1,49 @@
+<mat-form-field>
+    <mat-label>Image Tag</mat-label>
+    <mat-select
+        [value]="currentTag"
+        (valueChange)="tagChanged($event)"
+    >
+        <mat-option
+            *ngFor="let tag of tags"
+            [value]="tag.value"
+        >
+            {{tag.viewValue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<kk-text [content]="'Drag and drop or click to upload images'"></kk-text>
+<div
+    class="file-input-wrap"
+    [class.dragged-over]="draggedOver$ | async"
+>
+    <input
+        type="file"
+        accept="image/png, image/jpeg, image/jpg"
+        multiple="true"
+        (change)="filesSelected($event)"
+        (dragenter)="dragEnter($event)"
+        (dragleave)="dragDone($event)"
+        (drop)="dragDone($event)"
+    >
+    <div
+        class="image-names-wrap"
+        [class.has-content]="(fileNames$ | async)?.length"
+    >
+        <kk-text
+            *ngIf="fileNames$ | async as names"
+            [content]="names"
+        ></kk-text>
+    </div>
+    <div class="icon-wrap">
+        <fa-icon
+            [icon]="'images'"
+            [size]="'8x'"
+        ></fa-icon>
+    </div>
+</div>
+<kk-button
+    [text]="'Upload Images'"
+    [isFullWidth]="true"
+    (click)="files.length && uploadImages()"
+></kk-button>

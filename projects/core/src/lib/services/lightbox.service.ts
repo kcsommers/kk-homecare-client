@@ -36,11 +36,12 @@ export class LightboxService {
   }
 
   public prev() {
-    this._currentIndex = this._currentIndex === 0 ? this._total - 1 : this._currentIndex - 1;
+    this._currentIndex = this._currentIndex === 0 ? 0 : this._currentIndex - 1;
     this.updateActiveImage();
   }
 
   private setImages(images: ImageModel[], total: number) {
+    console.log('TOTAL', total)
     this._total = total;
     this._images = images;
     this.updateActiveImage();
@@ -61,6 +62,9 @@ export class LightboxService {
                 this._images.push(result.images[0]);
                 this.photosService.createImageComponents(result.images);
                 this.currentImage$.next(result.images[0]);
+              }
+              if (!isNaN(result.total)) {
+                this._total = result.total;
               }
             }
           },

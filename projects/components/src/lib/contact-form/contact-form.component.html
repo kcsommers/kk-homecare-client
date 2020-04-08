@@ -10,6 +10,7 @@
 <div
     *ngIf="submitSuccess$ | async"
     class="submit-success-container"
+    [ngClass]="'text-color-' + textColor"
 >
     <fa-icon
         [icon]="'check-circle'"
@@ -44,7 +45,7 @@
                 <label for="name">
                     <kk-text
                         [content]="'Name'"
-                        [color]="'offwhite'"
+                        [color]="textColor"
                     ></kk-text>
                 </label>
                 <kk-text
@@ -65,7 +66,7 @@
                 <label for="email">
                     <kk-text
                         [content]="'Email'"
-                        [color]="'offwhite'"
+                        [color]="textColor"
                     ></kk-text>
                 </label>
                 <kk-text
@@ -86,7 +87,7 @@
                 <label for="phone">
                     <kk-text
                         [content]="'Phone'"
-                        [color]="'offwhite'"
+                        [color]="textColor"
                     ></kk-text>
                 </label>
                 <kk-text
@@ -109,7 +110,7 @@
                 <label for="message">
                     <kk-text
                         [content]="'Message'"
-                        [color]="'offwhite'"
+                        [color]="textColor"
                     ></kk-text>
                 </label>
                 <kk-text

@@ -10,7 +10,8 @@ enum ButtonTypes {
   PRIMARY = 'primary',
   ACCENT = 'accent',
   WARNING = 'warning',
-  DANGER = 'danger'
+  DANGER = 'danger',
+  success = 'success'
 }
 
 @Component({

@@ -1,6 +1,11 @@
 <section class="service-section">
-    <div class="kk-section-wrap">
+    <div class="service-section-wrap">
         <ng-container #ViewContainer></ng-container>
+        <img
+            class="shop-vac-img"
+            src="assets/images/decor/shop-vac-light.jpg"
+            alt="Shop Vac"
+        >
     </div>
 </section>
 <ng-template
@@ -12,15 +17,8 @@
         #FadeIn
         class="service-info-wrap fade-in"
     >
-        <div class="service-title-wrap">
-            <kk-text
-                [content]="service.name.toUpperCase()"
-                [isHeader]="true"
-            ></kk-text>
-        </div>
-        <div class="service-description-wrap">
-            <kk-text [content]="service && service.description"></kk-text>
-        </div>
+        <h2 class="service-title">{{service?.name.toUpperCase()}}</h2>
+        <p class="service-description">{{service?.description}}</p>
         <div class="service-bullets-wrap">
             <ul
                 *ngIf="service"
@@ -42,10 +40,7 @@
             #FadeIn
             class="service-image-wrap fade-in"
         >
-            <img
-                src="assets/images/work/deck.jpg"
-                alt
-            >
+            <img src="assets/images/work/deck.jpg">
         </div>
         <div class="service-list-wrap">
             <kk-service-list [showHeader]="false"></kk-service-list>

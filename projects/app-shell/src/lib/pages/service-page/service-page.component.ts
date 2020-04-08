@@ -1,7 +1,6 @@
-import { Component, OnDestroy, ViewChildren, ElementRef, Renderer2, QueryList, ViewChild, ViewContainerRef, TemplateRef, AfterViewInit, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs/operators';
-import { Service, Services, services } from '@kk/core';
+import { Component, OnDestroy, ViewChild, ViewContainerRef, TemplateRef, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Service, services } from '@kk/core';
 import { Subscription } from 'rxjs';
 
 @Component({

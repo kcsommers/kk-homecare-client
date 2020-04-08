@@ -1,0 +1,15 @@
+@import 'variables';
+
+:host {
+    .no-messages-container {
+        padding: $kk-spacing-xl;
+    }
+    .messages-container {
+        padding: $kk-spacing-xl;
+    }
+    .message-container {
+        &:not(:last-child) {
+            margin-bottom: $kk-spacing-xl;
+        }
+    }
+}

@@ -24,6 +24,5 @@ export { ServiceCardComponentModule } from './lib/service-card/service-card.comp
 export { ModalComponent } from './lib/modal/modal.component';
 export { ModalComponentModule } from './lib/modal/modal.component.module';
 export { GetQuoteTemplateComponent } from './lib/modal/modal-templates/get-quote-template/get-quote-template.component';
-export { InvoiceTemplateComponent } from './lib/modal/modal-templates/invoice/invoice-template.component';
 export { LoadingSpinnerComponentModule } from './lib/loading-spinner/loading-spinner.component.module';
 export { LoadingSpinnerComponent } from './lib/loading-spinner/loading-spinner.component';

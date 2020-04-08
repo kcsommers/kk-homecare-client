@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { TextComponentModule, ButtonComponentModule } from 'projects/components/src/public-api';
+import { TextComponentModule, ButtonComponentModule, ModalComponentModule } from 'projects/components/src/public-api';
 import { CommonModule } from '@angular/common';
 import { AdminDashboardComponent } from './admin-dashboard.component';
 import { RouterModule } from '@angular/router';
@@ -14,7 +14,8 @@ import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
     FontAwesomeModule,
     AdminDashboardRoutingModule,
     ButtonComponentModule,
-    TextComponentModule
+    TextComponentModule,
+    ModalComponentModule
   ],
   exports: [AdminDashboardComponent]
 })

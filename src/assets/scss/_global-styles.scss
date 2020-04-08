@@ -8,6 +8,11 @@
 }
 html, body {
     background: $offwhite;
+}
+html.no-scroll {
+    overflow: hidden;
+}
+body {
     overflow-x: hidden;
 }
 h1,
@@ -26,11 +31,6 @@ label,
 div {
     font-family: $kk-fonts-primary;
     color: $dark-gray;
-}
-h1,
-h2,
-h3 {
-    font-family: $kk-fonts-header;
 }
 h1 {
     font-size: $kk-header-xl;
@@ -54,6 +54,10 @@ div {
 a {
     text-decoration: none;
     color: inherit;
+    &:active,
+    &:focus {
+        outline: none;
+    }
 }
 img {
     display: inline-block;
@@ -79,13 +83,9 @@ textarea {
 textarea {
     resize: none;
     min-height: 150px;
-    font-size: 1.35rem;
+    font-size: 1rem;
     font-weight: normal;
-}
-.kk-section-wrap {
-    width: 90%;
-    margin: 0 auto;
-    padding: $kk-spacing-xl * 2 0;
+    line-height: 1.5rem;
 }
 .kk-color-accent {
     color: $accent;

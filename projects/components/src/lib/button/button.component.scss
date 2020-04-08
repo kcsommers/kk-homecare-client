@@ -17,9 +17,11 @@
     .kk-btn-danger {
         background-color: $danger;
     }
+    .kk-btn-success {
+        background-color: $success;
+    }
     .kk-btn-sm {
         padding: $kk-spacing-sm $kk-spacing-lg;
-        font-size: $kk-fontsize-sm;
     }
     .kk-btn-md {
         padding: $kk-spacing-md $kk-spacing-lg;

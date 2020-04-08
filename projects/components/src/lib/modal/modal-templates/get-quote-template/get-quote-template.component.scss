@@ -1,5 +1,7 @@
 @import '_variables';
 :host {
     .contact-form-wrap {
+        flex: 1;
+        padding: $kk-spacing-xl 0;
     }
 }

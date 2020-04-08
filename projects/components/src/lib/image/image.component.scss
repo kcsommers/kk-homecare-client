@@ -3,16 +3,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: #fff;
     cursor: pointer;
     position: relative;
-    z-index: 400;
+    z-index: 98;
     transition: filter 0.3s ease;
     &.slide-in {
         animation: slideIn 0.5s ease forwards;
     }
     &.hover-grow:hover {
-        z-index: 401;
+        z-index: 99;
         img {
             transform: scale(1.15);
         }

@@ -1,9 +1,12 @@
+import { HttpResponse } from '@kk/core';
+import { MomentInput } from 'moment';
+
 export interface InvoiceItem {
   name: string;
   description: string;
   totalNum: number;
   totalString: string;
-  id: number;
+  itemId: number;
 }
 
 export interface ClientModel {
@@ -18,8 +21,31 @@ export interface InvoiceModel {
   items: InvoiceItem[];
   sent: boolean;
   paid: boolean;
-  dueDate: Date;
-  dateSent: Date;
-  datePaid: Date;
+  dueDate: MomentInput;
+  dateSent: MomentInput;
+  datePaid: MomentInput;
   _id?: string;
+}
+
+export interface InvoiceResponse extends HttpResponse {
+  data: {
+    invoices: InvoiceModel[],
+    total?: number;
+  }
+}
+
+export interface MessageModel {
+  client: ClientModel,
+  message: string,
+  jobType: string,
+  replied: boolean,
+  date: MomentInput;
+  _id: string;
+}
+
+export interface MessageResponse extends HttpResponse {
+  data: {
+    messages: MessageModel[],
+    total?: number;
+  }
 }

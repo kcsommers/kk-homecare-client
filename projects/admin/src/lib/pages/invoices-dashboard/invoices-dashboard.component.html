@@ -1,0 +1,51 @@
+<div class="header-wrap">
+    <input
+        #SearchBar
+        type="text"
+        placeholder="Search by Client"
+    >
+    <kk-button
+        [text]="'New Invoice'"
+        [type]="'accent'"
+        (click)="newInvoice()"
+    ></kk-button>
+</div>
+<div class="filter-select-wrap">
+    <mat-form-field>
+        <mat-label>Filter By</mat-label>
+        <mat-select (valueChange)="filterChanged($event)">
+            <mat-option
+                *ngFor="let filter of filters"
+                [value]="filter.value"
+            >
+                {{filter.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div class="invoices-container">
+    <ng-container *ngFor="let invoice of invoices">
+        <div
+            class="invoice-block"
+            (click)="editInvoice(invoice._id)"
+        >
+            <div
+                class="invoice-block-inner"
+                [class.invoice-late]="isPastDue(invoice)"
+                [class.invoice-paid]="invoice.paid"
+            >
+                <fa-icon [icon]="'file-invoice-dollar'"></fa-icon>
+                <kk-text [content]="invoice.client.name"></kk-text>
+            </div>
+        </div>
+    </ng-container>
+</div>
+<div
+    *ngIf="invoices.length < totalInvoices"
+    class="load-more-container"
+>
+    <kk-button
+        [text]="'Load More'"
+        (click)="invoices.length < totalInvoices && loadInvoices(true)"
+    ></kk-button>
+</div>

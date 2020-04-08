@@ -5,7 +5,7 @@ import { InvoicePageComponent } from './invoice-page.component';
 @NgModule({
   imports: [RouterModule.forChild([
     {
-      path: '',
+      path: ':id',
       component: InvoicePageComponent
     }
   ])],

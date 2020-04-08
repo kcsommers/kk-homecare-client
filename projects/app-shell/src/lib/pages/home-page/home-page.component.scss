@@ -3,66 +3,133 @@
 :host {
     // Landing
     .landing-section {
-        background-image: url(../../../../../../src/assets/images/decor/landing-bg.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 100vh;
+        height: 75vh;
         min-height: 600px;
-        &.fade-in {
-            animation: fadeIn 2s ease forwards;
+        background-image: url(../../../../../../src/assets/images/decor/2k-bg-dark.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        padding: $kk-spacing-lg;
+        justify-content: center;
+    }
+
+    .landing-cta {
+        border: 5px solid #fff;
+        padding: $kk-spacing-xl;
+        text-align: center;
+    }
+
+    .landing-logo-wrap {
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    .tagline {
+        display: inline-block;
+        color: $offwhite;
+        font-size: 2rem;
+        margin: $kk-spacing-lg 0;
+    }
+
+    .service-intro-section {
+        display: flex;
+        width: 75%;
+        min-width: 500px;
+        padding: $kk-spacing-xl * 2 0;
+        margin: 0 auto;
+    }
+
+    .service-blurb-wrap {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: $kk-spacing-xl;
+        transition: all 0.7s ease;
+        cursor: pointer;
+        &:hover {
+            box-shadow: $box-shadow;
+            fa-icon {
+                display: inline-block;
+                opacity: 1;
+                color: $primary;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .service-blurb-name {
+        margin: $kk-spacing-md 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .service-blurb {
+        text-align: center;
+        line-height: 1.5rem;
+    }
+
+    .service-icon-wrap {
+        fa-icon {
+            transition: all 0.7s ease;
+            opacity: 0.85;
+            color: $dark-gray;
         }
     }
 
     // What We Do
-    .what-we-do-section-wrap {
+    .what-we-do-section {
         position: relative;
-        display: flex;
+        background-color: #fff;
+        padding: $kk-spacing-xl * 3 0;
     }
-    .what-we-do-image-wrap {
-        transform: translate(-15%, 30%);
+    .hanging-plant-img {
         position: absolute;
         top: 0;
-        left: 0;
-        z-index: 400;
-        width: 30%;
-        min-width: 400px;
-        img {
-            box-shadow: $box-shadow;
+        left: -150px;
+        width: 500px;
+        z-index: 95;
+        opacity: 0.5;
+    }
+    .what-we-do-body-wrap {
+        display: flex;
+        position: relative;
+        z-index: 98;
+    }
+    .what-we-do-title {
+        position: relative;
+        z-index: 98;
+        min-width: 300px;
+        margin-left: $kk-spacing-xl * 4;
+    }
+    .what-we-do-left {
+        margin-left: $kk-spacing-xl * 4;
+        margin-right: $kk-spacing-xl;
+        flex: 1;
+    }
+    .what-we-do-right {
+        flex: 0.75;
+        kk-service-list {
+            transform: translateY(-40px);
         }
     }
-    .what-we-do-list-wrap {
-        margin-left: auto;
-        transform: translateX(-8%);
-        position: relative;
-        z-index: 500;
+    .what-we-do-blurb {
+        margin: $kk-spacing-xl auto;
+        line-height: 1.5rem;
     }
-    .what-we-do-blurb-wrap {
-        display: inline-block;
-        width: 50%;
-    }
-    .what-we-do-header-wrap {
-        // border-bottom: 4px solid $accent;
-        padding-bottom: $kk-spacing-sm;
-        width: 65%;
-        min-width: 350px;
-    }
-    .what-we-do-text-wrap {
-        margin: $kk-spacing-lg 0;
-        min-width: 375px;
-        line-height: 2rem;
-    }
-    .service-cards-wrap {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-    }
+
+
+    // Testimonials
     .testimonials-section {
         background-image: url(../../../../../../src/assets/images/decor/clean_kitchen.jpg);
         background-size: cover;
         background-repeat: no-repeat;
-        padding: $kk-spacing-xl 0;
+        padding: $kk-spacing-xl * 3 0;
         background-position: center;
+        position: relative;
+        z-index: 96;
     }
     .testimonials-wrap {
         background-color: #fff;

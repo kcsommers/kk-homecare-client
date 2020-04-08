@@ -1,0 +1,59 @@
+<header class="header">
+    <div class="header-left">
+        <a
+            class="header-logo-wrap"
+            [routerLink]="'/'"
+        >
+            <img
+                src="assets/images/logos/2k-logo-black.png"
+                alt="2K Logo"
+            >
+        </a>
+    </div>
+    <div class="header-right">
+        <nav class="header-nav">
+            <a
+                [routerLink]="'/'"
+                [class.active]="headerService.activeTab === 'home'"
+            >
+                Home
+            </a>
+            <a
+                [routerLink]="'/about'"
+                [class.active]="headerService.activeTab === 'about'"
+            >
+                About
+            </a>
+            <a
+                [routerLink]="'/services'"
+                [class.active]="headerService.activeTab === 'services'"
+            >
+                Services
+            </a>
+            <a
+                [routerLink]="'/photos'"
+                [class.active]="headerService.activeTab === 'photos'"
+            >
+                Photos
+            </a>
+            <a
+                [routerLink]="'/contact'"
+                [class.active]="headerService.activeTab === 'contact'"
+            >
+                Contact
+            </a>
+            <a href="#">
+                <fa-icon
+                    [icon]="['fab', 'instagram']"
+                    [size]="'2x'"
+                ></fa-icon>
+            </a>
+            <a href="#">
+                <fa-icon
+                    [icon]="['fab', 'facebook']"
+                    [size]="'2x'"
+                ></fa-icon>
+            </a>
+        </nav>
+    </div>
+</header>

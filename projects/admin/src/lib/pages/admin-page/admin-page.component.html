@@ -1,12 +1,18 @@
 <div class="admin-page-header">
     <kk-text [content]="'Hello, ' + username"></kk-text>
-    <kk-button
-        [text]="'Logout'"
-        [size]="'sm'"
-        (click)="logout()"
-    ></kk-button>
+    <div class="header-btns-wrap">
+        <kk-button
+            [text]="'Dashboard'"
+            [size]="'sm'"
+            (click)="navigateToDashboard()"
+        ></kk-button>
+        <kk-button
+            [text]="'Logout'"
+            [size]="'sm'"
+            (click)="logout()"
+        ></kk-button>
+    </div>
 </div>
 <div class="admin-page-body">
     <router-outlet></router-outlet>
 </div>
-<kk-modal></kk-modal>

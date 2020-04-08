@@ -5,10 +5,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ParallaxImageDirective } from './directives/parallax-image/parallax-image.directive';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { ToggleComponentModule } from './toggle/toggle.component.module';
 import { TestimonialsComponentModule } from './testimonials/testimonials.component.module';
 import { ServiceListComponentModule } from './service-list/service-list.component.module';
@@ -31,10 +27,6 @@ const clientSecret = 'gNKa3TVxmlfXliPsg0uT8nrf';
     RouterModule,
     FormsModule,
     FontAwesomeModule,
-    MatMomentDateModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
     ToggleComponentModule,
     TextComponentModule,
     TestimonialsComponentModule,

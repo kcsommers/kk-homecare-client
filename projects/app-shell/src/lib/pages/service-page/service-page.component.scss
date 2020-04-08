@@ -1,17 +1,28 @@
 @import '_variables';
 :host {
-    .service-section {
-        .kk-section-wrap {
-            display: flex;
-        }
+    .service-section-wrap {
+        display: flex;
+        padding-top: 4.5rem;
+        position: relative;
     }
     .service-info-wrap {
         flex: 1;
         line-height: 2rem;
-        padding: $kk-spacing-xl
+        padding: $kk-spacing-xl * 2;
+        position: relative;
+        z-index: 96;
     }
-    .service-title-wrap {
-        margin: $kk-spacing-xl 0;
+    .shop-vac-img {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30%;
+        min-width: 400px;
+        opacity: 0.5;
+        z-index: 95;
+    }
+    .service-description {
+        margin-top: $kk-spacing-xl;
     }
     .service-bullets-wrap {
         padding-left: $kk-spacing-xl;
@@ -22,7 +33,7 @@
     }
     .service-page-right {
         flex: 0.75;
-        padding: $kk-spacing-xl;
+        padding: $kk-spacing-xl * 2 $kk-spacing-xl;
     }
     .service-image-wrap {
         margin-top: $kk-spacing-xl;

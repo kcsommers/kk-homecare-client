@@ -2,24 +2,24 @@
 :host {
     .kk-footer {
         background-color: #fff;
-        padding: $kk-spacing-xl * 2;
+        padding: $kk-spacing-xl * 1.5 $kk-spacing-xl * 2;
         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
         position: relative;
-        z-index: 900;
+        z-index: 100;
     }
     .footer-wrap {
         display: flex;
+        align-items: center;
     }
-    .footer-logo-wrap {
-        width: 5%;
-        min-width: 100px;
-        display: inline-block;
+    .footer-logo {
+        width: 150px;
     }
     .footer-info-wrap {
         margin-left: $kk-spacing-xl;
     }
-    .footer-info-title {
+    .footer-title {
         margin-bottom: $kk-spacing-sm;
+        font-weight: bold;
     }
     .contact-info-wrap {
         display: inline-flex;
@@ -27,10 +27,13 @@
     }
     .contact-info {
         margin-right: $kk-spacing-xl;
-        line-height: 1.75rem;
+        line-height: 1.5rem;
+        p {
+            font-size: 0.85rem;
+        }
     }
-    .copyright-wrap {
-        white-space: nowrap;
+    .copyright {
+        font-size: 0.75rem;
         margin-top: $kk-spacing-md;
     }
     .social-wrap {
@@ -40,10 +43,13 @@
         flex-direction: column;
         justify-content: center;
     }
+    .follow-us {
+        font-size: 1.2rem;
+    }
     .social-icons-wrap {
         margin-top: $kk-spacing-sm;
-        fa-icon:first-child{
-            margin: 0 $kk-spacing-sm;
+        fa-icon {
+            margin-left: $kk-spacing-md;
         }
     }
 }

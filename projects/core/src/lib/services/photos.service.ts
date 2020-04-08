@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ImageModel, PhotosResponse, BeforeAfterResponse } from '../photos/photos';
 import { ImageComponent } from 'projects/components/src/lib/image/image.component';
+import { HttpResponse } from '../auth/auth';
+import { Services } from '../kk-services/jobs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +42,13 @@ export class PhotosService {
         }
       });
     }
+  }
+
+  public upload(imageFiles: FileList, tag: Services): Observable<HttpResponse> {
+    const formData = new FormData();
+    for (let i = 0; i < imageFiles.length; i++) {
+      formData.append('photos', imageFiles[i], imageFiles[i].name);
+    }
+    return this.http.post<HttpResponse>(`${environment.apiUrl}/photos/upload?tag=${tag}`, formData);
   }
 }

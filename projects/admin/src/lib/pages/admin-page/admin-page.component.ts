@@ -21,4 +21,7 @@ export class AdminPageComponent {
   public logout(): void {
     this._authService.logout();
   }
+  public navigateToDashboard(): void {
+    this._router.navigateByUrl('admin');
+  }
 }

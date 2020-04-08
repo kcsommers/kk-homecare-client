@@ -45,7 +45,10 @@
             </div>
         </div>
     </a>
-    <div class="admin-page-card">
+    <div
+        class="admin-page-card"
+        (click)="openImageUploadModal()"
+    >
         <div class="admin-page-card-header">
             <kk-text
                 [size]="'1.25rem'"
@@ -63,3 +66,4 @@
         </div>
     </div>
 </div>
+<kk-modal></kk-modal>

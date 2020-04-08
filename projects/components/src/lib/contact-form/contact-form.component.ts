@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, HostBinding, HostListener, Output, EventEmitter, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ImageModel, ContactService, JobTypes, HttpResponse } from '@kk/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ContactService, JobTypes, HttpResponse } from '@kk/core';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -10,6 +9,9 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent {
+  @Input()
+  public textColor;
+
   public nameInput = '';
   public emailInput = '';
   public messageInput = '';

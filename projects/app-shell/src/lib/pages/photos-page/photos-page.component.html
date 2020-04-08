@@ -1,18 +1,16 @@
-<section class="photos-header-section">
-    <div class="photos-header-wrap">
-        <kk-text
-            [content]="'OUR WORK'"
-            [isHeader]="true"
-        ></kk-text>
-    </div>
-    <div class="before-after-toggle-wrap">
-        <div class="before-after-label-wrap">
-            <kk-text [content]="'Before and After'"></kk-text>
-        </div>
-        <kk-toggle (isToggledChange)="showBeforeAfter = $event"></kk-toggle>
+<section
+    class="photos-intro-section"
+    kkParallaxBg="'assets/images/decor/roller-dark.jpg'"
+>
+    <div class="photos-intro-wrap">
+        <h2 class="photos-header">Our Work</h2>
     </div>
 </section>
 <section class="photos-section">
+    <div class="before-after-toggle-wrap">
+        <label class="before-after-label">Before & After</label>
+        <kk-toggle (isToggledChange)="showBeforeAfter = $event"></kk-toggle>
+    </div>
     <div
         class="photos-section-wrap"
         [class.hidden]="showBeforeAfter"

@@ -1,0 +1,32 @@
+@import 'variables';
+
+:host {
+    .message-wrap {
+        background-color: #fff;
+        padding: $kk-spacing-md;
+        border-radius: 3px;
+        box-shadow: $box-shadow-primary;
+        &:not(:last-child) {
+            margin-bottom: $kk-spacing-xl;
+        }
+        &.seen {
+            box-shadow: $box-shadow;
+        }
+    }
+    .message-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        fa-icon {
+            transition: all 0.2s ease;
+            margin-left: $kk-spacing-md;
+            cursor: pointer;
+            &:hover {
+                color: $danger;
+            }
+        }
+    }
+    .message-body {
+        margin-top: $kk-spacing-lg;
+    }
+}

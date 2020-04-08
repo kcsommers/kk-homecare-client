@@ -61,7 +61,7 @@ export class ParallaxImageDirective implements OnInit {
     this.renderer.setStyle(this.bgDiv, 'bottom', `-${height * 0.25}px`);
     this.renderer.setStyle(this.bgDiv, 'right', '0');
     this.renderer.setStyle(this.bgDiv, 'left', '0');
-    this.renderer.setStyle(this.bgDiv, 'zIndex', 200);
+    this.renderer.setStyle(this.bgDiv, 'zIndex', 50);
     this.renderer.setStyle(this.bgDiv, 'transform', `translateY(${(window.scrollY - (this._offset / 2)) / 12}%)`)
     this.renderer.appendChild(this.el.nativeElement, this.bgDiv);
   }
