@@ -16,16 +16,17 @@ export class PhotosService {
 
   constructor(private http: HttpClient, public cfr: ComponentFactoryResolver) { }
 
-  public getRegularPhotos(
-    limit: number,
+  public getPhotos(
     getTotal: boolean,
-    fetchAll: boolean
+    fetchAll: boolean,
+    beforeAfter: boolean,
+    offset: number,
+    limit: number
   ): Observable<PhotosResponse> {
-    return this.http.post<PhotosResponse>(`${environment.apiUrl}/photos`, { limit, lastId: this.lastId, getTotal, fetchAll });
-  }
-
-  public getBeforeAfterPhotos(offset: number, fetchAll: boolean): Observable<BeforeAfterResponse> {
-    return this.http.post<BeforeAfterResponse>(`${environment.apiUrl}/photos/before-after`, { offset });
+    return this.http.post<PhotosResponse>(
+      `${environment.apiUrl}/photos`,
+      { beforeAfter, offset, getTotal, fetchAll, limit, lastId: this.lastId }
+    );
   }
 
   public createImageComponents(imgModels: ImageModel[], clickCb?: (img: ImageModel) => void, viewContainer?: ViewContainerRef) {

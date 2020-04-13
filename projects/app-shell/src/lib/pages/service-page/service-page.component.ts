@@ -2,13 +2,14 @@ import { Component, OnDestroy, ViewChild, ViewContainerRef, TemplateRef, OnInit 
 import { ActivatedRoute } from '@angular/router';
 import { Service, services } from '@kk/core';
 import { Subscription } from 'rxjs';
+import { BasePage } from '../base-page';
 
 @Component({
   selector: 'kk-service-page',
   templateUrl: './service-page.component.html',
   styleUrls: ['./service-page.component.scss']
 })
-export class ServicePageComponent implements OnInit, OnDestroy {
+export class ServicePageComponent extends BasePage implements OnInit, OnDestroy {
   public service: Service;
 
   private _params$: Subscription;
@@ -20,6 +21,7 @@ export class ServicePageComponent implements OnInit, OnDestroy {
   private _template: TemplateRef<any>;
 
   constructor(private route: ActivatedRoute) {
+    super();
   }
 
   ngOnInit() {

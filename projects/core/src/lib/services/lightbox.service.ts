@@ -51,7 +51,7 @@ export class LightboxService {
     if (this._images[this._currentIndex]) {
       this.currentImage$.next(this._images[this._currentIndex]);
     } else {
-      this.photosService.getRegularPhotos(1, false, false)
+      this.photosService.getPhotos(false, false, false, -1, 1)
         .pipe(take(1))
         .subscribe(
           (result: { images: ImageModel[], error: Error, total: number }) => {

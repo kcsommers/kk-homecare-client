@@ -12,6 +12,7 @@
         align-items: center;
         padding: $kk-spacing-lg;
         justify-content: center;
+        animation: fadeIn 1s linear;
     }
 
     .landing-cta {
@@ -175,3 +176,5 @@
         opacity: 1;
     }
 }
+
+

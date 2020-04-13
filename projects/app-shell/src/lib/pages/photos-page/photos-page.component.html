@@ -9,19 +9,16 @@
 <section class="photos-section">
     <div class="before-after-toggle-wrap">
         <label class="before-after-label">Before & After</label>
-        <kk-toggle (isToggledChange)="showBeforeAfter = $event"></kk-toggle>
+        <kk-toggle (isToggledChange)="beforeAfterToggleChange($event)"></kk-toggle>
     </div>
     <div
-        class="photos-section-wrap"
-        [class.hidden]="showBeforeAfter"
+        class="photos-wrap"
+        [class.before-after-wrap]="showBeforeAfter"
     >
         <ng-container #PhotosContainer></ng-container>
     </div>
-    <div
-        class="before-after-wrap"
-        [class.hidden]="!showBeforeAfter"
-    >
-        <ng-container #BeforeAfterContainer></ng-container>
-    </div>
 </section>
 <kk-lightbox></kk-lightbox>
+<ng-template #ErrorTemplate>
+    <p>No Photos to Display</p>
+</ng-template>

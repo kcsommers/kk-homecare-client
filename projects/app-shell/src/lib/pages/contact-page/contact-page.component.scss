@@ -7,16 +7,26 @@
         margin-right: $kk-spacing-xl;
         line-height: 1.75rem;
         margin-bottom: $kk-spacing-xl;
-        kk-text:first-child {
-            margin-bottom: $kk-spacing-md;
-        }
+    }
+    .contact-header {
+        margin-bottom: $kk-spacing-xl;
     }
     .contact-info-wrap {
         flex: 0.65;
-        padding: $kk-spacing-xl * 4 $kk-spacing-xl * 2;
-        >kk-text {
-            margin-bottom: $kk-spacing-xl;
-        }
+        padding: $kk-spacing-xl * 4 $kk-spacing-xl * 2 $kk-spacing-xl * 4 $kk-spacing-xl * 3;
+        background-image: url(../../../../../../src/assets/images/decor/potting-light.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .contact-info-inner {
+        border: 5px solid $dark-gray;
+        background-color: rgba(#fff, 0.5);
+        padding: $kk-spacing-xl;
+    }
+    .contact-info-name {
+        font-size: 1.5rem;
+        margin-bottom: $kk-spacing-sm;
     }
     .contact-form-wrap {
         flex: 1;

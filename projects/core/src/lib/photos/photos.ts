@@ -22,7 +22,7 @@ export interface BeforeAfterModel {
 
 export interface PhotosResponse {
   error: Error;
-  images: ImageModel[];
+  images: ImageModel[] | BeforeAfterModel[];
   total: number;
 }
 

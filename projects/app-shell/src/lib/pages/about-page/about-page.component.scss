@@ -22,9 +22,11 @@
     }
     .about-intro-wrap {
         flex: 1;
+        min-width: 500px;
     }
     .about-image-wrap {
         width: 400px;
+        min-width: 400px;
         img {
             border-radius: 3px;
             box-shadow: $box-shadow;
@@ -39,11 +41,15 @@
     .about-k-img-wrap {
         flex: 1;
     }
-    .about-k-img-wrap img {
-        border: 35px solid $light-peach;
+    .about-k-img-wrap {
+        min-width: 500px;
+        img {
+            border: 35px solid $light-peach;
+        }
     }
     .about-k-info-wrap {
         padding: $kk-spacing-xl;
+        min-width: 400px;
     }
     .about-k-blurb {
         line-height: 1.5rem;
