@@ -17,7 +17,8 @@
         display: flex;
     }
     .modal-content-wrap {
-        height: 75vh;
+        height: 85vh;
+        min-height: 500px;
         background-color: $offwhite;
         border-radius: 3px;
         padding: $kk-spacing-lg;

@@ -1,5 +1,12 @@
 @import '_variables';
 :host {
+    .title {
+        color: $primary;
+    }
+    .blurb {
+        line-height: 1.5rem;
+        margin-top: $kk-spacing-md;
+    }
     .contact-form-wrap {
         flex: 1;
         padding: $kk-spacing-xl 0;

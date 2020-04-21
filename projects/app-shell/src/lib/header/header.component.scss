@@ -23,17 +23,17 @@
                 }
             }
             .header-logo-wrap {
-                display: inline-block;
+                display: inline-flex;
             }
         }
     }
     .header-logo-wrap {
-        display: none;
         height: 100%;
         padding: $kk-spacing-sm 0;
+        display: none;
+        align-items: center;
         img {
-            height: 100%;
-            width: auto;
+            width: 80px;
         }
     }
     .header-right,

@@ -145,6 +145,10 @@
     .testimonials-body-wrap {
         padding: $kk-spacing-xl;
     }
+    .more-testimonials-btn-wrap {
+        text-align: center;
+        margin-top: $kk-spacing-xl;
+    }
     .contact-section {
         background-color: $offwhite;
     }
@@ -164,7 +168,7 @@
     .contact-form-wrap {
         flex: 1;
         background-color: $light-peach;
-        padding: $kk-spacing-xl * 2 0;
+        padding: $kk-spacing-xl * 2;
     }
 }
 
