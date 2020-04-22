@@ -18,7 +18,7 @@ export class LightboxComponent implements AfterViewInit, OnDestroy {
   private _lightboxTemplate: TemplateRef<any>;
 
   @HostListener('click', ['$event'])
-  private onClick(e: MouseEvent) {
+  public onClick(e: MouseEvent) {
     this.lightboxService.close();
   }
 

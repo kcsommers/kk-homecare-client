@@ -17,13 +17,13 @@ export class ParallaxImageDirective implements OnInit {
   private position: 'center' | 'top' | 'bottom' = 'center';
 
   @HostBinding('style.position')
-  private postion = 'relative';
+  public positionBinding = 'relative';
 
   @HostBinding('style.overflow')
-  private overflow = 'hidden'
+  public overflow = 'hidden'
 
   @HostListener('window:scroll')
-  private onScroll() {
+  public onScroll() {
     if (this.bgDiv) {
       this.renderer.setStyle(this.bgDiv, 'transform', `translateY(${(window.scrollY - (this._offset / 2)) / 12}%)`);
     }

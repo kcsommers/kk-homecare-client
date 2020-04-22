@@ -11,6 +11,8 @@ import { ComponentsModule } from 'projects/components/src/public-api';
 import { httpErrorProvider } from 'projects/core/src/lib/http/error-interceptor';
 import { jwtProvider } from 'projects/core/src/lib/auth/jwt-interceptor';
 import { AdminPageComponentModule } from '@kk/admin';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { AdminPageComponentModule } from '@kk/admin';
     FontAwesomeModule,
     HttpClientModule,
     AdminPageComponentModule,
-    ComponentsModule
+    ComponentsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     httpErrorProvider,

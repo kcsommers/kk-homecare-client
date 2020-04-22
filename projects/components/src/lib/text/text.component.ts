@@ -49,37 +49,37 @@ export class TextComponent implements OnInit {
   private colors = ['primary', 'accent', 'offwhite', 'peach', 'danger'];
 
   @HostBinding('style.color')
-  private get colorBinding(): string {
+  public get colorBinding(): string {
     return (this.color && !this.colors.includes(this.color)) ? this.color : '';
   }
 
   @HostBinding('class.inherit-color')
-  private get inheritColor(): boolean {
+  public get inheritColor(): boolean {
     return !this.color && !this.colors.includes(this.color);
   }
 
   @HostBinding('style.fontSize')
-  private get fontSizeBinding(): string {
+  public get fontSizeBinding(): string {
     return this.size || '';
   }
 
   @HostBinding('class.inherit-font-size')
-  private get inheritSize(): boolean {
+  public get inheritSize(): boolean {
     return !!(this.size);
   }
 
   @HostBinding('class.kk-text-link')
-  private get hasLink(): boolean {
+  public get hasLink(): boolean {
     return !!(this.link);
   }
 
   @HostBinding('style.fontWeight')
-  private get fontWeightBinding(): string {
+  public get fontWeightBinding(): string {
     return this.fontWeight || '';
   }
 
   @HostBinding('style.textAlign')
-  private get textAlignBinding(): string {
+  public get textAlignBinding(): string {
     return this.textAlign || '';
   }
 

@@ -22,6 +22,8 @@ class Invoice {
 
   public total = '$0.00';
 
+  public sent: boolean;
+
   public constructor(invoiceModel?: InvoiceModel) {
     if (invoiceModel) {
       this.clientName = invoiceModel.client.name;
@@ -29,6 +31,7 @@ class Invoice {
       this.clientPhone = String(invoiceModel.client.phone);
       this.items = invoiceModel.items;
       this.dueDate = invoiceModel.dueDate || moment().add(7, 'days');
+      this.sent = invoiceModel.sent;
     }
   }
 

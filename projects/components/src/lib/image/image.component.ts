@@ -33,7 +33,7 @@ export class ImageComponent {
   public imageSelected = new EventEmitter<ImageModel>();
 
   @HostBinding('class.slide-in')
-  private slideIn = true;
+  public slideIn = true;
 
   @HostBinding('class.blurred-after-image')
   public get afterImage(): boolean {
@@ -46,7 +46,7 @@ export class ImageComponent {
   }
 
   @HostListener('click', ['$event'])
-  private onClick(e: MouseEvent) {
+  public onClick(e: MouseEvent) {
     e.stopPropagation();
     this.imageSelected.emit(this._image);
   }

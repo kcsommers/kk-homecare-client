@@ -11,7 +11,7 @@ export class HeaderComponent {
   public hasWhiteBg = false;
 
   @HostListener('window:scroll')
-  private onScroll(): void {
+  public onScroll(): void {
     this.hasWhiteBg = window.scrollY > 50;
   }
 

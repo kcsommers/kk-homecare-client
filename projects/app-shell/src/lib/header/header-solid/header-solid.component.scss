@@ -16,12 +16,13 @@
         box-shadow: $box-shadow;
     }
     .header-logo-wrap {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         height: 100%;
         padding: $kk-spacing-sm 0;
         img {
             height: 100%;
-            width: auto;
+            width: 80px;
         }
     }
     .header-right,
