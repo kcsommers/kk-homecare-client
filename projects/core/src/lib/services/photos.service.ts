@@ -50,6 +50,7 @@ export class PhotosService {
     for (let i = 0; i < imageFiles.length; i++) {
       formData.append('photos', imageFiles[i], imageFiles[i].name);
     }
+    console.log('UPLOADING BEFOREAFTER')
     return this.http.post<HttpResponse>(`${environment.apiUrl}/photos/before-after/upload?tag=${tag}`, formData);
   }
 }
