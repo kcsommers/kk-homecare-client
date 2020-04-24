@@ -30,7 +30,6 @@ export class ImageUploadTemplateComponent {
   }
 
   public filesSelected(event: Event): void {
-    console.log('EVENT:::: ', event)
     const files = <FileList>event.target['files'];
     if (files && files.length) {
       this.files = files;
@@ -47,7 +46,6 @@ export class ImageUploadTemplateComponent {
   }
 
   public uploadImages(): void {
-    console.log('UPLOADING', this.files);
     this._photosService.upload(this.files, this.currentTag)
       .pipe(take(1))
       .subscribe(
